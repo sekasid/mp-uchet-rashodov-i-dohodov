@@ -119,26 +119,6 @@
   <defaultListForm>Catalog.КатегорииРасходов.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.КатегорииРасходов.Form.ФормаВыбора</defaultChoiceForm>
   <defaultFolderChoiceForm>Catalog.КатегорииРасходов.Form.ФормаВыбораГруппы</defaultFolderChoiceForm>
-  <attributes uuid="d46c00e4-f7c1-47c7-9935-223cd22cc6eb">
-    <name>Описание</name>
-    <synonym>
-      <key>ru</key>
-      <value>Описание</value>
-    </synonym>
-    <type>
-      <types>String</types>
-      <stringQualifiers>
-        <length>100</length>
-      </stringQualifiers>
-    </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
-    <fillValue xsi:type="core:StringValue">
-      <value></value>
-    </fillValue>
-    <fullTextSearch>Use</fullTextSearch>
-    <dataHistory>Use</dataHistory>
-  </attributes>
   <forms uuid="eea61173-1e7b-447a-9d6e-0006d3791b03">
     <name>ФормаЭлемента</name>
     <synonym>

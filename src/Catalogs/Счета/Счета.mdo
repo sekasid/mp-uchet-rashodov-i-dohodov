@@ -56,25 +56,6 @@
   <defaultObjectForm>Catalog.Счета.Form.ФормаЭлемента</defaultObjectForm>
   <defaultListForm>Catalog.Счета.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.Счета.Form.ФормаВыбора</defaultChoiceForm>
-  <attributes uuid="cca128f2-2cf8-428c-b9f9-3320cc96a02c">
-    <name>Баланс</name>
-    <synonym>
-      <key>ru</key>
-      <value>Баланс</value>
-    </synonym>
-    <type>
-      <types>Number</types>
-      <numberQualifiers>
-        <precision>10</precision>
-        <scale>2</scale>
-      </numberQualifiers>
-    </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
-    <fillValue xsi:type="core:UndefinedValue"/>
-    <fullTextSearch>Use</fullTextSearch>
-    <dataHistory>Use</dataHistory>
-  </attributes>
   <attributes uuid="8a5f6158-6b46-45d9-9210-b96937ad0e03">
     <name>ВидСчета</name>
     <synonym>

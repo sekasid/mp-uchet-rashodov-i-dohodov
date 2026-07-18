@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mdclass:CommonTemplate xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d35d758f-d059-4ab1-9cff-a29e16e43699">
-  <name>РингтонЗвонка</name>
-  <synonym>
-    <key>ru</key>
-    <value>Рингтон звонка</value>
-  </synonym>
-  <templateType>BinaryData</templateType>
-</mdclass:CommonTemplate>

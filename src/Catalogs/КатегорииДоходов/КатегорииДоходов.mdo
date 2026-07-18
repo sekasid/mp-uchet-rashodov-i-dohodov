@@ -119,26 +119,6 @@
   <defaultListForm>Catalog.КатегорииДоходов.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.КатегорииДоходов.Form.ФормаВыбора</defaultChoiceForm>
   <defaultFolderChoiceForm>Catalog.КатегорииДоходов.Form.ФормаВыбораГруппы</defaultFolderChoiceForm>
-  <attributes uuid="358e8dc4-f528-44aa-b049-e9014d90450e">
-    <name>Описание</name>
-    <synonym>
-      <key>ru</key>
-      <value>Описание</value>
-    </synonym>
-    <type>
-      <types>String</types>
-      <stringQualifiers>
-        <length>100</length>
-      </stringQualifiers>
-    </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
-    <fillValue xsi:type="core:StringValue">
-      <value></value>
-    </fillValue>
-    <fullTextSearch>Use</fullTextSearch>
-    <dataHistory>Use</dataHistory>
-  </attributes>
   <forms uuid="1fc9aa6e-a6e6-4768-a619-a374e127f46c">
     <name>ФормаЭлемента</name>
     <synonym>

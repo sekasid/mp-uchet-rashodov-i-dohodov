@@ -22,18 +22,6 @@
       <use>true</use>
     </functionality>
     <functionality>
-      <functionality>MusicLibrary</functionality>
-      <use>true</use>
-    </functionality>
-    <functionality>
-      <functionality>AudioPlaybackAndVibration</functionality>
-      <use>true</use>
-    </functionality>
-    <functionality>
-      <functionality>BackgroundAudioPlaybackAndVibration</functionality>
-      <use>true</use>
-    </functionality>
-    <functionality>
       <functionality>OSBackup</functionality>
       <use>true</use>
     </functionality>
@@ -66,7 +54,6 @@
   <commonPictures>CommonPicture.ОбщаяКартинка_БанковскаяКарта</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_БанковскийСчет</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_Отчет</commonPictures>
-  <commonPictures>CommonPicture.ОбщаяКартинка_Плеер</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_Назад</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_Корзина</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_Финансы</commonPictures>
@@ -75,24 +62,22 @@
   <commonPictures>CommonPicture.ОбщаяКартинка_СтрелкаНазад</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_Готово</commonPictures>
   <roles>Role.Администратор</roles>
-  <commonTemplates>CommonTemplate.РингтонЗвонка</commonTemplates>
-  <commonModules>CommonModule.ОбщийМодульСервер</commonModules>
   <commonModules>CommonModule.ОбщийМодульКлиент</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_СистемныеНастройки</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_УправлениеФормами</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_ОперацииУчета</commonModules>
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>
-  <commonForms>CommonForm.ФормаЦифры</commonForms>
   <catalogs>Catalog.КатегорииДоходов</catalogs>
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>
   <catalogs>Catalog.Валюта</catalogs>
   <documents>Document.Доходы</documents>
   <documents>Document.Расход</documents>
-  <enums>Enum.Валюта</enums>
   <enums>Enum.ВидСчета</enums>
   <enums>Enum.ВидОперацииДокумента</enums>
   <reports>Report.ОтчетПоРасходам</reports>

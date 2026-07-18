@@ -83,42 +83,6 @@
         <autoMaxHeight>true</autoMaxHeight>
       </extInfo>
     </items>
-    <items xsi:type="form:FormField">
-      <name>Баланс</name>
-      <id>19</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Список.Баланс</segments>
-      </dataPath>
-      <extendedTooltip>
-        <name>БалансРасширеннаяПодсказка</name>
-        <id>21</id>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>БалансКонтекстноеМеню</name>
-        <id>20</id>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <type>LabelField</type>
-      <editMode>Enter</editMode>
-      <showInHeader>true</showInHeader>
-      <headerHorizontalAlign>Left</headerHorizontalAlign>
-      <showInFooter>true</showInFooter>
-      <extInfo xsi:type="form:LabelFieldExtInfo">
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-      </extInfo>
-    </items>
     <commandBarLocation>None</commandBarLocation>
     <autoCommandBar>
       <name>СписокКоманднаяПанель</name>

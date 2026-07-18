@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b8d5f0a2-3c49-5e7b-af26-709e3d1b2c58">
+  <name>ОбщийМодульСервер_ОперацииУчета</name>
+  <synonym>
+    <key>ru</key>
+    <value>Общий модуль сервер операции учета</value>
+  </synonym>
+  <server>true</server>
+  <serverCall>true</serverCall>
+</mdclass:CommonModule>
