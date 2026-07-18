@@ -37,6 +37,7 @@
       <wrap>true</wrap>
       <chooseType>true</chooseType>
       <typeDomainEnabled>true</typeDomainEnabled>
+      <autoMarkIncomplete>true</autoMarkIncomplete>
     </extInfo>
   </items>
   <autoCommandBar>
@@ -54,8 +55,8 @@
     <name>ПередЗакрытием</name>
   </handlers>
   <handlers>
-    <event>OnClose</event>
-    <name>ПриЗакрытии</name>
+    <event>AfterWriteAtServer</event>
+    <name>ПослеЗаписиНаСервере</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
   <saveWindowSettings>true</saveWindowSettings>

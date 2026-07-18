@@ -8,7 +8,7 @@
   <name>ПервыйЗапуск</name>
   <synonym>
     <key>ru</key>
-    <value>Первый запуск</value>
+    <value>Начальная настройка выполнена</value>
   </synonym>
   <type>
     <types>Boolean</types>
