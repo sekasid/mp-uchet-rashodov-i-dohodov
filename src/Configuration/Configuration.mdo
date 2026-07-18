@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Configuration xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="98c429cb-0463-425e-853b-184d6cad1805">
+  <name>УчетРасходовИДоходов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Учет расходов и доходов</value>
+  </synonym>
+  <containedObjects classId="9cd510cd-abfc-11d4-9434-004095e12fc7" objectId="f8f4a192-695b-4193-92c3-91ad70e4a82c"/>
+  <containedObjects classId="9fcd25a0-4822-11d4-9414-008048da11f9" objectId="f0c70505-3009-4eeb-9b50-f87468f3e309"/>
+  <containedObjects classId="e3687481-0a87-462c-a166-9f34594f9bba" objectId="86af31e7-af3e-4e4e-8c76-e8f06ebd1377"/>
+  <containedObjects classId="9de14907-ec23-4a07-96f0-85521cb6b53b" objectId="223845ab-7c51-4506-8a61-5da449e6f685"/>
+  <containedObjects classId="51f2d5d8-ea4d-4064-8892-82951750031e" objectId="1c611015-1f76-48f2-a0b0-720010a541f1"/>
+  <containedObjects classId="e68182ea-4237-4383-967f-90c1e3370bc7" objectId="5d47b134-a1b9-4f16-9e7c-7d9bc219bf85"/>
+  <containedObjects classId="fb282519-d103-4dd3-bc12-cb271d631dfc" objectId="5e0f0d7f-8ae9-4823-93ba-1d3ba74c0667"/>
+  <configurationExtensionCompatibilityMode>8.3.27</configurationExtensionCompatibilityMode>
+  <defaultRunMode>ManagedApplication</defaultRunMode>
+  <usePurposes>MobileDevice</usePurposes>
+  <scriptVariant>Russian</scriptVariant>
+  <version>1.0.2</version>
+  <usedMobileApplicationFunctionalities>
+    <functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>MusicLibrary</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>AudioPlaybackAndVibration</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>BackgroundAudioPlaybackAndVibration</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>OSBackup</functionality>
+      <use>true</use>
+    </functionality>
+  </usedMobileApplicationFunctionalities>
+  <defaultLanguage>Language.Русский</defaultLanguage>
+  <detailedInformation>
+    <key>ru</key>
+    <value>Досщанов Серикбай. г.Алматы, 2022</value>
+  </detailedInformation>
+  <logo/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <objectAutonumerationMode>NotAutoFree</objectAutonumerationMode>
+  <modalityUseMode>DontUse</modalityUseMode>
+  <synchronousPlatformExtensionAndAddInCallUseMode>DontUse</synchronousPlatformExtensionAndAddInCallUseMode>
+  <compatibilityMode>8.3.22</compatibilityMode>
+  <languages uuid="647d5585-9a91-4a7a-8ed6-b1d2aa1b83ae">
+    <name>Русский</name>
+    <synonym>
+      <key>ru</key>
+      <value>Русский</value>
+    </synonym>
+    <languageCode>ru</languageCode>
+  </languages>
+  <subsystems>Subsystem.Справочники</subsystems>
+  <subsystems>Subsystem.Документы</subsystems>
+  <subsystems>Subsystem.Отчеты</subsystems>
+  <subsystems>Subsystem.Обработки</subsystems>
+  <subsystems>Subsystem.Константы</subsystems>
+  <subsystems>Subsystem.РегистрыСведений</subsystems>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Кошелек</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_БанковскаяКарта</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_БанковскийСчет</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Отчет</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Плеер</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Назад</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Корзина</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Финансы</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Сейф</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Ошибка</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_СтрелкаНазад</commonPictures>
+  <commonPictures>CommonPicture.ОбщаяКартинка_Готово</commonPictures>
+  <roles>Role.Администратор</roles>
+  <commonTemplates>CommonTemplate.РингтонЗвонка</commonTemplates>
+  <commonModules>CommonModule.ОбщийМодульСервер</commonModules>
+  <commonModules>CommonModule.ОбщийМодульКлиент</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_СистемныеНастройки</commonModules>
+  <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
+  <constants>Constant.ВалютаУчета</constants>
+  <constants>Constant.ПервыйЗапуск</constants>
+  <commonForms>CommonForm.ФормаКонстант</commonForms>
+  <commonForms>CommonForm.ФормаКалендаря</commonForms>
+  <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>
+  <commonForms>CommonForm.ФормаЦифры</commonForms>
+  <catalogs>Catalog.КатегорииДоходов</catalogs>
+  <catalogs>Catalog.КатегорииРасходов</catalogs>
+  <catalogs>Catalog.Счета</catalogs>
+  <catalogs>Catalog.Валюта</catalogs>
+  <documents>Document.Доходы</documents>
+  <documents>Document.Расход</documents>
+  <enums>Enum.Валюта</enums>
+  <enums>Enum.ВидСчета</enums>
+  <enums>Enum.ВидОперацииДокумента</enums>
+  <reports>Report.ОтчетПоРасходам</reports>
+  <reports>Report.ОтчетПоДоходам</reports>
+  <reports>Report.ОтчетПоВзаиморасчетам</reports>
+  <dataProcessors>DataProcessor.ЗапаснойОбменДанными</dataProcessors>
+  <dataProcessors>DataProcessor.НачальныйЭкран</dataProcessors>
+  <informationRegisters>InformationRegister.Обороты</informationRegisters>
+  <accumulationRegisters>AccumulationRegister.Доходы</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.Расходы</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.Баланс</accumulationRegisters>
+</mdclass:Configuration>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="39ca2eb0-a22b-4469-931c-632e43d9a829">
+  <producedTypes>
+    <objectType typeId="150bed78-2d4b-4f21-9610-31cf833135e2" valueTypeId="1e526240-4b07-437f-a60e-6b50c3a27dd8"/>
+    <refType typeId="802dc6b5-6425-4b2a-b98d-24ba8684378f" valueTypeId="99c0031a-9b9b-4c5e-9f35-866096729cb2"/>
+    <selectionType typeId="aa0cf30d-be60-44af-96be-33856204fe5b" valueTypeId="d977d382-a46e-44e4-a8a5-dc727649bb8c"/>
+    <listType typeId="17e10cc2-26c2-41c7-9c1c-d1cfff9876b1" valueTypeId="46bfc616-67e4-4e7c-8a29-5991af2b1cc5"/>
+    <managerType typeId="bd92ee7a-aa22-4381-bc26-1c735bf0cd02" valueTypeId="a3f5c6c8-12f2-4b05-ab55-fd8ab64c04f7"/>
+  </producedTypes>
+  <name>Расход</name>
+  <synonym>
+    <key>ru</key>
+    <value>Расход</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.Расход.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <numberType>String</numberType>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultObjectForm>Document.Расход.Form.ФормаДокумента</defaultObjectForm>
+  <defaultListForm>Document.Расход.Form.ФормаСписка</defaultListForm>
+  <registerRecords>AccumulationRegister.Баланс</registerRecords>
+  <registerRecords>AccumulationRegister.Расходы</registerRecords>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="2c53b746-6953-45fb-a969-c10667ee252e">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюта</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="9d314bf3-877c-46ed-9df4-837b440c377e">
+    <name>КатегорияРасхода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Категория расхода</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КатегорииРасходов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="f552ff0c-d919-44e6-ad80-75fe02b5bf3d">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="d381be27-3bd6-4ae2-9ebc-4593556ea9ea">
+    <name>Счет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Счета</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="3f05ddaf-22e2-45b5-a3c2-789760ed467a">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="b6396d84-3240-4e4f-ab60-05f23e74d47d">
+    <name>ФормаДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма документа</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="f9a01d0f-9c97-4572-bcff-3665ce4d0ece">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Document>

@@ -1,0 +1,24 @@
+# 1C:EDT / Eclipse
+bin/
+gen/
+.metadata/
+*.log
+*.bak
+*.orig
+*.tmp
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE / local
+*.user
+*.workspace
+.idea/
+.vscode/
+*.swp
+
+# Build / caches
+**/node_modules/

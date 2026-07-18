@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="5149b9e6-5ce7-4900-997f-53b6e3eb6fa8">
+  <name>ОбщаяКартинка_Готово</name>
+  <synonym>
+    <key>ru</key>
+    <value>Готово</value>
+  </synonym>
+  <availabilityForChoice>true</availabilityForChoice>
+  <availabilityForAppearance>true</availabilityForAppearance>
+</mdclass:CommonPicture>

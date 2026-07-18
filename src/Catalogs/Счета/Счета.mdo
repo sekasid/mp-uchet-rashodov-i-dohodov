@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c242bf2a-d456-4e3e-9be3-93e42d44bb0b">
+  <producedTypes>
+    <objectType typeId="573a2a29-5afa-4e4f-bdd9-58192790ade5" valueTypeId="37d53ed3-6d19-4950-8f45-c69d087e5ccd"/>
+    <refType typeId="796afa98-243b-41e7-b104-b73aaeae725a" valueTypeId="39003496-76d5-45dd-962d-92275b92bc2d"/>
+    <selectionType typeId="8923cde3-86f5-4f6f-bfec-c49c240a7239" valueTypeId="cddbfde4-1c62-4905-8b55-1ecacbfbb1f7"/>
+    <listType typeId="b7f40d41-2cff-4185-9a95-5af8357fb91c" valueTypeId="4686619f-1676-429a-a144-c831afe3c678"/>
+    <managerType typeId="2ceac9b7-32ed-45ec-80de-b56d8865f934" valueTypeId="d07214b0-81ff-4513-8340-86a0dc39f17e"/>
+  </producedTypes>
+  <name>Счета</name>
+  <synonym>
+    <key>ru</key>
+    <value>Счета</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.Счета.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.Счета.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>25</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="63936956-23cd-4298-9bf7-e325f657f706">
+      <name>БанковскийСчет</name>
+      <description>Банковский счет</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+    </items>
+    <items id="a0e47697-22a5-47bd-bc95-2bb371d050b1">
+      <name>Карта</name>
+      <description>Карта</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+    </items>
+    <items id="7437a7af-0f21-4526-a745-ed9e06ce70e3">
+      <name>Кошелек</name>
+      <description>Кошелек</description>
+      <code xsi:type="core:StringValue">
+        <value>000000002</value>
+      </code>
+    </items>
+  </predefined>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.Счета.Form.ФормаЭлемента</defaultObjectForm>
+  <defaultListForm>Catalog.Счета.Form.ФормаСписка</defaultListForm>
+  <defaultChoiceForm>Catalog.Счета.Form.ФормаВыбора</defaultChoiceForm>
+  <attributes uuid="cca128f2-2cf8-428c-b9f9-3320cc96a02c">
+    <name>Баланс</name>
+    <synonym>
+      <key>ru</key>
+      <value>Баланс</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="8a5f6158-6b46-45d9-9210-b96937ad0e03">
+    <name>ВидСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид счета</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидСчета</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="85a6489b-fb50-4bf1-9a39-df0c515e4f13">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="a28bf9cb-e581-4c9b-9112-331348bb54c0">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="7307704f-58df-4691-a884-d2ac708bc574">
+    <name>ФормаВыбора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>

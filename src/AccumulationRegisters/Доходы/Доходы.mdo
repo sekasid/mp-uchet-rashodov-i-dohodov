@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="356a343f-abc5-4e5e-b534-ce79954d70ec">
+  <producedTypes>
+    <selectionType typeId="54d5d3cb-4b8f-42c0-99fd-c7218c6b93f2" valueTypeId="384fa0ae-3523-4b2c-819b-2453a81d1c50"/>
+    <listType typeId="84e7b241-584a-438b-9986-e40a798842f6" valueTypeId="768eba76-1342-4d34-affa-319def2fd275"/>
+    <managerType typeId="953e43e6-2818-4120-a215-e311220ae72a" valueTypeId="5110994c-ecc7-4a1f-8c5b-e3d7cf972b5a"/>
+    <recordSetType typeId="fac7f445-0e7f-4178-b602-95d1d8b627e6" valueTypeId="6514b682-2c35-4ae2-bcf3-4e1d2d80df31"/>
+    <recordKeyType typeId="5f0d6627-4629-4c26-941e-fe187376ce0e" valueTypeId="1c644441-b7a6-414d-b16c-550a5785d82c"/>
+    <recordType typeId="ecde0325-173f-4392-89fc-530297924dbe" valueTypeId="e5b6d633-32e8-4d22-b4a7-0809efe81d0d"/>
+  </producedTypes>
+  <name>Доходы</name>
+  <synonym>
+    <key>ru</key>
+    <value>Доходы</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="cf21739e-417a-426c-a35d-d85870b1fac0">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="18908425-7441-441d-9cfa-fb20e2bd3095">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюта</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="46fbab66-bf9d-41ef-a2b8-7d2349ad7fad">
+    <name>КатегорииДоходов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Категории доходов</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КатегорииДоходов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

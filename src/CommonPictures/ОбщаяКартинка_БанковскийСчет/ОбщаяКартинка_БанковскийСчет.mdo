@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="849f56a4-a446-4ff2-bc9a-1e97e3eb6ede">
+  <name>ОбщаяКартинка_БанковскийСчет</name>
+  <synonym>
+    <key>ru</key>
+    <value>Банковский счет</value>
+  </synonym>
+</mdclass:CommonPicture>

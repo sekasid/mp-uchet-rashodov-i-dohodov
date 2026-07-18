@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2e45b310-3264-403e-8824-408ee47f03fe">
+  <name>ОбщаяКартинка_Кошелек</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кошелек</value>
+  </synonym>
+</mdclass:CommonPicture>

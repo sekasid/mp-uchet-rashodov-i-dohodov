@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a8d41281-9d70-4933-ab78-2faea6459b7f">
+  <name>ОбщаяКартинка_Сейф</name>
+  <synonym>
+    <key>ru</key>
+    <value>Общая картинка сейф</value>
+  </synonym>
+</mdclass:CommonPicture>

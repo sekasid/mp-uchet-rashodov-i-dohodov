@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="661f7f78-cb66-47c3-83b9-7397e2fc4c59">
+  <producedTypes>
+    <objectType typeId="98e13375-f209-441e-a0d0-5593d66c396e" valueTypeId="c21853be-118b-4709-bef8-a2b71ce9f8e1"/>
+    <refType typeId="7e084eb4-3dd9-48e9-a46e-824da2b394a1" valueTypeId="47009058-36c2-4479-9ac6-fa7ecad52b18"/>
+    <selectionType typeId="0edd40cc-10f0-4bd0-b0cb-296019c23a5e" valueTypeId="f6a8eb45-8332-488b-99ac-e44c08b5fd67"/>
+    <listType typeId="72d1dccf-8270-4a3c-b348-03cf78ef98af" valueTypeId="ea43e608-32c5-4131-8b29-3a53c7934138"/>
+    <managerType typeId="b7913618-1e4a-47b7-b2e0-e43b19a78dac" valueTypeId="50a70715-a681-4835-b2d5-92e0f279825a"/>
+  </producedTypes>
+  <name>Валюта</name>
+  <synonym>
+    <key>ru</key>
+    <value>Валюта</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.Валюта.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.Валюта.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>3</codeLength>
+  <descriptionLength>25</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <predefined>
+    <items id="cdf95687-5096-4b46-8972-6b46d6e4e965">
+      <name>ДолларСША</name>
+      <description>Доллар (США)</description>
+      <code xsi:type="core:StringValue">
+        <value>USD</value>
+      </code>
+    </items>
+    <items id="45bcb025-f80a-4d35-acea-e02ad00699d0">
+      <name>Евро</name>
+      <description>Евро</description>
+      <code xsi:type="core:StringValue">
+        <value>EUR</value>
+      </code>
+    </items>
+    <items id="f2c04547-8695-431c-b9c5-8a3c811aab7b">
+      <name>Рубль</name>
+      <description>Рубль</description>
+      <code xsi:type="core:StringValue">
+        <value>RUB</value>
+      </code>
+    </items>
+    <items id="fef4788c-81e0-4c76-9585-7f6fa537373b">
+      <name>Тенге</name>
+      <description>Тенге</description>
+      <code xsi:type="core:StringValue">
+        <value>KZT</value>
+      </code>
+    </items>
+  </predefined>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.Валюта.Form.ФормаЭлемента</defaultObjectForm>
+  <defaultListForm>Catalog.Валюта.Form.ФормаСписка</defaultListForm>
+  <defaultChoiceForm>Catalog.Валюта.Form.ФормаВыбора</defaultChoiceForm>
+  <forms uuid="d44b8546-2c2b-4915-b146-dfafb081fc60">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="18a50b4f-6c2b-4fca-b39e-087e1259c04a">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="3bbbe1dd-a79e-458a-8eb0-3e14957d055f">
+    <name>ФормаВыбора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>
