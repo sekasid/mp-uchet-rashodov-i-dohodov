@@ -62,7 +62,6 @@
   <subsystems>Subsystem.Отчеты</subsystems>
   <subsystems>Subsystem.Обработки</subsystems>
   <subsystems>Subsystem.Константы</subsystems>
-  <subsystems>Subsystem.РегистрыСведений</subsystems>
   <commonPictures>CommonPicture.ОбщаяКартинка_Кошелек</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_БанковскаяКарта</commonPictures>
   <commonPictures>CommonPicture.ОбщаяКартинка_БанковскийСчет</commonPictures>
@@ -101,7 +100,6 @@
   <reports>Report.ОтчетПоВзаиморасчетам</reports>
   <dataProcessors>DataProcessor.ЗапаснойОбменДанными</dataProcessors>
   <dataProcessors>DataProcessor.НачальныйЭкран</dataProcessors>
-  <informationRegisters>InformationRegister.Обороты</informationRegisters>
   <accumulationRegisters>AccumulationRegister.Доходы</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Расходы</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Баланс</accumulationRegisters>
