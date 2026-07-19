@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="47ff0a8a-99cb-4f4b-af33-587edaafb1c8">
+  <name>ОбщийМодульСервер_КурсыВалют</name>
+  <synonym>
+    <key>ru</key>
+    <value>Общий модуль сервер курсы валют</value>
+  </synonym>
+  <server>true</server>
+  <serverCall>true</serverCall>
+</mdclass:CommonModule>

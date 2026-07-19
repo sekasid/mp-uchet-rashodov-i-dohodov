@@ -40,6 +40,43 @@
       <autoMarkIncomplete>true</autoMarkIncomplete>
     </extInfo>
   </items>
+  <items xsi:type="form:FormField">
+    <name>ИспользоватьПоследнийИзвестныйКурс</name>
+    <id>4</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>НаборКонстант.ИспользоватьПоследнийИзвестныйКурс</segments>
+    </dataPath>
+    <title>
+      <key>ru</key>
+      <value>Использовать последний известный курс валюты</value>
+    </title>
+    <extendedTooltip>
+      <name>ИспользоватьПоследнийИзвестныйКурсРасширеннаяПодсказка</name>
+      <id>6</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ИспользоватьПоследнийИзвестныйКурсКонтекстноеМеню</name>
+      <id>5</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>CheckBoxField</type>
+    <editMode>EnterOnInput</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+  </items>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>

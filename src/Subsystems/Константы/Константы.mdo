@@ -9,4 +9,6 @@
   <includeInCommandInterface>true</includeInCommandInterface>
   <content>Constant.ВалютаУчета</content>
   <content>Constant.ПервыйЗапуск</content>
+  <content>Constant.ИспользоватьПоследнийИзвестныйКурс</content>
+  <content>InformationRegister.КурсыВалют</content>
 </mdclass:Subsystem>

@@ -23,6 +23,15 @@
   <numberAllowedLength>Variable</numberAllowedLength>
   <checkUnique>true</checkUnique>
   <autonumbering>true</autonumbering>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Date</name>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
   <defaultObjectForm>Document.Доходы.Form.ФормаДокумента</defaultObjectForm>
   <defaultListForm>Document.Доходы.Form.ФормаСписка</defaultListForm>
   <registerRecords>AccumulationRegister.Баланс</registerRecords>

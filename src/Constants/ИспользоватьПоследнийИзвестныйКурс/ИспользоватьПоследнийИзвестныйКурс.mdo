@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="845d0edc-44df-4a60-967f-a4d95ae74832">
+  <producedTypes>
+    <managerType typeId="5be7e80c-ee04-4f8d-a143-a5dc210e22c1" valueTypeId="3829b39c-a2c3-4e0a-b6ef-ae3833f6dc39"/>
+    <valueManagerType typeId="08a356d0-e4c0-43bb-8143-5d4b7e0b7132" valueTypeId="6faeeaa8-5485-4751-aafa-4a2a5a96543d"/>
+    <valueKeyType typeId="a818f6bf-25ad-4053-851a-f5c69e5a4ebb" valueTypeId="bed1de2d-46e8-4b5f-b6ae-caaf823d62e6"/>
+  </producedTypes>
+  <name>ИспользоватьПоследнийИзвестныйКурс</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использовать последний известный курс валюты</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>
