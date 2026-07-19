@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a7c4e91f-2b38-4d6a-9e15-6f8d2c0a1b47">
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="04687b79-4ce6-458a-a533-8a987a44404b">
   <name>ОбщийМодульСервер_УправлениеФормами</name>
   <synonym>
     <key>ru</key>

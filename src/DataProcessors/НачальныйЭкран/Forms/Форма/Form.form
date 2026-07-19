@@ -2,723 +2,24 @@
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <items xsi:type="form:FormGroup">
     <name>ГруппаСтраницы</name>
-    <id>96</id>
+    <id>1</id>
     <items xsi:type="form:FormGroup">
       <name>ГруппаСтраницаОсновная</name>
-      <id>100</id>
-      <items xsi:type="form:FormGroup">
-        <name>ГруппаРасходы</name>
-        <id>1</id>
-        <items xsi:type="form:FormGroup">
-          <name>ГруппаШапкаРасходов</name>
-          <id>30</id>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаШапкаРасходовЛево</name>
-            <id>63</id>
-            <items xsi:type="form:Decoration">
-              <name>Декорация1</name>
-              <id>5</id>
-              <title>
-                <key>ru</key>
-                <value>Расходы</value>
-              </title>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>Декорация1РасширеннаяПодсказка</name>
-                <id>7</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <contextMenu>
-                <name>Декорация1КонтекстноеМеню</name>
-                <id>6</id>
-                <autoFill>true</autoFill>
-              </contextMenu>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-                <backColor xsi:type="core:ColorRef">
-                  <color>Web.Yellow</color>
-                </backColor>
-              </extInfo>
-            </items>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа шапка расходов лево</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа шапка расходов лево</value>
-            </toolTip>
-            <groupHorizontalAlign>Left</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаШапкаРасходовЛевоРасширеннаяПодсказка</name>
-              <id>64</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>AlwaysHorizontal</group>
-              <horizontalAlign>Left</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаШапкаРасходовПраво</name>
-            <id>65</id>
-            <items xsi:type="form:Decoration">
-              <name>Декорация2</name>
-              <id>8</id>
-              <title>
-                <key>ru</key>
-                <value>Валюта</value>
-              </title>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>Декорация2РасширеннаяПодсказка</name>
-                <id>10</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <contextMenu>
-                <name>Декорация2КонтекстноеМеню</name>
-                <id>9</id>
-                <autoFill>true</autoFill>
-              </contextMenu>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Right</horizontalAlign>
-              </extInfo>
-            </items>
-            <items xsi:type="form:Button">
-              <name>ДобавитьРасход</name>
-              <id>59</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>ДобавитьРасходРасширеннаяПодсказка</name>
-                <id>60</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <type>UsualButton</type>
-              <commandName>Form.Command.ДобавитьРасход</commandName>
-              <representation>Picture</representation>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <groupHorizontalAlign>Right</groupHorizontalAlign>
-              <placementArea>UserCmds</placementArea>
-              <picture xsi:type="core:PictureRef">
-                <picture>StdPicture.CreateListItem</picture>
-              </picture>
-              <representationInContextMenu>Auto</representationInContextMenu>
-            </items>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа шапка расходов право</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа шапка расходов право</value>
-            </toolTip>
-            <groupHorizontalAlign>Right</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаШапкаРасходовПравоРасширеннаяПодсказка</name>
-              <id>66</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>AlwaysHorizontal</group>
-              <horizontalAlign>Right</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Группа шапка расходов</value>
-          </title>
-          <toolTip>
-            <key>ru</key>
-            <value>Группа шапка расходов</value>
-          </toolTip>
-          <extendedTooltip>
-            <name>ГруппаШапкаРасходовРасширеннаяПодсказка</name>
-            <id>31</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>UsualGroup</type>
-          <extInfo xsi:type="form:UsualGroupExtInfo">
-            <group>AlwaysHorizontal</group>
-            <representation>WeakSeparation</representation>
-            <showLeftMargin>true</showLeftMargin>
-            <united>true</united>
-            <throughAlign>Auto</throughAlign>
-            <currentRowUse>Auto</currentRowUse>
-          </extInfo>
-        </items>
-        <items xsi:type="form:FormGroup">
-          <name>ГруппаДанныеРасходов</name>
-          <id>124</id>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаДанныеРасходовЛево</name>
-            <id>126</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа данные расходов лево</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа данные расходов лево</value>
-            </toolTip>
-            <groupHorizontalAlign>Left</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаДанныеРасходовЛевоРасширеннаяПодсказка</name>
-              <id>127</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>Vertical</group>
-              <horizontalAlign>Left</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаДанныеРасходовПраво</name>
-            <id>128</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа данные расходов право</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа данные расходов право</value>
-            </toolTip>
-            <horizontalStretch>true</horizontalStretch>
-            <groupHorizontalAlign>Right</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаДанныеРасходовПравоРасширеннаяПодсказка</name>
-              <id>129</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>Vertical</group>
-              <horizontalAlign>Right</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Группа данные расходов</value>
-          </title>
-          <toolTip>
-            <key>ru</key>
-            <value>Группа данные расходов</value>
-          </toolTip>
-          <horizontalStretch>true</horizontalStretch>
-          <extendedTooltip>
-            <name>ГруппаДанныеРасходовРасширеннаяПодсказка</name>
-            <id>125</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>UsualGroup</type>
-          <extInfo xsi:type="form:UsualGroupExtInfo">
-            <group>AlwaysHorizontal</group>
-            <representation>WeakSeparation</representation>
-            <showLeftMargin>true</showLeftMargin>
-            <united>true</united>
-            <backColor xsi:type="core:ColorRef">
-              <color>Style.FormBackColor</color>
-            </backColor>
-            <throughAlign>Auto</throughAlign>
-            <currentRowUse>Auto</currentRowUse>
-          </extInfo>
-        </items>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <title>
-          <key>ru</key>
-          <value>Группа расходы</value>
-        </title>
-        <toolTip>
-          <key>ru</key>
-          <value>Группа расходы</value>
-        </toolTip>
-        <extendedTooltip>
-          <name>ГруппаРасходыРасширеннаяПодсказка</name>
-          <id>2</id>
-          <type>Label</type>
-          <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <extInfo xsi:type="form:LabelDecorationExtInfo">
-            <horizontalAlign>Left</horizontalAlign>
-          </extInfo>
-        </extendedTooltip>
-        <type>UsualGroup</type>
-        <extInfo xsi:type="form:UsualGroupExtInfo">
-          <group>Vertical</group>
-          <representation>WeakSeparation</representation>
-          <showLeftMargin>true</showLeftMargin>
-          <united>true</united>
-          <throughAlign>Auto</throughAlign>
-          <currentRowUse>Auto</currentRowUse>
-        </extInfo>
-      </items>
-      <items xsi:type="form:FormGroup">
-        <name>ГруппаДоходы</name>
+      <id>2</id>
+      <items xsi:type="form:FormField">
+        <name>ПолеHTML</name>
         <id>3</id>
-        <items xsi:type="form:FormGroup">
-          <name>ГруппаШапкаДоходов</name>
-          <id>32</id>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаШапкаДоходовЛево</name>
-            <id>67</id>
-            <items xsi:type="form:Decoration">
-              <name>Декорация3</name>
-              <id>34</id>
-              <title>
-                <key>ru</key>
-                <value>Доходы</value>
-              </title>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>Декорация3РасширеннаяПодсказка</name>
-                <id>36</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <contextMenu>
-                <name>Декорация3КонтекстноеМеню</name>
-                <id>35</id>
-                <autoFill>true</autoFill>
-              </contextMenu>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-                <backColor xsi:type="core:ColorRef">
-                  <color>Web.Chartreuse</color>
-                </backColor>
-              </extInfo>
-            </items>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа шапка доходов лево</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа шапка доходов лево</value>
-            </toolTip>
-            <groupHorizontalAlign>Left</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаШапкаДоходовЛевоРасширеннаяПодсказка</name>
-              <id>68</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>HorizontalIfPossible</group>
-              <horizontalAlign>Left</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаШапкаДоходовПраво</name>
-            <id>69</id>
-            <items xsi:type="form:Decoration">
-              <name>Декорация4</name>
-              <id>37</id>
-              <title>
-                <key>ru</key>
-                <value>Валюта</value>
-              </title>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>Декорация4РасширеннаяПодсказка</name>
-                <id>39</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <contextMenu>
-                <name>Декорация4КонтекстноеМеню</name>
-                <id>38</id>
-                <autoFill>true</autoFill>
-              </contextMenu>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </items>
-            <items xsi:type="form:Button">
-              <name>ДобавитьДоход</name>
-              <id>61</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>ДобавитьДоходРасширеннаяПодсказка</name>
-                <id>62</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <type>UsualButton</type>
-              <commandName>Form.Command.ДобавитьДоход</commandName>
-              <representation>Picture</representation>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <placementArea>UserCmds</placementArea>
-              <picture xsi:type="core:PictureRef">
-                <picture>StdPicture.CreateListItem</picture>
-              </picture>
-              <representationInContextMenu>Auto</representationInContextMenu>
-            </items>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа шапка доходов право</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа шапка доходов право</value>
-            </toolTip>
-            <groupHorizontalAlign>Right</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаШапкаДоходовПравоРасширеннаяПодсказка</name>
-              <id>70</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>HorizontalIfPossible</group>
-              <horizontalAlign>Right</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Группа шапка доходов</value>
-          </title>
-          <toolTip>
-            <key>ru</key>
-            <value>Группа шапка доходов</value>
-          </toolTip>
-          <extendedTooltip>
-            <name>ГруппаШапкаДоходовРасширеннаяПодсказка</name>
-            <id>33</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>UsualGroup</type>
-          <extInfo xsi:type="form:UsualGroupExtInfo">
-            <group>AlwaysHorizontal</group>
-            <representation>WeakSeparation</representation>
-            <showLeftMargin>true</showLeftMargin>
-            <united>true</united>
-            <throughAlign>Auto</throughAlign>
-            <currentRowUse>Auto</currentRowUse>
-          </extInfo>
-        </items>
-        <items xsi:type="form:FormGroup">
-          <name>ГруппаДанныеДоходов</name>
-          <id>130</id>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаДанныеДоходовЛево</name>
-            <id>132</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа данные доходов лево</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа данные доходов лево</value>
-            </toolTip>
-            <groupHorizontalAlign>Left</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаДанныеДоходовЛевоРасширеннаяПодсказка</name>
-              <id>133</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>Vertical</group>
-              <horizontalAlign>Right</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormGroup">
-            <name>ГруппаДанныеДоходовПраво</name>
-            <id>134</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Группа данные доходов право</value>
-            </title>
-            <toolTip>
-              <key>ru</key>
-              <value>Группа данные доходов право</value>
-            </toolTip>
-            <horizontalStretch>true</horizontalStretch>
-            <groupHorizontalAlign>Right</groupHorizontalAlign>
-            <extendedTooltip>
-              <name>ГруппаДанныеДоходовПравоРасширеннаяПодсказка</name>
-              <id>135</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <type>UsualGroup</type>
-            <extInfo xsi:type="form:UsualGroupExtInfo">
-              <group>Vertical</group>
-              <horizontalAlign>Right</horizontalAlign>
-              <representation>WeakSeparation</representation>
-              <showLeftMargin>true</showLeftMargin>
-              <united>true</united>
-              <throughAlign>Auto</throughAlign>
-              <currentRowUse>Auto</currentRowUse>
-            </extInfo>
-          </items>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Группа данные доходов</value>
-          </title>
-          <toolTip>
-            <key>ru</key>
-            <value>Группа данные доходов</value>
-          </toolTip>
-          <horizontalStretch>true</horizontalStretch>
-          <extendedTooltip>
-            <name>ГруппаДанныеДоходовРасширеннаяПодсказка</name>
-            <id>131</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>UsualGroup</type>
-          <extInfo xsi:type="form:UsualGroupExtInfo">
-            <group>AlwaysHorizontal</group>
-            <representation>WeakSeparation</representation>
-            <showLeftMargin>true</showLeftMargin>
-            <united>true</united>
-            <backColor xsi:type="core:ColorRef">
-              <color>Style.FormBackColor</color>
-            </backColor>
-            <throughAlign>Auto</throughAlign>
-            <currentRowUse>Auto</currentRowUse>
-          </extInfo>
-        </items>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <title>
-          <key>ru</key>
-          <value>Группа доходы</value>
-        </title>
-        <toolTip>
-          <key>ru</key>
-          <value>Группа доходы</value>
-        </toolTip>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ТекстHTML</segments>
+        </dataPath>
+        <titleLocation>None</titleLocation>
         <extendedTooltip>
-          <name>ГруппаДоходыРасширеннаяПодсказка</name>
+          <name>ПолеHTMLРасширеннаяПодсказка</name>
           <id>4</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
@@ -727,133 +28,27 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <type>UsualGroup</type>
-        <extInfo xsi:type="form:UsualGroupExtInfo">
-          <group>Vertical</group>
-          <representation>WeakSeparation</representation>
-          <showLeftMargin>true</showLeftMargin>
-          <united>true</united>
-          <throughAlign>Auto</throughAlign>
-          <currentRowUse>Auto</currentRowUse>
-        </extInfo>
-      </items>
-      <items xsi:type="form:FormGroup">
-        <name>ГруппаСчета</name>
-        <id>89</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <title>
-          <key>ru</key>
-          <value>Список счетов</value>
-        </title>
-        <toolTip>
-          <key>ru</key>
-          <value>Группа счета</value>
-        </toolTip>
-        <extendedTooltip>
-          <name>ГруппаСчетаРасширеннаяПодсказка</name>
-          <id>90</id>
-          <type>Label</type>
+        <contextMenu>
+          <name>ПолеHTMLКонтекстноеМеню</name>
+          <id>5</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>HTMLDocumentField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:HtmlFieldExtInfo">
+          <handlers>
+            <event>OnClick</event>
+            <name>ПолеHTMLПриНажатии</name>
+          </handlers>
+          <width>50</width>
           <autoMaxWidth>true</autoMaxWidth>
+          <height>20</height>
           <autoMaxHeight>true</autoMaxHeight>
-          <extInfo xsi:type="form:LabelDecorationExtInfo">
-            <horizontalAlign>Left</horizontalAlign>
-          </extInfo>
-        </extendedTooltip>
-        <type>UsualGroup</type>
-        <extInfo xsi:type="form:UsualGroupExtInfo">
-          <group>Vertical</group>
-          <verticalSpacing>None</verticalSpacing>
-          <representation>WeakSeparation</representation>
-          <showLeftMargin>true</showLeftMargin>
-          <united>true</united>
-          <showTitle>true</showTitle>
-          <throughAlign>Auto</throughAlign>
-          <currentRowUse>Auto</currentRowUse>
-        </extInfo>
-      </items>
-      <items xsi:type="form:FormGroup">
-        <name>ГруппаОтчеты</name>
-        <id>91</id>
-        <items xsi:type="form:Decoration">
-          <name>ДекорацияСписокОтчетов</name>
-          <id>93</id>
-          <title>
-            <key>ru</key>
-            <value>Отчеты</value>
-          </title>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <extendedTooltip>
-            <name>ДекорацияСписокОтчетовРасширеннаяПодсказка</name>
-            <id>95</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ДекорацияСписокОтчетовКонтекстноеМеню</name>
-            <id>94</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <groupHorizontalAlign>Center</groupHorizontalAlign>
-          <extInfo xsi:type="form:PictureDecorationExtInfo">
-            <handlers>
-              <event>Click</event>
-              <name>ДекорацияСписокОтчетовНажатие</name>
-            </handlers>
-            <picture xsi:type="core:PictureRef">
-              <picture>CommonPicture.ОбщаяКартинка_Отчет</picture>
-            </picture>
-            <hyperlink>true</hyperlink>
-            <fileDragMode>AsFileRef</fileDragMode>
-          </extInfo>
-        </items>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <title>
-          <key>ru</key>
-          <value>Отчеты</value>
-        </title>
-        <toolTip>
-          <key>ru</key>
-          <value>Группа отчеты</value>
-        </toolTip>
-        <groupHorizontalAlign>Center</groupHorizontalAlign>
-        <extendedTooltip>
-          <name>ГруппаОтчетыРасширеннаяПодсказка</name>
-          <id>92</id>
-          <type>Label</type>
-          <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <extInfo xsi:type="form:LabelDecorationExtInfo">
-            <horizontalAlign>Left</horizontalAlign>
-          </extInfo>
-        </extendedTooltip>
-        <type>UsualGroup</type>
-        <extInfo xsi:type="form:UsualGroupExtInfo">
-          <group>HorizontalIfPossible</group>
-          <verticalSpacing>None</verticalSpacing>
-          <representation>WeakSeparation</representation>
-          <showLeftMargin>true</showLeftMargin>
-          <united>true</united>
-          <showTitle>true</showTitle>
-          <throughAlign>Auto</throughAlign>
-          <currentRowUse>Auto</currentRowUse>
+          <horizontalStretch>true</horizontalStretch>
+          <verticalStretch>true</verticalStretch>
         </extInfo>
       </items>
       <visible>true</visible>
@@ -863,15 +58,11 @@
       </userVisible>
       <title>
         <key>ru</key>
-        <value>Группа страница основная</value>
+        <value>Главная</value>
       </title>
-      <toolTip>
-        <key>ru</key>
-        <value>Группа страница основная</value>
-      </toolTip>
       <extendedTooltip>
         <name>ГруппаСтраницаОсновнаяРасширеннаяПодсказка</name>
-        <id>101</id>
+        <id>6</id>
         <type>Label</type>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -882,16 +73,19 @@
       <type>Page</type>
       <extInfo xsi:type="form:PageGroupExtInfo">
         <group>Vertical</group>
-        <verticalSpacing>None</verticalSpacing>
-        <showTitle>true</showTitle>
+        <showTitle>false</showTitle>
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
       <name>ГруппаСтраницаОтчеты</name>
-      <id>98</id>
+      <id>7</id>
       <items xsi:type="form:Button">
         <name>ВернутьсяНаОсновнуюСтраницу</name>
-        <id>109</id>
+        <id>8</id>
+        <title>
+          <key>ru</key>
+          <value>Назад</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -899,7 +93,7 @@
         </userVisible>
         <extendedTooltip>
           <name>ВернутьсяНаОсновнуюСтраницуРасширеннаяПодсказка</name>
-          <id>110</id>
+          <id>9</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -909,7 +103,7 @@
         </extendedTooltip>
         <type>UsualButton</type>
         <commandName>Form.Command.ВернутьсяНаОсновнуюСтраницу</commandName>
-        <representation>Picture</representation>
+        <representation>PictureAndText</representation>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
@@ -920,7 +114,7 @@
       </items>
       <items xsi:type="form:Button">
         <name>СформироватьОтчетРасходы</name>
-        <id>105</id>
+        <id>10</id>
         <title>
           <key>ru</key>
           <value>Отчет по расходам</value>
@@ -932,7 +126,7 @@
         </userVisible>
         <extendedTooltip>
           <name>СформироватьОтчетРасходыРасширеннаяПодсказка</name>
-          <id>106</id>
+          <id>11</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -953,7 +147,11 @@
       </items>
       <items xsi:type="form:Button">
         <name>СформироватьОтчетПоДоходам</name>
-        <id>107</id>
+        <id>12</id>
+        <title>
+          <key>ru</key>
+          <value>Отчет по доходам</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -961,7 +159,7 @@
         </userVisible>
         <extendedTooltip>
           <name>СформироватьОтчетПоДоходамРасширеннаяПодсказка</name>
-          <id>108</id>
+          <id>13</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -982,7 +180,11 @@
       </items>
       <items xsi:type="form:Button">
         <name>СформироватьОтчетПоВзаиморасчетам</name>
-        <id>111</id>
+        <id>14</id>
+        <title>
+          <key>ru</key>
+          <value>Отчет «Баланс»</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -990,7 +192,7 @@
         </userVisible>
         <extendedTooltip>
           <name>СформироватьОтчетПоВзаиморасчетамРасширеннаяПодсказка</name>
-          <id>112</id>
+          <id>15</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -1016,15 +218,11 @@
       </userVisible>
       <title>
         <key>ru</key>
-        <value>Группа страница отчеты</value>
+        <value>Отчёты</value>
       </title>
-      <toolTip>
-        <key>ru</key>
-        <value>Группа страница отчеты</value>
-      </toolTip>
       <extendedTooltip>
         <name>ГруппаСтраницаОтчетыРасширеннаяПодсказка</name>
-        <id>99</id>
+        <id>16</id>
         <type>Label</type>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -1047,13 +245,9 @@
       <key>ru</key>
       <value>Группа страницы</value>
     </title>
-    <toolTip>
-      <key>ru</key>
-      <value>Группа страницы</value>
-    </toolTip>
     <extendedTooltip>
       <name>ГруппаСтраницыРасширеннаяПодсказка</name>
-      <id>97</id>
+      <id>17</id>
       <type>Label</type>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
@@ -1063,6 +257,7 @@
     </extendedTooltip>
     <type>Pages</type>
     <extInfo xsi:type="form:PagesGroupExtInfo">
+      <pagesRepresentation>None</pagesRepresentation>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
@@ -1070,7 +265,7 @@
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <horizontalAlign>Left</horizontalAlign>
-    <autoFill>true</autoFill>
+    <autoFill>false</autoFill>
   </autoCommandBar>
   <handlers>
     <event>OnOpen</event>
@@ -1084,19 +279,15 @@
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
-  <handlers>
-    <event>URLProcessing</event>
-    <name>ОбработкаНавигационнойСсылки</name>
-  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
-  <autoTitle>true</autoTitle>
+  <autoTitle>false</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
   <allowFormCustomize>true</allowFormCustomize>
   <enabled>true</enabled>
-  <showTitle>true</showTitle>
-  <showCloseButton>true</showCloseButton>
+  <showTitle>false</showTitle>
+  <showCloseButton>false</showCloseButton>
   <attributes>
     <name>Объект</name>
     <id>1</id>
@@ -1117,9 +308,29 @@
       <key>ru</key>
       <value>Валюта учета</value>
     </title>
-    <id>4</id>
+    <id>2</id>
     <valueType>
       <types>CatalogRef.Валюта</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТекстHTML</name>
+    <title>
+      <key>ru</key>
+      <value>Текст HTML</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>0</length>
+      </stringQualifiers>
     </valueType>
     <view>
       <common>true</common>
@@ -1135,10 +346,6 @@
       <value>Добавить расход</value>
     </title>
     <id>1</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Добавить расход</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
@@ -1156,10 +363,6 @@
       <value>Добавить доход</value>
     </title>
     <id>2</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Добавить доход</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
@@ -1177,10 +380,6 @@
       <value>Сформировать отчет расходы</value>
     </title>
     <id>3</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Сформировать отчет расходы</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
@@ -1198,10 +397,6 @@
       <value>Отчет по доходам</value>
     </title>
     <id>4</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Сформировать отчет по доходам</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
@@ -1219,10 +414,6 @@
       <value>Назад</value>
     </title>
     <id>5</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Вернуться на основную страницу</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
@@ -1237,13 +428,9 @@
     <name>СформироватьОтчетПоВзаиморасчетам</name>
     <title>
       <key>ru</key>
-      <value>Отчет &quot;Баланс&quot;</value>
+      <value>Отчет «Баланс»</value>
     </title>
     <id>6</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Сформировать отчет по взаиморасчетам</value>
-    </toolTip>
     <use>
       <common>true</common>
     </use>
