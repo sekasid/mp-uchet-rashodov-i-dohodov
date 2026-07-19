@@ -10,6 +10,7 @@
     <value>Отчет по взаиморасчетам</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.ОтчетПоВзаиморасчетам.Form.ФормаОтчета</defaultForm>
   <mainDataCompositionSchema>Report.ОтчетПоВзаиморасчетам.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
   <forms uuid="258d30d4-6a20-474d-bb1a-494d18b52481">
     <name>ФормаОтчета</name>

@@ -176,6 +176,10 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <extInfo xsi:type="form:ReportFormExtInfo">
     <reportResult>Результат</reportResult>
     <detailsInformation>ДанныеРасшифровки</detailsInformation>

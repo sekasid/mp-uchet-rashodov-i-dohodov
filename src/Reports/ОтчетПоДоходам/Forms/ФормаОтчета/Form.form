@@ -69,7 +69,7 @@
     <name>Отчет</name>
     <id>1</id>
     <valueType>
-      <types>ReportObject.ОтчетПоРасходам</types>
+      <types>ReportObject.ОтчетПоДоходам</types>
     </valueType>
     <view>
       <common>true</common>

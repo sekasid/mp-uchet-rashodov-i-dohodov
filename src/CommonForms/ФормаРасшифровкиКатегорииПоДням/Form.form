@@ -25,7 +25,7 @@
     <contextMenu>
       <name>ПолеHTMLКонтекстноеМеню</name>
       <id>3</id>
-      <autoFill>false</autoFill>
+      <autoFill>true</autoFill>
     </contextMenu>
     <type>HTMLDocumentField</type>
     <editMode>Enter</editMode>
@@ -60,32 +60,18 @@
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
-  <autoFillCheck>false</autoFillCheck>
-  <allowFormCustomize>false</allowFormCustomize>
+  <autoFillCheck>true</autoFillCheck>
+  <allowFormCustomize>true</allowFormCustomize>
   <enabled>true</enabled>
   <showTitle>true</showTitle>
   <showCloseButton>true</showCloseButton>
-  <attributes>
-    <name>Отчет</name>
-    <id>1</id>
-    <valueType>
-      <types>ReportObject.ОтчетПоРасходам</types>
-    </valueType>
-    <view>
-      <common>true</common>
-    </view>
-    <edit>
-      <common>true</common>
-    </edit>
-    <main>true</main>
-  </attributes>
   <attributes>
     <name>ТекстHTML</name>
     <title>
       <key>ru</key>
       <value>Текст HTML</value>
     </title>
-    <id>2</id>
+    <id>1</id>
     <valueType>
       <types>String</types>
       <stringQualifiers/>
@@ -99,7 +85,7 @@
   </attributes>
   <attributes>
     <name>НачалоПериода</name>
-    <id>3</id>
+    <id>2</id>
     <valueType>
       <types>Date</types>
       <dateQualifiers>
@@ -115,7 +101,7 @@
   </attributes>
   <attributes>
     <name>КонецПериода</name>
-    <id>4</id>
+    <id>3</id>
     <valueType>
       <types>Date</types>
       <dateQualifiers>
@@ -131,12 +117,39 @@
   </attributes>
   <attributes>
     <name>ВидПериода</name>
-    <id>5</id>
+    <id>4</id>
     <valueType>
       <types>String</types>
       <stringQualifiers>
         <length>20</length>
       </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ВидОперацииРасход</name>
+    <id>5</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>Категория</name>
+    <id>6</id>
+    <valueType>
+      <types>CatalogRef.КатегорииРасходов</types>
+      <types>CatalogRef.КатегорииДоходов</types>
     </valueType>
     <view>
       <common>true</common>

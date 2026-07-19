@@ -16,7 +16,7 @@
   <defaultRunMode>ManagedApplication</defaultRunMode>
   <usePurposes>MobileDevice</usePurposes>
   <scriptVariant>Russian</scriptVariant>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -67,6 +67,7 @@
   <commonModules>CommonModule.ОбщийМодульСервер_УправлениеФормами</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_ОперацииУчета</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_КурсыВалют</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_Отчеты</commonModules>
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
@@ -74,6 +75,7 @@
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>
+  <commonForms>CommonForm.ФормаРасшифровкиКатегорииПоДням</commonForms>
   <catalogs>Catalog.КатегорииДоходов</catalogs>
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>
