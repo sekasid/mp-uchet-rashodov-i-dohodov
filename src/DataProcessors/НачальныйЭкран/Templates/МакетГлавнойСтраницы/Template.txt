@@ -42,8 +42,8 @@ a{text-decoration:none;color:inherit;display:block}
 .footer-note.neg{color:#e53935}
 .footer-note.zero{color:#8b95a5}
 .empty{padding:6px 0;font-size:13px;color:#8b95a5}
-.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}
-.nav a{flex:1;text-align:center;padding:4px;color:#8b95a5;font-size:10px;font-weight:600}
+.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}
+.nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}
 .nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
 .nav .ico svg{display:block;width:18px;height:18px}
 .nav a.active{color:#1c2430}
@@ -87,9 +87,9 @@ body{padding:6px 10px 64px}
 </div>
 
 <nav class="nav">
-<a class="active" href="app:accounts-all"><span class="ico"><!-- SVG --></span>Счета</a>
-<a href="app:categories"><span class="ico"><!-- SVG --></span>Категории</a>
+<a class="active" href="app:home"><span class="ico"><!-- SVG --></span>Главный экран</a>
 <a href="app:reports"><span class="ico"><!-- SVG --></span>Отчёты</a>
+<a href="app:menu"><span class="ico"><!-- SVG --></span>Меню</a>
 </nav>
 </body>
 </html>

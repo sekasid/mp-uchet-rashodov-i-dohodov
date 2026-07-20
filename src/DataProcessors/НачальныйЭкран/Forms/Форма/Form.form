@@ -73,7 +73,6 @@
       <type>Page</type>
       <extInfo xsi:type="form:PageGroupExtInfo">
         <group>Vertical</group>
-        <showTitle>false</showTitle>
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
@@ -264,7 +263,6 @@
         <contextMenu>
           <name>ПолеHTMLАналитикиКонтекстноеМеню</name>
           <id>21</id>
-          <autoFill>false</autoFill>
         </contextMenu>
         <type>HTMLDocumentField</type>
         <editMode>Enter</editMode>
@@ -306,7 +304,6 @@
       <type>Page</type>
       <extInfo xsi:type="form:PageGroupExtInfo">
         <group>Vertical</group>
-        <showTitle>false</showTitle>
       </extInfo>
     </items>
     <visible>true</visible>
@@ -330,19 +327,22 @@
     </extendedTooltip>
     <type>Pages</type>
     <extInfo xsi:type="form:PagesGroupExtInfo">
-      <pagesRepresentation>None</pagesRepresentation>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <commandBarLocation>None</commandBarLocation>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <horizontalAlign>Left</horizontalAlign>
-    <autoFill>false</autoFill>
   </autoCommandBar>
   <handlers>
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
+  </handlers>
+  <handlers>
+    <event>NotificationProcessing</event>
+    <name>ОбработкаОповещения</name>
   </handlers>
   <handlers>
     <event>OnClientApplicationResume</event>
@@ -352,15 +352,25 @@
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
+  <excludedCommands>Abort</excludedCommands>
+  <excludedCommands>Retry</excludedCommands>
+  <excludedCommands>SaveValues</excludedCommands>
+  <excludedCommands>OpenFromStandaloneServer</excludedCommands>
+  <excludedCommands>Help</excludedCommands>
+  <excludedCommands>No</excludedCommands>
+  <excludedCommands>OK</excludedCommands>
+  <excludedCommands>CustomizeForm</excludedCommands>
+  <excludedCommands>OpenFromMainServer</excludedCommands>
+  <excludedCommands>RestoreValues</excludedCommands>
+  <excludedCommands>Yes</excludedCommands>
+  <excludedCommands>Ignore</excludedCommands>
+  <excludedCommands>Close</excludedCommands>
+  <excludedCommands>Cancel</excludedCommands>
   <saveWindowSettings>true</saveWindowSettings>
-  <autoTitle>false</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
-  <autoFillCheck>true</autoFillCheck>
   <allowFormCustomize>true</allowFormCustomize>
   <enabled>true</enabled>
-  <showTitle>false</showTitle>
-  <showCloseButton>false</showCloseButton>
   <attributes>
     <name>Объект</name>
     <id>1</id>
@@ -401,9 +411,7 @@
     <id>3</id>
     <valueType>
       <types>String</types>
-      <stringQualifiers>
-        <length>0</length>
-      </stringQualifiers>
+      <stringQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -421,9 +429,7 @@
     <id>4</id>
     <valueType>
       <types>String</types>
-      <stringQualifiers>
-        <length>0</length>
-      </stringQualifiers>
+      <stringQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -437,9 +443,7 @@
     <id>5</id>
     <valueType>
       <types>Date</types>
-      <dateQualifiers>
-        <dateFractions>DateTime</dateFractions>
-      </dateQualifiers>
+      <dateQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -453,9 +457,7 @@
     <id>6</id>
     <valueType>
       <types>Date</types>
-      <dateQualifiers>
-        <dateFractions>DateTime</dateFractions>
-      </dateQualifiers>
+      <dateQualifiers/>
     </valueType>
     <view>
       <common>true</common>

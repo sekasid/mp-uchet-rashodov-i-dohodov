@@ -6,7 +6,7 @@
     <value>Документы</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
-  <includeInCommandInterface>true</includeInCommandInterface>
+  <includeInCommandInterface>false</includeInCommandInterface>
   <content>Document.Доходы</content>
   <content>Document.Расход</content>
 </mdclass:Subsystem>

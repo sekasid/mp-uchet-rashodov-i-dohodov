@@ -1,5 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаПериод</name>
+    <id>10</id>
+    <items xsi:type="form:FormField">
+      <name>НачалоПериода</name>
+      <id>11</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НачалоПериода</segments>
+      </dataPath>
+      <title>
+        <key>ru</key>
+        <value>с</value>
+      </title>
+      <titleLocation>Left</titleLocation>
+      <extendedTooltip>
+        <name>НачалоПериодаРасширеннаяПодсказка</name>
+        <id>12</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НачалоПериодаКонтекстноеМеню</name>
+        <id>13</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НачалоПериодаПриИзменении</name>
+        </handlers>
+        <autoMaxWidth>true</autoMaxWidth>
+        <horizontalStretch>true</horizontalStretch>
+        <chooseType>false</chooseType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>КонецПериода</name>
+      <id>14</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>КонецПериода</segments>
+      </dataPath>
+      <title>
+        <key>ru</key>
+        <value>по</value>
+      </title>
+      <titleLocation>Left</titleLocation>
+      <extendedTooltip>
+        <name>КонецПериодаРасширеннаяПодсказка</name>
+        <id>15</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КонецПериодаКонтекстноеМеню</name>
+        <id>16</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>КонецПериодаПриИзменении</name>
+        </handlers>
+        <autoMaxWidth>true</autoMaxWidth>
+        <horizontalStretch>true</horizontalStretch>
+        <chooseType>false</chooseType>
+      </extInfo>
+    </items>
+    <visible>false</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Период</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаПериодРасширеннаяПодсказка</name>
+      <id>17</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>HorizontalIfPossible</group>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Use</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
   <items xsi:type="form:FormField">
     <name>ПолеHTML</name>
     <id>1</id>
@@ -45,18 +168,22 @@
       <verticalStretch>true</verticalStretch>
     </extInfo>
   </items>
-  <commandBarLocation>None</commandBarLocation>
+  <handlers>
+    <event>NotificationProcessing</event>
+    <name>ОбработкаОповещения</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>LockWholeInterface</windowOpeningMode>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>false</autoFill>
   </autoCommandBar>
-  <handlers>
-    <event>OnCreateAtServer</event>
-    <name>ПриСозданииНаСервере</name>
-  </handlers>
-  <windowOpeningMode>LockWholeInterface</windowOpeningMode>
+  <commandBarLocation>None</commandBarLocation>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -99,11 +226,15 @@
   </attributes>
   <attributes>
     <name>НачалоПериода</name>
+    <title>
+      <key>ru</key>
+      <value>С</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>Date</types>
       <dateQualifiers>
-        <dateFractions>DateTime</dateFractions>
+        <dateFractions>Date</dateFractions>
       </dateQualifiers>
     </valueType>
     <view>
@@ -115,11 +246,15 @@
   </attributes>
   <attributes>
     <name>КонецПериода</name>
+    <title>
+      <key>ru</key>
+      <value>По</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>Date</types>
       <dateQualifiers>
-        <dateFractions>DateTime</dateFractions>
+        <dateFractions>Date</dateFractions>
       </dateQualifiers>
     </valueType>
     <view>
@@ -132,6 +267,22 @@
   <attributes>
     <name>ВидПериода</name>
     <id>5</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>РежимВыбораДатыПериода</name>
+    <id>6</id>
     <valueType>
       <types>String</types>
       <stringQualifiers>

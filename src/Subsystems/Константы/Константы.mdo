@@ -6,7 +6,7 @@
     <value>Константы</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
-  <includeInCommandInterface>true</includeInCommandInterface>
+  <includeInCommandInterface>false</includeInCommandInterface>
   <content>Constant.ВалютаУчета</content>
   <content>Constant.ПервыйЗапуск</content>
   <content>Constant.ИспользоватьПоследнийИзвестныйКурс</content>

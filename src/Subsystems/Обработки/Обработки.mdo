@@ -6,7 +6,7 @@
     <value>Обработки</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
-  <includeInCommandInterface>true</includeInCommandInterface>
+  <includeInCommandInterface>false</includeInCommandInterface>
   <content>DataProcessor.ЗапаснойОбменДанными</content>
   <content>DataProcessor.НачальныйЭкран</content>
 </mdclass:Subsystem>

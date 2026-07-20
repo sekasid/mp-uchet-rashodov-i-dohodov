@@ -132,6 +132,10 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <handlers>
     <event>BeforeClose</event>
     <name>ПередЗакрытием</name>
   </handlers>
@@ -174,6 +178,23 @@
       <dateQualifiers>
         <dateFractions>Time</dateFractions>
       </dateQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТолькоДата</name>
+    <title>
+      <key>ru</key>
+      <value>Только дата</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
     </valueType>
     <view>
       <common>true</common>

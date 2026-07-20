@@ -6,7 +6,7 @@
     <value>Отчеты</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
-  <includeInCommandInterface>true</includeInCommandInterface>
+  <includeInCommandInterface>false</includeInCommandInterface>
   <content>Report.ОтчетПоДоходам</content>
   <content>Report.ОтчетПоРасходам</content>
   <content>Report.ОтчетПоВзаиморасчетам</content>
