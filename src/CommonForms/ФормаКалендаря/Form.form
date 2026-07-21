@@ -203,16 +203,29 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ДатаПодтверждена</name>
+    <id>4</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>ЗакрытьФорму</name>
     <title>
       <key>ru</key>
-      <value>Закрыть форму</value>
+      <value>Выбрать</value>
     </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
-      <value>Закрыть форму</value>
+      <value>Выбрать дату</value>
     </toolTip>
     <use>
       <common>true</common>

@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 // Общий модуль сервер: аналитические отчёты.
 // Данные по категориям/дням и HTML-представление для мобильных форм.
 ////////////////////////////////////////////////////////////////////////////////
@@ -169,7 +169,7 @@
 	ВалютаУчета = Константы.ВалютаУчета.Получить();
 	
 	Строки = Новый Массив;
-	ДобавитьОбщиеСтилиОтчета(Строки, "#1c2430");
+	ДобавитьОбщиеСтилиОтчета(Строки, "#111827");
 	Строки.Добавить("<body>");
 	Строки.Добавить("<a class=""back"" href=""app:back"">← Назад</a>");
 	Строки.Добавить("<div class=""header"">");
@@ -193,8 +193,8 @@
 		
 	Иначе
 		
-		ДобавитьБлокКатегорийВHTML(Строки, "Доходы", ТаблицаДоходов, Ложь, "#2e7d32");
-		ДобавитьБлокКатегорийВHTML(Строки, "Расходы", ТаблицаРасходов, Истина, "#e53935");
+		ДобавитьБлокКатегорийВHTML(Строки, "Доходы", ТаблицаДоходов, Ложь, "#16A34A");
+		ДобавитьБлокКатегорийВHTML(Строки, "Расходы", ТаблицаРасходов, Истина, "#DC2626");
 		
 	КонецЕсли;
 	
@@ -222,12 +222,12 @@
 		
 	КонецЦикла;
 	
-	Акцент = "#2e7d32";
+	Акцент = ?(ВидОперацииРасход, "#DC2626", "#16A34A");
 	ПодписьИтого = ПодписьИтогаОтчета(ВидОперацииРасход, НачалоПериода, КонецПериода, ВидПериода);
 	ПустойТекст = ?(ВидОперацииРасход, "Расходов за выбранный период нет", "Доходов за выбранный период нет");
 	
 	Строки = Новый Массив;
-	ДобавитьСтилиОтчетаПоКатегориям(Строки, Акцент);
+	ДобавитьСтилиОтчетаПоКатегориям(Строки, Акцент, ВидОперацииРасход);
 	Строки.Добавить("<body>");
 	Строки.Добавить(HTMLПереключателиПериода(ВидПериода));
 	Строки.Добавить(HTMLСтрокаДиапазонаПериода(НачалоПериода, КонецПериода, ВидПериода));
@@ -240,7 +240,7 @@
 		
 	Иначе
 		
-		Строки.Добавить(HTMLКольцеваяДиаграмма(Таблица, Итого));
+		Строки.Добавить(HTMLКольцеваяДиаграмма(Таблица, Итого, ВидОперацииРасход));
 		Строки.Добавить("<div class=""list"">");
 		ИндексЦвета = 0;
 		
@@ -249,7 +249,7 @@
 			ИмяКатегории = ?(ЗначениеЗаполнено(СтрокаТаблицы.Категория), Строка(СтрокаТаблицы.Категория), "Прочее");
 			СуммаТекст = ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчета(СтрокаТаблицы.Сумма, Ложь);
 			ПроцентТекст = Формат(СтрокаТаблицы.Процент, "ЧДЦ=0; ЧН=0; ЧГ=") + "%";
-			Цвет = ЦветКатегорииОтчета(ИндексЦвета);
+			Цвет = ?(ВидОперацииРасход, ЦветКатегорииРасхода(ИндексЦвета), ЦветКатегорииОтчета(ИндексЦвета));
 			ИндексЦвета = ИндексЦвета + 1;
 			
 			Содержимое = "<span class=""dot"" style=""background:" + Цвет + """></span>"
@@ -295,8 +295,8 @@
 	ИтогоРасходов = СуммаТаблицы(ТаблицаРасходов);
 	Остаток = ИтогоДоходов - ИтогоРасходов;
 	
-	ЦветОстатка = ?(Остаток >= 0, "#2e7d32", "#e53935");
-	ФонКарточки = ?(Остаток >= 0, "#eaf7ec", "#fdecee");
+	ЦветОстатка = ?(Остаток >= 0, "#16A34A", "#DC2626");
+	ФонКарточки = ?(Остаток >= 0, "#ECFDF5", "#FEF2F2");
 	ПроцентРасходовОтДоходов = 0;
 	
 	Если ИтогоДоходов > 0 Тогда
@@ -386,7 +386,7 @@
 	КонецЦикла;
 	
 	ВалютаУчета = Константы.ВалютаУчета.Получить();
-	Акцент = ?(ВидОперацииРасход, "#e53935", "#2e7d32");
+	Акцент = ?(ВидОперацииРасход, "#DC2626", "#16A34A");
 	ИмяКатегории = ?(ЗначениеЗаполнено(Категория), Строка(Категория), "Прочее");
 	ПодписьИтого = ?(ВидОперацииРасход, "потрачено в категории", "получено в категории");
 	
@@ -642,11 +642,11 @@
 
 Функция ЦветКатегорииОтчета(Индекс)
 	
-	Цвета = СтрРазделить("#2e7d32,#66bb6a,#a5d6a7,#43a047,#81c784,#c8e6c9,#1b5e20,#4caf50", ",");
+	Цвета = СтрРазделить("#16A34A,#22C55E,#4ADE80,#86EFAC,#15803D,#2563EB,#3B82F6,#14B8A6", ",");
 	
 	Если Цвета.Количество() = 0 Тогда
 		
-		Возврат "#2e7d32";
+		Возврат "#16A34A";
 		
 	КонецЕсли;
 	
@@ -654,7 +654,7 @@
 	
 КонецФункции
 
-Функция HTMLКольцеваяДиаграмма(Таблица, Итого)
+Функция HTMLКольцеваяДиаграмма(Таблица, Итого, ВидОперацииРасход = Ложь)
 	
 	Если Итого = 0 Или Таблица.Количество() = 0 Тогда
 		
@@ -668,13 +668,13 @@
 	ИндексЦвета = 0;
 	Части = Новый Массив;
 	Части.Добавить("<div class=""chart-wrap""><svg class=""chart"" viewBox=""0 0 140 140"">");
-	Части.Добавить("<circle cx=""70"" cy=""70"" r=""54"" fill=""none"" stroke=""#eef1f4"" stroke-width=""18""/>");
+	Части.Добавить("<circle cx=""70"" cy=""70"" r=""54"" fill=""none"" stroke=""#E5E7EB"" stroke-width=""18""/>");
 	
 	Для Каждого СтрокаТаблицы Из Таблица Цикл
 		
 		Доля = СтрокаТаблицы.Сумма / Итого;
 		ДлинаДуги = ДлинаОкружности * Доля;
-		Цвет = ЦветКатегорииОтчета(ИндексЦвета);
+		Цвет = ?(ВидОперацииРасход, ЦветКатегорииРасхода(ИндексЦвета), ЦветКатегорииОтчета(ИндексЦвета));
 		ИндексЦвета = ИндексЦвета + 1;
 		
 		Части.Добавить("<circle cx=""70"" cy=""70"" r=""54"" fill=""none"" stroke=""" + Цвет
@@ -693,32 +693,34 @@
 	
 КонецФункции
 
-Процедура ДобавитьСтилиОтчетаПоКатегориям(Строки, Акцент)
+Процедура ДобавитьСтилиОтчетаПоКатегориям(Строки, Акцент, ВидОперацииРасход = Ложь)
+	
+	ФонПериода = ?(ВидОперацииРасход, "#FEF2F2", "#ECFDF5");
 	
 	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
 	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:12px 14px 20px;line-height:1.35}");
+	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:12px 14px 20px;line-height:1.35}");
 	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
 	Строки.Добавить(".periods{display:flex;gap:6px;margin-bottom:10px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}");
-	Строки.Добавить(".periods a{flex:0 0 auto;display:inline-block;padding:8px 12px;border-radius:999px;background:#f3f5f7;font-size:13px;font-weight:600;color:#5b6573;white-space:nowrap}");
+	Строки.Добавить(".periods a{flex:0 0 auto;display:inline-block;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280;white-space:nowrap}");
 	Строки.Добавить(".periods a.active{background:" + Акцент + ";color:#fff}");
-	Строки.Добавить(".range{display:inline-flex;align-items:center;gap:4px;margin-bottom:14px;padding:6px 12px;border-radius:999px;background:#f3f5f7;font-size:13px;font-weight:600;color:#5b6573}");
-	Строки.Добавить(".range a{display:inline;color:#1c2430;text-decoration:underline;text-underline-offset:2px}");
-	Строки.Добавить(".range.editable{background:#e8f5e9}");
-	Строки.Добавить(".total{font-size:34px;font-weight:700;color:" + Акцент + ";letter-spacing:-0.02em}");
-	Строки.Добавить(".total-sub{margin-top:2px;margin-bottom:8px;font-size:14px;color:#8b95a5}");
+	Строки.Добавить(".range{display:inline-flex;align-items:center;gap:4px;margin-bottom:14px;padding:6px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".range a{display:inline;color:#111827;text-decoration:underline;text-underline-offset:2px}");
+	Строки.Добавить(".range.editable{background:" + ФонПериода + "}");
+	Строки.Добавить(".total{font-size:38px;font-weight:700;color:" + Акцент + ";letter-spacing:-0.02em}");
+	Строки.Добавить(".total-sub{margin-top:2px;margin-bottom:8px;font-size:14px;color:#6B7280}");
 	Строки.Добавить(".chart-wrap{display:flex;justify-content:center;margin:8px 0 16px}");
 	Строки.Добавить(".chart{width:160px;height:160px}");
-	Строки.Добавить(".list{border-top:1px solid #eef1f4}");
-	Строки.Добавить(".row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eef1f4}");
-	Строки.Добавить(".dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}");
-	Строки.Добавить(".name{flex:1;min-width:0;font-size:15px;font-weight:600;color:#1c2430;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
-	Строки.Добавить(".right{text-align:right;flex-shrink:0}");
-	Строки.Добавить(".sum{display:block;font-size:15px;font-weight:700;color:#1c2430}");
-	Строки.Добавить(".pct{display:block;font-size:12px;color:#8b95a5;margin-top:1px}");
-	Строки.Добавить(".empty{padding:28px 0;font-size:15px;color:#8b95a5;text-align:center}");
+	Строки.Добавить(".list{border-top:1px solid #E5E7EB}");
+	Строки.Добавить(".row{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #E5E7EB}");
+	Строки.Добавить(".dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-right:14px}");
+	Строки.Добавить(".name{flex:1;min-width:0;font-size:15px;font-weight:600;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
+	Строки.Добавить(".right{text-align:right;flex-shrink:0;margin-left:10px}");
+	Строки.Добавить(".sum{display:block;font-size:15px;font-weight:700;color:#111827}");
+	Строки.Добавить(".pct{display:block;font-size:12px;color:#6B7280;margin-top:1px}");
+	Строки.Добавить(".empty{padding:28px 0;font-size:15px;color:#6B7280;text-align:center}");
 	Строки.Добавить("</style></head>");
 	
 КонецПроцедуры
@@ -729,31 +731,31 @@
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
 	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:16px;line-height:1.35}");
+	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:16px;line-height:1.35}");
 	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
 	Строки.Добавить(".header{margin-bottom:10px}");
-	Строки.Добавить(".title{font-size:28px;font-weight:700;letter-spacing:-0.03em}");
-	Строки.Добавить(".sub{margin-top:4px;font-size:14px;color:#8b95a5}");
-	Строки.Добавить(".total{margin-top:8px;font-size:34px;font-weight:700;color:" + Акцент + "}");
-	Строки.Добавить(".total-sub{margin-top:2px;margin-bottom:14px;font-size:14px;color:#8b95a5}");
+	Строки.Добавить(".title{font-size:24px;font-weight:700;letter-spacing:-0.03em}");
+	Строки.Добавить(".sub{margin-top:4px;font-size:14px;color:#6B7280}");
+	Строки.Добавить(".total{margin-top:8px;font-size:38px;font-weight:700;color:" + Акцент + "}");
+	Строки.Добавить(".total-sub{margin-top:2px;margin-bottom:14px;font-size:14px;color:#6B7280}");
 	Строки.Добавить(".periods{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}");
-	Строки.Добавить(".periods a{display:inline-block;padding:8px 12px;border-radius:999px;background:#f3f5f7;font-size:13px;font-weight:600;color:#5b6573}");
+	Строки.Добавить(".periods a{display:inline-block;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
 	Строки.Добавить(".periods a.active{background:" + Акцент + ";color:#fff}");
-	Строки.Добавить(".section{font-size:13px;font-weight:700;color:#8b95a5;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px}");
-	Строки.Добавить(".item{padding:12px 0;border-top:1px solid #eef1f4}");
+	Строки.Добавить(".section{font-size:13px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px}");
+	Строки.Добавить(".item{padding:12px 0;border-top:1px solid #E5E7EB}");
 	Строки.Добавить(".item:first-of-type{border-top:none}");
 	Строки.Добавить(".item-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}");
-	Строки.Добавить(".name{font-size:15px;font-weight:600;color:#1c2430}");
-	Строки.Добавить(".meta{font-size:14px;color:#5b6573;white-space:nowrap}");
-	Строки.Добавить(".bar{height:8px;background:#eef1f4;border-radius:999px;overflow:hidden}");
+	Строки.Добавить(".name{font-size:15px;font-weight:600;color:#111827}");
+	Строки.Добавить(".meta{font-size:14px;color:#6B7280;white-space:nowrap}");
+	Строки.Добавить(".bar{height:8px;background:#E5E7EB;border-radius:999px;overflow:hidden}");
 	Строки.Добавить(".bar-fill{height:100%;background:" + Акцент + ";border-radius:999px}");
-	Строки.Добавить(".empty{padding:24px 0;font-size:15px;color:#8b95a5}");
-	Строки.Добавить(".back{display:inline-block;margin-bottom:12px;font-size:15px;font-weight:600;color:#5b6573}");
-	Строки.Добавить(".summary-card{background:#f7f8fa;border-radius:16px;padding:14px 16px;margin-bottom:8px}");
+	Строки.Добавить(".empty{padding:24px 0;font-size:15px;color:#6B7280}");
+	Строки.Добавить(".back{display:inline-block;margin-bottom:12px;font-size:15px;font-weight:600;color:#2563EB}");
+	Строки.Добавить(".summary-card{background:#F3F4F6;border-radius:16px;padding:14px 16px;margin-bottom:8px}");
 	Строки.Добавить(".sum-line{display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:15px;font-weight:600}");
-	Строки.Добавить(".sum-line.pos{color:#2e7d32}");
-	Строки.Добавить(".sum-line.neg{color:#e53935}");
-	Строки.Добавить(".sum-line.total-line{border-top:1px solid #e1e5ea;margin-top:4px;padding-top:12px;color:#1c2430}");
+	Строки.Добавить(".sum-line.pos{color:#16A34A}");
+	Строки.Добавить(".sum-line.neg{color:#DC2626}");
+	Строки.Добавить(".sum-line.total-line{border-top:1px solid #E5E7EB;margin-top:4px;padding-top:12px;color:#111827}");
 	Строки.Добавить("</style></head>");
 	
 КонецПроцедуры
@@ -824,7 +826,7 @@
 
 Функция SVGИконкаКалендаряПериода()
 	
-	Возврат "<span class=""cal""><svg xmlns=""http://www.w3.org/2000/svg"" width=""16"" height=""16"" viewBox=""0 0 24 24"" fill=""none"" stroke=""#5b6573"" stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round""><rect x=""3"" y=""5"" width=""18"" height=""16"" rx=""2""/><path d=""M16 3v4M8 3v4M3 11h18""/></svg></span>";
+	Возврат "<span class=""cal""><svg xmlns=""http://www.w3.org/2000/svg"" width=""16"" height=""16"" viewBox=""0 0 24 24"" fill=""none"" stroke=""#6B7280"" stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round""><rect x=""3"" y=""5"" width=""18"" height=""16"" rx=""2""/><path d=""M16 3v4M8 3v4M3 11h18""/></svg></span>";
 	
 КонецФункции
 
@@ -894,7 +896,7 @@
 
 Функция ЦветКатегорииРасхода(Индекс)
 	
-	Цвета = СтрРазделить("#43a047,#7e57c2,#42a5f5,#ff9800,#90a4ae,#ef5350,#26a69a,#8d6e63", ",");
+	Цвета = СтрРазделить("#DC2626,#EF4444,#F87171,#FB7185,#B91C1C,#F59E0B,#EA580C,#6B7280", ",");
 	
 	Возврат Цвета[Индекс % Цвета.Количество()];
 	
@@ -1095,56 +1097,56 @@
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
 	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:12px 14px 76px;line-height:1.35}");
+	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:12px 14px 76px;line-height:1.35}");
 	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
 	Строки.Добавить(".periods{display:flex;gap:6px;margin-bottom:10px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}");
-	Строки.Добавить(".periods a{flex:0 0 auto;display:inline-block;padding:8px 12px;border-radius:999px;background:#f3f5f7;font-size:13px;font-weight:600;color:#5b6573;white-space:nowrap}");
+	Строки.Добавить(".periods a{flex:0 0 auto;display:inline-block;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280;white-space:nowrap}");
 	Строки.Добавить(".periods a.active{background:" + Акцент + ";color:#fff}");
-	Строки.Добавить(".range-pill{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;padding:12px 14px;border-radius:14px;background:#f3f5f7;font-size:14px;font-weight:600;color:#1c2430}");
-	Строки.Добавить(".range-pill.editable{background:#e8f5e9}");
-	Строки.Добавить(".range-pill a{display:inline;color:#1c2430;text-decoration:underline;text-underline-offset:2px}");
+	Строки.Добавить(".range-pill{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;padding:12px 14px;border-radius:14px;background:#F3F4F6;font-size:14px;font-weight:600;color:#111827}");
+	Строки.Добавить(".range-pill.editable{background:#ECFDF5}");
+	Строки.Добавить(".range-pill a{display:inline;color:#111827;text-decoration:underline;text-underline-offset:2px}");
 	Строки.Добавить(".range-pill .cal{display:inline-flex;align-items:center}");
 	Строки.Добавить(".range-pill .cal svg{display:block}");
-	Строки.Добавить(".range-pill .chev{color:#8b95a5;font-size:12px}");
+	Строки.Добавить(".range-pill .chev{color:#6B7280;font-size:12px}");
 	Строки.Добавить(".hero{display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:18px;padding:16px;margin-bottom:12px}");
 	Строки.Добавить(".hero-main{min-width:0;flex:1}");
-	Строки.Добавить(".hero-label{font-size:13px;font-weight:600;color:#5b6573;margin-bottom:4px}");
-	Строки.Добавить(".hero-value{font-size:28px;font-weight:700;letter-spacing:-0.02em;line-height:1.1}");
-	Строки.Добавить(".hero-sub{margin-top:6px;font-size:12px;color:#8b95a5}");
+	Строки.Добавить(".hero-label{font-size:13px;font-weight:600;color:#6B7280;margin-bottom:4px}");
+	Строки.Добавить(".hero-value{font-size:32px;font-weight:700;letter-spacing:-0.02em;line-height:1.1}");
+	Строки.Добавить(".hero-sub{margin-top:6px;font-size:12px;color:#6B7280}");
 	Строки.Добавить(".spark{flex-shrink:0;width:112px;height:52px}");
 	Строки.Добавить(".tiles{display:flex;gap:10px;margin-bottom:16px}");
-	Строки.Добавить(".tile{flex:1;background:#fff;border:1px solid #eef1f4;border-radius:16px;padding:12px}");
+	Строки.Добавить(".tile{flex:1;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px}");
 	Строки.Добавить(".tile-ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}");
-	Строки.Добавить(".tile-ico.income{background:#43a047}");
-	Строки.Добавить(".tile-ico.expense{background:#e53935}");
-	Строки.Добавить(".tile-label{font-size:12px;color:#8b95a5;font-weight:600;margin-bottom:4px}");
+	Строки.Добавить(".tile-ico.income{background:#16A34A}");
+	Строки.Добавить(".tile-ico.expense{background:#DC2626}");
+	Строки.Добавить(".tile-label{font-size:12px;color:#6B7280;font-weight:600;margin-bottom:4px}");
 	Строки.Добавить(".tile-value{font-size:18px;font-weight:700;margin-bottom:2px}");
-	Строки.Добавить(".tile-value.income,.income{color:#2e7d32}");
-	Строки.Добавить(".tile-value.expense,.expense{color:#e53935}");
-	Строки.Добавить(".tile-pct{font-size:11px;color:#8b95a5;margin-bottom:8px}");
-	Строки.Добавить(".tile-bar{height:6px;background:#eef1f4;border-radius:999px;overflow:hidden}");
+	Строки.Добавить(".tile-value.income,.income{color:#16A34A}");
+	Строки.Добавить(".tile-value.expense,.expense{color:#DC2626}");
+	Строки.Добавить(".tile-pct{font-size:11px;color:#6B7280;margin-bottom:8px}");
+	Строки.Добавить(".tile-bar{height:6px;background:#E5E7EB;border-radius:999px;overflow:hidden}");
 	Строки.Добавить(".tile-fill{height:100%;border-radius:999px}");
-	Строки.Добавить(".tile-fill.income{background:#43a047}");
-	Строки.Добавить(".tile-fill.expense{background:#e53935}");
+	Строки.Добавить(".tile-fill.income{background:#16A34A}");
+	Строки.Добавить(".tile-fill.expense{background:#DC2626}");
 	Строки.Добавить(".block-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0 8px}");
-	Строки.Добавить(".section-title{font-size:16px;font-weight:700;color:#1c2430}");
-	Строки.Добавить(".all-link{font-size:13px;font-weight:600;color:#8b95a5}");
-	Строки.Добавить(".struct{border-top:1px solid #eef1f4;margin-bottom:8px}");
-	Строки.Добавить(".struct-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eef1f4}");
-	Строки.Добавить(".struct-ico{width:28px;height:28px;border-radius:10px;flex-shrink:0}");
+	Строки.Добавить(".section-title{font-size:16px;font-weight:700;color:#111827}");
+	Строки.Добавить(".all-link{font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".struct{border-top:1px solid #E5E7EB;margin-bottom:8px}");
+	Строки.Добавить(".struct-row{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #E5E7EB}");
+	Строки.Добавить(".struct-ico{width:28px;height:28px;border-radius:10px;flex-shrink:0;margin-right:14px}");
 	Строки.Добавить(".struct-name{flex:1;min-width:0;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
-	Строки.Добавить(".struct-right{text-align:right;flex-shrink:0}");
+	Строки.Добавить(".struct-right{text-align:right;flex-shrink:0;margin-left:10px}");
 	Строки.Добавить(".struct-sum{display:block;font-size:14px;font-weight:700}");
-	Строки.Добавить(".struct-pct{display:block;font-size:12px;color:#8b95a5;margin-top:1px}");
-	Строки.Добавить(".summary{border-top:1px solid #eef1f4;padding-top:4px;margin-bottom:8px}");
-	Строки.Добавить(".sum-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;font-size:15px;font-weight:600;border-bottom:1px solid #eef1f4}");
+	Строки.Добавить(".struct-pct{display:block;font-size:12px;color:#6B7280;margin-top:1px}");
+	Строки.Добавить(".summary{border-top:1px solid #E5E7EB;padding-top:4px;margin-bottom:8px}");
+	Строки.Добавить(".sum-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;font-size:15px;font-weight:600;border-bottom:1px solid #E5E7EB}");
 	Строки.Добавить(".sum-row.total{border-bottom:none;padding-top:12px}");
-	Строки.Добавить(".empty-soft{padding:10px 0 16px;font-size:13px;color:#8b95a5}");
-	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
-	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}");
+	Строки.Добавить(".empty-soft{padding:10px 0 16px;font-size:13px;color:#6B7280}");
+	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
+	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#6B7280;font-size:9px;font-weight:600;line-height:1.15}");
 	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
 	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".nav a.active{color:#1c2430}");
+	Строки.Добавить(".nav a.active{color:#2563EB}");
 	Строки.Добавить("</style></head>");
 	
 КонецПроцедуры

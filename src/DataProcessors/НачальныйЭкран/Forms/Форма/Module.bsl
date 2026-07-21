@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 // Форма обработки «Начальный экран».
 // Главная, счета с остатками и аналитика — страницы одной формы.
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,9 +44,17 @@
 		
 		ПоказатьСтраницуОтчетов();
 		
-	ИначеЕсли Параметр = "menu" Тогда
+	ИначеЕсли Параметр = "menu" Или Параметр = "catalogs" Тогда
 		
 		ПоказатьСтраницуМеню();
+		
+	ИначеЕсли Параметр = "operations" Тогда
+		
+		ПоказатьСтраницуОпераций();
+		
+	ИначеЕсли Параметр = "settings" Тогда
+		
+		ПоказатьСтраницуНастроек();
 		
 	КонецЕсли;
 	
@@ -164,18 +172,23 @@
 	
 	Результат = ТекстМакетаГлавнойСтраницы();
 	
-	ПредставлениеВалюты = ?(ЗначениеЗаполнено(ВалютаУчета), Строка(ВалютаУчета), "—");
-	Подзаголовок = ЭкранироватьHTML(ПредставлениеВалюты + " · сегодня");
-	
+	ДанныеСчетов = ПолучитьДанныеСчетовСОстатками();
 	ДанныеСводки = ПолучитьДанныеСводки();
-	СтрокиСводки = СформироватьHTMLСтрокиСводки(ДанныеСводки);
-	ИтогСводки = СформироватьHTMLИтогСводки(ДанныеСводки);
-	СтрокиСчетов = СформироватьHTMLСтрокиСчетов(3);
+	Счётчики = ПолучитьСчётчикиОперацийЗаМесяц();
 	
-	Результат = СтрЗаменить(Результат, "#Подзаголовок#", Подзаголовок);
-	Результат = СтрЗаменить(Результат, "#СтрокиСводки#", СтрокиСводки);
-	Результат = СтрЗаменить(Результат, "#ИтогСводки#", ИтогСводки);
-	Результат = СтрЗаменить(Результат, "#СтрокиСчетов#", СтрокиСчетов);
+	ОстатокТекст = ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(ДанныеСчетов.Итого, Ложь);
+	ДоходыТекст = ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(ДанныеСводки.МесяцДоходы, Ложь);
+	РасходыТекст = ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(ДанныеСводки.МесяцРасходы, Ложь);
+	ДоходыПодпись = ЭкранироватьHTML(ПредставлениеКоличестваОпераций(Счётчики.Доходы));
+	РасходыПодпись = ЭкранироватьHTML(ПредставлениеКоличестваОпераций(Счётчики.Расходы));
+	
+	Результат = СтрЗаменить(Результат, "#Период#", ЭкранироватьHTML(ПредставлениеПериодаМесяцаHTML()));
+	Результат = СтрЗаменить(Результат, "#ОбщийОстаток#", ОстатокТекст);
+	Результат = СтрЗаменить(Результат, "#СуммаДоходов#", ДоходыТекст);
+	Результат = СтрЗаменить(Результат, "#СуммаРасходов#", РасходыТекст);
+	Результат = СтрЗаменить(Результат, "#ПодписьДоходов#", ДоходыПодпись);
+	Результат = СтрЗаменить(Результат, "#ПодписьРасходов#", РасходыПодпись);
+	Результат = СтрЗаменить(Результат, "#ПоследниеОперации#", СформироватьHTMLПоследнихОпераций(5));
 	
 	Возврат Результат;
 	
@@ -196,35 +209,28 @@
 	Строки.Добавить("<meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
-	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:12px 14px 72px;line-height:1.3}");
-	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
-	Строки.Добавить(".back{display:inline-block;margin-bottom:12px;font-size:14px;font-weight:600;color:#1e88e5;padding:4px 0}");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить(".back{display:inline-block;margin-bottom:12px;font-size:14px;font-weight:600;color:#2563EB;padding:4px 0}");
 	Строки.Добавить(".header{margin-bottom:12px}");
-	Строки.Добавить(".header .title{font-size:22px;font-weight:700;letter-spacing:-0.03em}");
-	Строки.Добавить(".header .sub{margin-top:2px;font-size:12px;color:#8b95a5}");
-	Строки.Добавить(".card{background:#fff;border-radius:12px;padding:8px 12px;border:1px solid #eceff3}");
-	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid #eef1f4;gap:8px}");
+	Строки.Добавить(".header .title{font-size:24px;font-weight:700;letter-spacing:-0.03em}");
+	Строки.Добавить(".header .sub{margin-top:2px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".card{background:#fff;border-radius:16px;padding:8px 12px;border:1px solid #E5E7EB}");
+	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid #E5E7EB;gap:8px}");
 	Строки.Добавить(".row:first-of-type{border-top:none}");
-	Строки.Добавить(".row .name{font-size:14px;color:#3d4a5c;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
+	Строки.Добавить(".row .name{font-size:14px;color:#374151;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
 	Строки.Добавить(".row .sum{font-size:14px;font-weight:600;white-space:nowrap}");
-	Строки.Добавить(".row .sum.neg{color:#e53935}");
-	Строки.Добавить(".row .sum.pos{color:#2e7d32}");
-	Строки.Добавить(".row .sum.zero{color:#1c2430}");
+	Строки.Добавить(".row .sum.neg{color:#DC2626}");
+	Строки.Добавить(".row .sum.pos{color:#16A34A}");
+	Строки.Добавить(".row .sum.zero{color:#111827}");
 	Строки.Добавить(".row .left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}");
-	Строки.Добавить(".row .ico-wrap{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#5b6573}");
+	Строки.Добавить(".row .ico-wrap{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#6B7280}");
 	Строки.Добавить(".row .ico-wrap svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".total{margin-top:4px;padding-top:10px;border-top:1px solid #eef1f4;display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:700}");
-	Строки.Добавить(".empty{padding:12px 0;font-size:14px;color:#8b95a5}");
-	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
-	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}");
-	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
-	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".nav a.active{color:#1c2430}");
+	Строки.Добавить(".total{margin-top:4px;padding-top:10px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:700}");
+	Строки.Добавить(".empty{padding:12px 0;font-size:14px;color:#6B7280}");
 	Строки.Добавить("</style>");
 	Строки.Добавить("</head>");
 	Строки.Добавить("<body>");
-	Строки.Добавить("<a class=""back"" href=""app:back"">← Назад</a>");
+	Строки.Добавить("<a class=""back"" href=""app:catalogs"">← Назад</a>");
 	Строки.Добавить("<div class=""header"">");
 	Строки.Добавить("<div class=""title"">Счета</div>");
 	Строки.Добавить("<div class=""sub"">" + ЭкранироватьHTML(ПредставлениеВалюты + " · остатки") + "</div>");
@@ -244,7 +250,7 @@
 	КонецЕсли;
 	
 	Строки.Добавить("</div>");
-	Строки.Добавить(HTMLНижняяНавигация("home"));
+	Строки.Добавить(HTMLНижняяНавигация("catalogs"));
 	Строки.Добавить("</body>");
 	Строки.Добавить("</html>");
 	
@@ -252,9 +258,8 @@
 	
 КонецФункции
 
-// HTML-каркас главной страницы (без ПолучитьМакет — надёжнее при синхронизации EDT↔ИБ).
-// Копия для правки вёрстки: docs/ui/dashboard.html и Templates/.../Template.txt
-// Иконки — SVG (эмодзи в WebView 1С часто не отображаются).
+// HTML-каркас главной по макету Wallet (Notion): остаток, доходы/расходы, последние операции, FAB.
+// Копии: docs/ui/dashboard.html, Templates/.../Template.txt
 //
 &НаСервере
 Функция ТекстМакетаГлавнойСтраницы()
@@ -266,84 +271,59 @@
 	Строки.Добавить("<meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
-	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:10px 12px 72px;line-height:1.25}");
-	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
-	Строки.Добавить(".header{margin-bottom:10px}");
-	Строки.Добавить(".header h1{font-size:22px;font-weight:700;letter-spacing:-0.03em;color:#1c2430}");
-	Строки.Добавить(".header .sub{margin-top:2px;font-size:12px;color:#8b95a5}");
-	Строки.Добавить(".actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}");
-	Строки.Добавить(".action{border-radius:12px;padding:8px 8px 7px;text-align:center;border:1px solid transparent}");
-	Строки.Добавить(".action .icon{height:22px;margin-bottom:4px;display:flex;align-items:center;justify-content:center}");
-	Строки.Добавить(".action .icon svg{display:block;width:22px;height:22px}");
-	Строки.Добавить(".action .label{font-size:13px;font-weight:700}");
-	Строки.Добавить(".action.rashod{background:#ffecec;border-color:#ffd0d0}");
-	Строки.Добавить(".action.rashod .label{color:#e53935}");
-	Строки.Добавить(".action.dohod{background:#eaf8ee;border-color:#c8e6c9}");
-	Строки.Добавить(".action.dohod .label{color:#2e7d32}");
-	Строки.Добавить(".action.perevod{background:#eaf2ff;border-color:#bbdefb}");
-	Строки.Добавить(".action.perevod .label{color:#1e88e5}");
-	Строки.Добавить(".action.dolgi{background:#f3eaff;border-color:#e1bee7}");
-	Строки.Добавить(".action.dolgi .label{color:#8e24aa}");
-	Строки.Добавить(".card{background:#fff;border-radius:12px;padding:8px 12px;margin-bottom:8px;border:1px solid #eceff3}");
-	Строки.Добавить(".card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px}");
-	Строки.Добавить(".card h2{font-size:14px;font-weight:700;color:#1c2430;margin:0}");
-	Строки.Добавить(".card-head .all{font-size:13px;font-weight:600;color:#1e88e5;padding:4px 0}");
-	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid #eef1f4;gap:8px}");
-	Строки.Добавить(".row:first-of-type{border-top:none}");
-	Строки.Добавить(".row .name{font-size:13px;color:#3d4a5c;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
-	Строки.Добавить(".row .sum{font-size:13px;font-weight:600;white-space:nowrap}");
-	Строки.Добавить(".row .sum.neg{color:#e53935}");
-	Строки.Добавить(".row .sum.pos{color:#2e7d32}");
-	Строки.Добавить(".row .sum.zero{color:#1c2430}");
-	Строки.Добавить(".row .left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}");
-	Строки.Добавить(".row .ico-wrap{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#5b6573}");
-	Строки.Добавить(".row .ico-wrap svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".footer-note{margin-top:2px;padding-top:8px;border-top:1px solid #eef1f4;font-size:11px;font-weight:600}");
-	Строки.Добавить(".footer-note.pos{color:#2e7d32}");
-	Строки.Добавить(".footer-note.neg{color:#e53935}");
-	Строки.Добавить(".footer-note.zero{color:#8b95a5}");
-	Строки.Добавить(".empty{padding:6px 0;font-size:13px;color:#8b95a5}");
-	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
-	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}");
-	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
-	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".nav a.active{color:#1c2430}");
-	Строки.Добавить("@media (max-height:520px),(orientation:landscape){");
-	Строки.Добавить("body{padding:6px 10px 64px}");
-	Строки.Добавить(".header{margin-bottom:6px}");
-	Строки.Добавить(".header h1{font-size:18px}");
-	Строки.Добавить(".actions{gap:6px;margin-bottom:6px}");
-	Строки.Добавить(".action{padding:5px 6px;border-radius:10px}");
-	Строки.Добавить(".action .icon{height:18px;margin-bottom:2px}");
-	Строки.Добавить(".action .icon svg{width:18px;height:18px}");
-	Строки.Добавить(".action .label{font-size:12px}");
-	Строки.Добавить(".card{padding:6px 10px;margin-bottom:6px}");
-	Строки.Добавить(".row{padding:5px 0}");
-	Строки.Добавить(".footer-note{display:none}");
-	Строки.Добавить("}");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить(".top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}");
+	Строки.Добавить(".top h1{font-size:24px;font-weight:700;letter-spacing:-0.03em}");
+	Строки.Добавить(".cal{width:36px;height:36px;border-radius:12px;background:#fff;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;color:#6B7280}");
+	Строки.Добавить(".period{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".balance{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:16px;margin-bottom:10px}");
+	Строки.Добавить(".balance .lbl{font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".balance .val{margin-top:4px;font-size:36px;font-weight:700;letter-spacing:-0.03em;line-height:1.1}");
+	Строки.Добавить(".balance .hint{margin-top:6px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}");
+	Строки.Добавить(".stat{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px}");
+	Строки.Добавить(".stat .ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px}");
+	Строки.Добавить(".stat .ico.income{background:#ECFDF5;color:#16A34A}");
+	Строки.Добавить(".stat .ico.expense{background:#FEF2F2;color:#DC2626}");
+	Строки.Добавить(".stat .lbl{font-size:12px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".stat .val{margin-top:2px;font-size:16px;font-weight:700}");
+	Строки.Добавить(".stat .val.income{color:#16A34A}");
+	Строки.Добавить(".stat .val.expense{color:#DC2626}");
+	Строки.Добавить(".stat .sub{margin-top:2px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}");
+	Строки.Добавить(".sec-head h2{font-size:16px;font-weight:700}");
+	Строки.Добавить(".sec-head .all{font-size:14px;font-weight:600;color:#2563EB}");
+	Строки.Добавить(".ops{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:4px 12px;margin-bottom:72px}");
+	Строки.Добавить(".op{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid #E5E7EB}");
+	Строки.Добавить(".op:first-child{border-top:none}");
+	Строки.Добавить(".op .badge{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}");
+	Строки.Добавить(".op .badge.income{background:#ECFDF5;color:#16A34A}");
+	Строки.Добавить(".op .badge.expense{background:#FEF2F2;color:#DC2626}");
+	Строки.Добавить(".op .badge.transfer{background:#EFF6FF;color:#2563EB}");
+	Строки.Добавить(".op .mid{flex:1;min-width:0}");
+	Строки.Добавить(".op .title{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
+	Строки.Добавить(".op .acc{margin-top:1px;font-size:12px;color:#6B7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
+	Строки.Добавить(".op .right{text-align:right;flex-shrink:0}");
+	Строки.Добавить(".op .sum{display:block;font-size:15px;font-weight:700}");
+	Строки.Добавить(".op .sum.income{color:#16A34A}");
+	Строки.Добавить(".op .sum.expense{color:#DC2626}");
+	Строки.Добавить(".op .sum.transfer{color:#2563EB}");
+	Строки.Добавить(".op .date{display:block;margin-top:1px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".empty{padding:16px 0;font-size:14px;color:#6B7280;text-align:center}");
+	Строки.Добавить(".fab{position:fixed;right:16px;bottom:72px;width:56px;height:56px;border-radius:50%;background:#2563EB;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(37,99,235,0.35);z-index:11}");
 	Строки.Добавить("</style>");
 	Строки.Добавить("</head>");
 	Строки.Добавить("<body>");
-	Строки.Добавить("<div class=""header"">");
-	Строки.Добавить("<h1>Учёт</h1>");
-	Строки.Добавить("<div class=""sub"">#Подзаголовок#</div>");
+	Строки.Добавить("<div class=""top""><h1>Главная</h1><a class=""cal"" href=""app:period:Месяц"">" + SVGИконкаКалендарь("#6B7280", 18) + "</a></div>");
+	Строки.Добавить("<a class=""period"" href=""app:period:Месяц"">#Период# ▾</a>");
+	Строки.Добавить("<div class=""balance""><div class=""lbl"">Общий остаток</div><div class=""val"">#ОбщийОстаток#</div><div class=""hint"">на всех счетах</div></div>");
+	Строки.Добавить("<div class=""stats"">");
+	Строки.Добавить("<a class=""stat"" href=""app:report:dohod""><div class=""ico income"">" + SVGИконкаСтрелкаВниз("#16A34A", 16) + "</div><div class=""lbl"">Доходы</div><div class=""val income"">#СуммаДоходов#</div><div class=""sub"">#ПодписьДоходов#</div></a>");
+	Строки.Добавить("<a class=""stat"" href=""app:report:rashod""><div class=""ico expense"">" + SVGИконкаКошелекДенег("#DC2626", 16) + "</div><div class=""lbl"">Расходы</div><div class=""val expense"">#СуммаРасходов#</div><div class=""sub"">#ПодписьРасходов#</div></a>");
 	Строки.Добавить("</div>");
-	Строки.Добавить("<div class=""actions"">");
-	Строки.Добавить("<a class=""action rashod"" href=""app:rashod""><div class=""icon"">" + SVGИконкаКарта("#e53935", 22) + "</div><div class=""label"">Расход</div></a>");
-	Строки.Добавить("<a class=""action dohod"" href=""app:dohod""><div class=""icon"">" + SVGИконкаКошелекДенег("#2e7d32") + "</div><div class=""label"">Доход</div></a>");
-	Строки.Добавить("<a class=""action perevod"" href=""app:perevod""><div class=""icon"">" + SVGИконкаПеревод("#1e88e5") + "</div><div class=""label"">Перевод</div></a>");
-	Строки.Добавить("<a class=""action dolgi"" href=""app:dolgi""><div class=""icon"">" + SVGИконкаДолги("#8e24aa") + "</div><div class=""label"">Долги</div></a>");
-	Строки.Добавить("</div>");
-	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить("<h2>Сводка</h2>");
-	Строки.Добавить("#СтрокиСводки#");
-	Строки.Добавить("#ИтогСводки#");
-	Строки.Добавить("</div>");
-	Строки.Добавить("<div class=""card"" id=""accounts"">");
-	Строки.Добавить("<div class=""card-head""><h2>Счета</h2><a class=""all"" href=""app:accounts-all"">Все</a></div>");
-	Строки.Добавить("#СтрокиСчетов#");
-	Строки.Добавить("</div>");
+	Строки.Добавить("<div class=""sec-head""><h2>Последние операции</h2><a class=""all"" href=""app:operations"">Все</a></div>");
+	Строки.Добавить("<div class=""ops"">#ПоследниеОперации#</div>");
+	Строки.Добавить("<a class=""fab"" href=""app:fab"">" + SVGИконкаПлюс("#fff", 28) + "</a>");
 	Строки.Добавить(HTMLНижняяНавигация("home"));
 	Строки.Добавить("</body>");
 	Строки.Добавить("</html>");
@@ -352,132 +332,253 @@
 	
 КонецФункции
 
-// Нижняя панель: Главный экран · Отчёты · Меню.
-// АктивныйПункт: home | reports | menu.
+// Нижняя панель Wallet: Главная · Операции · Отчёты · Справочники · Настройки.
+// АктивныйПункт: home | operations | reports | catalogs | settings
 //
 &НаСервере
 Функция HTMLНижняяНавигация(АктивныйПункт)
 	
 	КлассHome = ?(АктивныйПункт = "home", "active", "");
+	КлассOps = ?(АктивныйПункт = "operations", "active", "");
 	КлассReports = ?(АктивныйПункт = "reports", "active", "");
-	КлассMenu = ?(АктивныйПункт = "menu", "active", "");
+	КлассCatalogs = "";
+	КлассSettings = ?(АктивныйПункт = "settings", "active", "");
+	
+	Если АктивныйПункт = "catalogs" Или АктивныйПункт = "menu" Тогда
+		
+		КлассCatalogs = "active";
+		
+	КонецЕсли;
 	
 	Возврат "<nav class=""nav"">"
 		+ "<a class=""" + КлассHome + """ href=""app:home""><span class=""ico"">" + SVGИконкаДом("currentColor")
-		+ "</span>Главный экран</a>"
+		+ "</span>Главная</a>"
+		+ "<a class=""" + КлассOps + """ href=""app:operations""><span class=""ico"">" + SVGИконкаПеревод("currentColor", 18)
+		+ "</span>Операции</a>"
 		+ "<a class=""" + КлассReports + """ href=""app:reports""><span class=""ico"">" + SVGИконкаДиаграмма("currentColor")
 		+ "</span>Отчёты</a>"
-		+ "<a class=""" + КлассMenu + """ href=""app:menu""><span class=""ico"">" + SVGИконкаМеню("currentColor")
-		+ "</span>Меню</a>"
+		+ "<a class=""" + КлассCatalogs + """ href=""app:catalogs""><span class=""ico"">" + SVGИконкаПапка("currentColor")
+		+ "</span>Справочники</a>"
+		+ "<a class=""" + КлассSettings + """ href=""app:settings""><span class=""ico"">" + SVGИконкаНастройки("currentColor")
+		+ "</span>Настройки</a>"
 		+ "</nav>";
 	
 КонецФункции
 
-// HTML-страница меню: справочники, документы, константы.
+// Общие стили страниц Wallet (фон, ссылки, нижняя навигация).
+//
+&НаСервере
+Функция СтилиWalletБазовые()
+	
+	Возврат "*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}"
+		+ "body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:14px 16px 88px;line-height:1.3}"
+		+ "a{text-decoration:none;color:inherit;display:block}"
+		+ ".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}"
+		+ ".nav a{flex:1;text-align:center;padding:4px 1px;color:#6B7280;font-size:9px;font-weight:600;line-height:1.15}"
+		+ ".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}"
+		+ ".nav .ico svg{display:block;width:18px;height:18px}"
+		+ ".nav a.active{color:#2563EB}";
+	
+КонецФункции
+
+// HTML-страница справочников по макету Wallet.
 //
 &НаСервере
 Функция СобратьHTMLСтраницыМеню()
 	
+	Возврат СобратьHTMLСтраницыСправочников();
+	
+КонецФункции
+
+// HTML-страница «Справочники».
+//
+&НаСервере
+Функция СобратьHTMLСтраницыСправочников()
+	
 	Строки = Новый Массив;
-	Строки.Добавить("<!DOCTYPE html>");
-	Строки.Добавить("<html lang=""ru"">");
-	Строки.Добавить("<head>");
-	Строки.Добавить("<meta charset=""utf-8"">");
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
-	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:12px 14px 72px;line-height:1.3}");
-	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
-	Строки.Добавить(".header{margin-bottom:12px}");
-	Строки.Добавить(".header .title{font-size:22px;font-weight:700;letter-spacing:-0.03em}");
-	Строки.Добавить(".section{font-size:12px;font-weight:700;color:#8b95a5;text-transform:uppercase;letter-spacing:0.04em;margin:14px 0 6px}");
-	Строки.Добавить(".section:first-of-type{margin-top:0}");
-	Строки.Добавить(".card{background:#fff;border-radius:12px;padding:4px 12px;border:1px solid #eceff3;margin-bottom:4px}");
-	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid #eef1f4;gap:8px}");
-	Строки.Добавить(".row:first-child{border-top:none}");
-	Строки.Добавить(".row .name{font-size:15px;color:#1c2430;font-weight:600}");
-	Строки.Добавить(".row .chev{color:#c0c7d1;font-size:18px;font-weight:400}");
-	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
-	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}");
-	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
-	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".nav a.active{color:#1c2430}");
-	Строки.Добавить("</style>");
-	Строки.Добавить("</head>");
-	Строки.Добавить("<body>");
-	Строки.Добавить("<div class=""header""><div class=""title"">Меню</div></div>");
-	Строки.Добавить("<div class=""section"">Справочники</div>");
-	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить(HTMLСтрокаМеню("Счета", "open:accounts"));
-	Строки.Добавить(HTMLСтрокаМеню("Контакты", "open:contacts"));
-	Строки.Добавить(HTMLСтрокаМеню("Категории доходов", "open:categories-income"));
-	Строки.Добавить(HTMLСтрокаМеню("Категории расходов", "open:categories-expense"));
-	Строки.Добавить(HTMLСтрокаМеню("Валюта", "open:currency"));
-	Строки.Добавить("</div>");
-	Строки.Добавить("<div class=""section"">Документы</div>");
-	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить(HTMLСтрокаМеню("Доходы", "open:doc-income"));
-	Строки.Добавить(HTMLСтрокаМеню("Расходы", "open:doc-expense"));
-	Строки.Добавить(HTMLСтрокаМеню("Переводы", "open:doc-transfer"));
-	Строки.Добавить(HTMLСтрокаМеню("Долги", "open:doc-debt"));
-	Строки.Добавить("</div>");
-	Строки.Добавить("<div class=""section"">Настройки</div>");
-	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить(HTMLСтрокаМеню("Константы", "open:constants"));
-	Строки.Добавить("</div>");
-	Строки.Добавить(HTMLНижняяНавигация("menu"));
-	Строки.Добавить("</body>");
-	Строки.Добавить("</html>");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить(".top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}");
+	Строки.Добавить(".top h1{font-size:24px;font-weight:700}");
+	Строки.Добавить(".plus{width:36px;height:36px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;color:#6B7280}");
+	Строки.Добавить(".item{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:14px;margin-bottom:10px}");
+	Строки.Добавить(".item .badge{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}");
+	Строки.Добавить(".item .mid{flex:1;min-width:0}");
+	Строки.Добавить(".item .name{font-size:16px;font-weight:700}");
+	Строки.Добавить(".item .chev{color:#C0C7D1;font-size:20px}");
+	Строки.Добавить(".fab{position:fixed;right:16px;bottom:72px;width:56px;height:56px;border-radius:50%;background:#2563EB;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(37,99,235,0.35);z-index:11}");
+	Строки.Добавить("</style></head><body>");
+	Строки.Добавить("<div class=""top""><h1>Справочники</h1><a class=""plus"" href=""app:fab"">" + SVGИконкаПлюс("#6B7280", 18) + "</a></div>");
+	Строки.Добавить(HTMLКарточкаСправочника("Счета", "open:accounts", "#EFF6FF", "#2563EB", SVGИконкаКарта("#2563EB", 20)));
+	Строки.Добавить(HTMLКарточкаСправочника("Категории доходов", "open:categories-income", "#F0FDFA", "#14B8A6", SVGИконкаСтрелкаВниз("#14B8A6", 18)));
+	Строки.Добавить(HTMLКарточкаСправочника("Категории расходов", "open:categories-expense", "#FEF2F2", "#DC2626", SVGИконкаСтрелкаВверх("#DC2626", 18)));
+	Строки.Добавить(HTMLКарточкаСправочника("Контакты", "open:contacts", "#F5F3FF", "#7C3AED", SVGИконкаДолги("#7C3AED", 18)));
+	Строки.Добавить(HTMLКарточкаСправочника("Валюты", "open:currency", "#ECFDF5", "#16A34A", SVGИконкаБанк("#16A34A", 18)));
+	Строки.Добавить("<a class=""fab"" href=""app:fab"">" + SVGИконкаПлюс("#fff", 28) + "</a>");
+	Строки.Добавить(HTMLНижняяНавигация("catalogs"));
+	Строки.Добавить("</body></html>");
 	
 	Возврат СтрСоединить(Строки, Символы.ПС);
 	
 КонецФункции
 
-// HTML-страница списка отчётов (этап 6).
+// Карточка пункта меню справочников: иконка, название, стрелка.
+//
+&НаСервере
+Функция HTMLКарточкаСправочника(Заголовок, Команда, ФонБейджа, ЦветИконки, SVG)
+	
+	Возврат "<a class=""item"" href=""app:" + Команда + """>"
+		+ "<span class=""badge"" style=""background:" + ФонБейджа + ";color:" + ЦветИконки + """>" + SVG + "</span>"
+		+ "<span class=""mid""><span class=""name"">" + ЭкранироватьHTML(Заголовок) + "</span></span>"
+		+ "<span class=""chev"">›</span></a>";
+	
+КонецФункции
+
+// HTML-страница списка отчётов по макету Wallet.
 //
 &НаСервере
 Функция СобратьHTMLСтраницыОтчетов()
 	
 	Строки = Новый Массив;
-	Строки.Добавить("<!DOCTYPE html>");
-	Строки.Добавить("<html lang=""ru"">");
-	Строки.Добавить("<head>");
-	Строки.Добавить("<meta charset=""utf-8"">");
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
+	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
+	Строки.Добавить("<style>");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить("h1{font-size:24px;font-weight:700;margin-bottom:10px}");
+	Строки.Добавить(".period{display:inline-flex;margin-bottom:14px;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:16px;margin-bottom:10px}");
+	Строки.Добавить(".item .name{font-size:16px;font-weight:700}");
+	Строки.Добавить(".item .ico{width:40px;height:40px;border-radius:12px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;flex-shrink:0}");
+	Строки.Добавить("</style></head><body>");
+	Строки.Добавить("<h1>Отчёты</h1>");
+	Строки.Добавить("<div class=""period"">Период " + ЭкранироватьHTML(ПредставлениеПериодаМесяцаHTML()) + "</div>");
+	Строки.Добавить("<a class=""item"" href=""app:report:accounts""><span class=""name"">Доходы и расходы</span><span class=""ico"">" + SVGИконкаДиаграммаСтолбцы("#2563EB") + "</span></a>");
+	Строки.Добавить("<a class=""item"" href=""app:report:rashod""><span class=""name"">Структура расходов</span><span class=""ico"">" + SVGИконкаДиаграмма("#DC2626") + "</span></a>");
+	Строки.Добавить("<a class=""item"" href=""app:report:dohod""><span class=""name"">Структура доходов</span><span class=""ico"">" + SVGИконкаДиаграмма("#16A34A") + "</span></a>");
+	Строки.Добавить("<a class=""item"" href=""app:operations""><span class=""name"">Операции</span><span class=""ico"">" + SVGИконкаСписок("#2563EB") + "</span></a>");
+	Строки.Добавить(HTMLНижняяНавигация("reports"));
+	Строки.Добавить("</body></html>");
+	
+	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+// HTML-страница списка операций: шапка и период закреплены, листается только список.
+//
+&НаСервере
+Функция СобратьHTMLСтраницыОпераций()
+	
+	Строки = Новый Массив;
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
 	Строки.Добавить("*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}");
-	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#fff;color:#1c2430;padding:12px 14px 72px;line-height:1.3}");
+	Строки.Добавить("html,body{height:100%;overflow:hidden}");
+	Строки.Добавить("body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;display:flex;flex-direction:column;line-height:1.3}");
 	Строки.Добавить("a{text-decoration:none;color:inherit;display:block}");
-	Строки.Добавить(".header{margin-bottom:12px}");
-	Строки.Добавить(".header .title{font-size:22px;font-weight:700;letter-spacing:-0.03em}");
-	Строки.Добавить(".header .sub{margin-top:2px;font-size:12px;color:#8b95a5}");
-	Строки.Добавить(".card{background:#fff;border-radius:12px;padding:4px 12px;border:1px solid #eceff3}");
-	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #eef1f4;gap:8px}");
-	Строки.Добавить(".row:first-child{border-top:none}");
-	Строки.Добавить(".row .left{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}");
-	Строки.Добавить(".row .name{font-size:15px;color:#1c2430;font-weight:600}");
-	Строки.Добавить(".row .hint{font-size:12px;color:#8b95a5}");
-	Строки.Добавить(".row .chev{color:#c0c7d1;font-size:18px;font-weight:400;flex-shrink:0}");
-	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6ebf0;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
-	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 2px;color:#8b95a5;font-size:9px;font-weight:600;line-height:1.15}");
+	Строки.Добавить(".page-top{flex-shrink:0;padding:14px 16px 10px;background:#FAFAFA;border-bottom:1px solid #E5E7EB;z-index:5}");
+	Строки.Добавить(".page-top h1{font-size:24px;font-weight:700}");
+	Строки.Добавить(".page-top .period{display:inline-flex;margin-top:8px;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
+	Строки.Добавить(".ops-wrap{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 16px 88px}");
+	Строки.Добавить(".ops{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:4px 12px}");
+	Строки.Добавить(".op{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid #E5E7EB}");
+	Строки.Добавить(".op:first-child{border-top:none}");
+	Строки.Добавить(".op .badge{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}");
+	Строки.Добавить(".op .badge.income{background:#ECFDF5;color:#16A34A}");
+	Строки.Добавить(".op .badge.expense{background:#FEF2F2;color:#DC2626}");
+	Строки.Добавить(".op .badge.transfer{background:#EFF6FF;color:#2563EB}");
+	Строки.Добавить(".op .mid{flex:1;min-width:0}");
+	Строки.Добавить(".op .title{display:block;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}");
+	Строки.Добавить(".op .right{text-align:right;flex-shrink:0}");
+	Строки.Добавить(".op .sum{display:block;font-size:15px;font-weight:700;white-space:nowrap}");
+	Строки.Добавить(".op .sum.income{color:#16A34A}");
+	Строки.Добавить(".op .sum.expense{color:#DC2626}");
+	Строки.Добавить(".op .sum.transfer{color:#2563EB}");
+	Строки.Добавить(".op .date{display:block;margin-top:1px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".empty{padding:24px 0;font-size:14px;color:#6B7280;text-align:center}");
+	Строки.Добавить(".fab{position:fixed;right:16px;bottom:72px;width:56px;height:56px;border-radius:50%;background:#2563EB;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(37,99,235,0.35);z-index:11}");
+	Строки.Добавить(".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}");
+	Строки.Добавить(".nav a{flex:1;text-align:center;padding:4px 1px;color:#6B7280;font-size:9px;font-weight:600;line-height:1.15}");
 	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
 	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
-	Строки.Добавить(".nav a.active{color:#1c2430}");
-	Строки.Добавить("</style>");
-	Строки.Добавить("</head>");
-	Строки.Добавить("<body>");
-	Строки.Добавить("<div class=""header"">");
-	Строки.Добавить("<div class=""title"">Отчёты</div>");
-	Строки.Добавить("<div class=""sub"">Аналитика за период</div>");
-	Строки.Добавить("</div>");
+	Строки.Добавить(".nav a.active{color:#2563EB}");
+	Строки.Добавить("</style></head><body>");
+	Строки.Добавить("<div class=""page-top""><h1>Операции</h1><div class=""period"">"
+		+ ЭкранироватьHTML(ПредставлениеПериодаМесяцаHTML()) + "</div></div>");
+	Строки.Добавить("<div class=""ops-wrap""><div class=""ops"">" + СформироватьHTMLПоследнихОпераций(50) + "</div></div>");
+	Строки.Добавить("<a class=""fab"" href=""app:fab"">" + SVGИконкаПлюс("#fff", 28) + "</a>");
+	Строки.Добавить(HTMLНижняяНавигация("operations"));
+	Строки.Добавить("</body></html>");
+	
+	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+// HTML-страница настроек.
+//
+&НаСервере
+Функция СобратьHTMLСтраницыНастроек()
+	
+	Строки = Новый Массив;
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
+	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
+	Строки.Добавить("<style>");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить("h1{font-size:24px;font-weight:700;margin-bottom:14px}");
+	Строки.Добавить(".card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:4px 12px}");
+	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #E5E7EB}");
+	Строки.Добавить(".row:first-child{border-top:none}");
+	Строки.Добавить(".row .name{font-size:15px;font-weight:600}");
+	Строки.Добавить(".row .chev{color:#C0C7D1;font-size:18px}");
+	Строки.Добавить("</style></head><body>");
+	Строки.Добавить("<h1>Настройки</h1>");
 	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить(HTMLСтрокаОтчета("Отчёт по расходам", "По категориям за период", "report:rashod"));
-	Строки.Добавить(HTMLСтрокаОтчета("Отчёт по доходам", "По категориям за период", "report:dohod"));
-	Строки.Добавить(HTMLСтрокаОтчета("Отчёт по взаиморасчётам", "Доходы, расходы и остаток", "report:accounts"));
+	Строки.Добавить(HTMLСтрокаМеню("Константы", "open:constants"));
+	Строки.Добавить(HTMLСтрокаМеню("Документы доходов", "open:doc-income"));
+	Строки.Добавить(HTMLСтрокаМеню("Документы расходов", "open:doc-expense"));
+	Строки.Добавить(HTMLСтрокаМеню("Документы переводов", "open:doc-transfer"));
+	Строки.Добавить(HTMLСтрокаМеню("Документы долгов", "open:doc-debt"));
 	Строки.Добавить("</div>");
-	Строки.Добавить(HTMLНижняяНавигация("reports"));
-	Строки.Добавить("</body>");
-	Строки.Добавить("</html>");
+	Строки.Добавить(HTMLНижняяНавигация("settings"));
+	Строки.Добавить("</body></html>");
+	
+	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+// Выбор типа операции для FAB (+).
+//
+&НаСервере
+Функция СобратьHTMLВыбораОперации()
+	
+	Строки = Новый Массив;
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
+	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
+	Строки.Добавить("<style>");
+	Строки.Добавить(СтилиWalletБазовые());
+	Строки.Добавить(".back{display:inline-block;margin-bottom:12px;font-size:14px;font-weight:600;color:#2563EB}");
+	Строки.Добавить("h1{font-size:24px;font-weight:700;margin-bottom:14px}");
+	Строки.Добавить(".grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}");
+	Строки.Добавить(".action{border-radius:14px;padding:18px 10px;text-align:center;border:1px solid transparent}");
+	Строки.Добавить(".action .icon{height:28px;margin-bottom:8px;display:flex;align-items:center;justify-content:center}");
+	Строки.Добавить(".action .label{font-size:15px;font-weight:700}");
+	Строки.Добавить(".action.rashod{background:#FEF2F2;border-color:#FECACA}.action.rashod .label{color:#DC2626}");
+	Строки.Добавить(".action.dohod{background:#F0FDF4;border-color:#BBF7D0}.action.dohod .label{color:#16A34A}");
+	Строки.Добавить(".action.perevod{background:#EFF6FF;border-color:#BFDBFE}.action.perevod .label{color:#2563EB}");
+	Строки.Добавить(".action.dolgi{background:#F0FDFA;border-color:#99F6E4}.action.dolgi .label{color:#14B8A6}");
+	Строки.Добавить("</style></head><body>");
+	Строки.Добавить("<a class=""back"" href=""app:home"">← Назад</a>");
+	Строки.Добавить("<h1>Новая операция</h1>");
+	Строки.Добавить("<div class=""grid"">");
+	Строки.Добавить("<a class=""action rashod"" href=""app:rashod""><div class=""icon"">" + SVGИконкаКарта("#DC2626", 26) + "</div><div class=""label"">Расход</div></a>");
+	Строки.Добавить("<a class=""action dohod"" href=""app:dohod""><div class=""icon"">" + SVGИконкаКошелекДенег("#16A34A", 26) + "</div><div class=""label"">Доход</div></a>");
+	Строки.Добавить("<a class=""action perevod"" href=""app:perevod""><div class=""icon"">" + SVGИконкаПеревод("#2563EB", 26) + "</div><div class=""label"">Перевод</div></a>");
+	Строки.Добавить("<a class=""action dolgi"" href=""app:dolgi""><div class=""icon"">" + SVGИконкаДолги("#14B8A6", 26) + "</div><div class=""label"">Долги</div></a>");
+	Строки.Добавить("</div>");
+	Строки.Добавить(HTMLНижняяНавигация("home"));
+	Строки.Добавить("</body></html>");
 	
 	Возврат СтрСоединить(Строки, Символы.ПС);
 	
@@ -602,6 +703,272 @@
 	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""22"" height=""22"" viewBox=""0 0 24 24"" fill=""none"" stroke="""
 		+ Цвет + """ stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round"">"
 		+ "<path d=""M4 7h16""/><path d=""M4 12h16""/><path d=""M4 17h16""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаНастройки(Цвет)
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""22"" height=""22"" viewBox=""0 0 24 24"" fill=""none"" stroke="""
+		+ Цвет + """ stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<circle cx=""12"" cy=""12"" r=""3""/>"
+		+ "<path d=""M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаКалендарь(Цвет, Размер = 18)
+	
+	РазмерСтрока = Формат(Размер, "ЧГ=");
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""" + РазмерСтрока + """ height=""" + РазмерСтрока
+		+ """ viewBox=""0 0 24 24"" fill=""none"" stroke=""" + Цвет
+		+ """ stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<rect x=""3"" y=""5"" width=""18"" height=""16"" rx=""2""/><path d=""M16 3v4""/><path d=""M8 3v4""/><path d=""M3 11h18""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаПлюс(Цвет, Размер = 24)
+	
+	РазмерСтрока = Формат(Размер, "ЧГ=");
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""" + РазмерСтрока + """ height=""" + РазмерСтрока
+		+ """ viewBox=""0 0 24 24"" fill=""none"" stroke=""" + Цвет
+		+ """ stroke-width=""2.2"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<path d=""M12 5v14""/><path d=""M5 12h14""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаСтрелкаВниз(Цвет, Размер = 16)
+	
+	РазмерСтрока = Формат(Размер, "ЧГ=");
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""" + РазмерСтрока + """ height=""" + РазмерСтрока
+		+ """ viewBox=""0 0 24 24"" fill=""none"" stroke=""" + Цвет
+		+ """ stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<path d=""M12 5v14""/><path d=""M19 12l-7 7-7-7""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаСтрелкаВверх(Цвет, Размер = 16)
+	
+	РазмерСтрока = Формат(Размер, "ЧГ=");
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""" + РазмерСтрока + """ height=""" + РазмерСтрока
+		+ """ viewBox=""0 0 24 24"" fill=""none"" stroke=""" + Цвет
+		+ """ stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<path d=""M12 19V5""/><path d=""M5 12l7-7 7 7""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаДиаграммаСтолбцы(Цвет)
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""22"" height=""22"" viewBox=""0 0 24 24"" fill=""none"" stroke="""
+		+ Цвет + """ stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<path d=""M4 20V10""/><path d=""M10 20V4""/><path d=""M16 20v-7""/><path d=""M22 20V8""/></svg>";
+	
+КонецФункции
+
+&НаСервере
+Функция SVGИконкаСписок(Цвет)
+	
+	Возврат "<svg xmlns=""http://www.w3.org/2000/svg"" width=""22"" height=""22"" viewBox=""0 0 24 24"" fill=""none"" stroke="""
+		+ Цвет + """ stroke-width=""1.8"" stroke-linecap=""round"" stroke-linejoin=""round"">"
+		+ "<path d=""M8 6h13""/><path d=""M8 12h13""/><path d=""M8 18h13""/>"
+		+ "<path d=""M3 6h.01""/><path d=""M3 12h.01""/><path d=""M3 18h.01""/></svg>";
+	
+КонецФункции
+
+// Подпись периода текущего месяца для чипа на главной и в отчётах.
+//
+&НаСервере
+Функция ПредставлениеПериодаМесяцаHTML()
+	
+	ТекущаяДатаСеанса = ТекущаяДата();
+	Начало = НачалоМесяца(ТекущаяДатаСеанса);
+	
+	Возврат Формат(Начало, "ДФ=d") + "–" + Формат(ТекущаяДатаСеанса, "ДФ='d MMMM yyyy'");
+	
+КонецФункции
+
+// Текст «N операций» для карточек доходов/расходов.
+//
+&НаСервере
+Функция ПредставлениеКоличестваОпераций(Количество)
+	
+	Остаток10 = Количество % 10;
+	Остаток100 = Количество % 100;
+	
+	Если Остаток10 = 1 И Остаток100 <> 11 Тогда
+		
+		Слово = "операция";
+		
+	ИначеЕсли Остаток10 >= 2 И Остаток10 <= 4 И (Остаток100 < 10 Или Остаток100 >= 20) Тогда
+		
+		Слово = "операции";
+		
+	Иначе
+		
+		Слово = "операций";
+		
+	КонецЕсли;
+	
+	Возврат Формат(Количество, "ЧН=0; ЧГ=") + " " + Слово;
+	
+КонецФункции
+
+// Количество проведённых документов доходов и расходов за текущий месяц.
+//
+&НаСервере
+Функция ПолучитьСчётчикиОперацийЗаМесяц()
+	
+	Результат = Новый Структура("Доходы, Расходы", 0, 0);
+	ТекущаяДатаСеанса = ТекущаяДата();
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	КОЛИЧЕСТВО(Доходы.Ссылка) КАК Количество
+	|ИЗ
+	|	Документ.Доходы КАК Доходы
+	|ГДЕ
+	|	Доходы.Проведен
+	|	И Доходы.Дата МЕЖДУ &НачалоМесяца И &КонецМесяца
+	|;
+	|
+	|////////////////////////////////////////////////////////////////////////////////
+	|ВЫБРАТЬ
+	|	КОЛИЧЕСТВО(Расход.Ссылка) КАК Количество
+	|ИЗ
+	|	Документ.Расход КАК Расход
+	|ГДЕ
+	|	Расход.Проведен
+	|	И Расход.Дата МЕЖДУ &НачалоМесяца И &КонецМесяца";
+	Запрос.УстановитьПараметр("НачалоМесяца", НачалоМесяца(ТекущаяДатаСеанса));
+	Запрос.УстановитьПараметр("КонецМесяца", КонецМесяца(ТекущаяДатаСеанса));
+	
+	Пакет = Запрос.ВыполнитьПакет();
+	ВыборкаДоходы = Пакет[0].Выбрать();
+	
+	Если ВыборкаДоходы.Следующий() Тогда
+		
+		Результат.Доходы = ЧислоИзВыборки(ВыборкаДоходы.Количество);
+		
+	КонецЕсли;
+	
+	ВыборкаРасходы = Пакет[1].Выбрать();
+	
+	Если ВыборкаРасходы.Следующий() Тогда
+		
+		Результат.Расходы = ЧислоИзВыборки(ВыборкаРасходы.Количество);
+		
+	КонецЕсли;
+	
+	Возврат Результат;
+	
+КонецФункции
+
+// HTML-лента последних операций (доходы, расходы, переводы).
+//
+&НаСервере
+Функция СформироватьHTMLПоследнихОпераций(ЛимитСтрок = 10)
+	
+	Таблица = ПолучитьТаблицуПоследнихОпераций(ЛимитСтрок);
+	
+	Если Таблица.Количество() = 0 Тогда
+		
+		Возврат "<div class=""empty"">Пока нет операций</div>";
+		
+	КонецЕсли;
+	
+	Части = Новый Массив;
+	
+	Для Каждого СтрокаТаблицы Из Таблица Цикл
+		
+		ВидКласс = СтрокаТаблицы.ВидКласс;
+		ЗнакСуммы = ?(ВидКласс = "expense", "−", ?(ВидКласс = "income", "+", ""));
+		СуммаТекст = ЗнакСуммы + ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(СтрокаТаблицы.Сумма, Ложь);
+		ДатаТекст = Формат(СтрокаТаблицы.Дата, "ДФ='d MMM'");
+		Иконка = ?(ВидКласс = "income", SVGИконкаСтрелкаВниз("#16A34A", 16),
+			?(ВидКласс = "expense", SVGИконкаКошелекДенег("#DC2626", 16), SVGИконкаПеревод("#2563EB", 16)));
+		
+		Части.Добавить(
+			"<div class=""op"">"
+			+ "<span class=""badge " + ВидКласс + """>" + Иконка + "</span>"
+			+ "<span class=""mid""><span class=""title"">" + ЭкранироватьHTML(СтрокаТаблицы.Название) + "</span></span>"
+			+ "<span class=""right""><span class=""sum " + ВидКласс + """>" + СуммаТекст
+			+ "</span><span class=""date"">" + ЭкранироватьHTML(ДатаТекст) + "</span></span>"
+			+ "</div>");
+		
+	КонецЦикла;
+	
+	Возврат СтрСоединить(Части, "");
+	
+КонецФункции
+
+// Выборка последних проведённых документов для ленты операций.
+//
+&НаСервере
+Функция ПолучитьТаблицуПоследнихОпераций(ЛимитСтрок)
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	Вложенный.Дата КАК Дата,
+	|	Вложенный.Название КАК Название,
+	|	Вложенный.Сумма КАК Сумма,
+	|	Вложенный.ВидКласс КАК ВидКласс
+	|ИЗ
+	|	(ВЫБРАТЬ
+	|		Доходы.Дата КАК Дата,
+	|		ЕСТЬNULL(Доходы.КатегорияДоходов.Наименование, ""Доход"") КАК Название,
+	|		Доходы.Сумма КАК Сумма,
+	|		""income"" КАК ВидКласс
+	|	ИЗ
+	|		Документ.Доходы КАК Доходы
+	|	ГДЕ
+	|		Доходы.Проведен
+	|	
+	|	ОБЪЕДИНИТЬ ВСЕ
+	|	
+	|	ВЫБРАТЬ
+	|		Расход.Дата,
+	|		ЕСТЬNULL(Расход.КатегорияРасхода.Наименование, ""Расход""),
+	|		Расход.Сумма,
+	|		""expense""
+	|	ИЗ
+	|		Документ.Расход КАК Расход
+	|	ГДЕ
+	|		Расход.Проведен
+	|	
+	|	ОБЪЕДИНИТЬ ВСЕ
+	|	
+	|	ВЫБРАТЬ
+	|		Переводы.Дата,
+	|		""Перевод между счетами"",
+	|		Переводы.Сумма,
+	|		""transfer""
+	|	ИЗ
+	|		Документ.Переводы КАК Переводы
+	|	ГДЕ
+	|		Переводы.Проведен) КАК Вложенный
+	|
+	|УПОРЯДОЧИТЬ ПО
+	|	Дата УБЫВ";
+	
+	Таблица = Запрос.Выполнить().Выгрузить();
+	
+	Пока Таблица.Количество() > ЛимитСтрок Цикл
+		
+		Таблица.Удалить(Таблица.Количество() - 1);
+		
+	КонецЦикла;
+	
+	Возврат Таблица;
 	
 КонецФункции
 
@@ -815,7 +1182,7 @@
 &НаСервере
 Функция ИконкаВидаСчетаHTML(ВидСчета)
 	
-	Цвет = "#5b6573";
+	Цвет = "#6B7280";
 	
 	Если ВидСчета = Перечисления.ВидСчета.Кошелек Тогда
 		
@@ -957,9 +1324,21 @@
 		
 		ПоказатьСтраницуОтчетов();
 		
-	ИначеЕсли КомандаПриложения = "menu" Тогда
+	ИначеЕсли КомандаПриложения = "menu" Или КомандаПриложения = "catalogs" Тогда
 		
 		ПоказатьСтраницуМеню();
+		
+	ИначеЕсли КомандаПриложения = "operations" Тогда
+		
+		ПоказатьСтраницуОпераций();
+		
+	ИначеЕсли КомандаПриложения = "settings" Тогда
+		
+		ПоказатьСтраницуНастроек();
+		
+	ИначеЕсли КомандаПриложения = "fab" Тогда
+		
+		ПоказатьВыборОперации();
 		
 	ИначеЕсли КомандаПриложения = "accounts" Или КомандаПриложения = "accounts-all" Тогда
 		
@@ -1006,9 +1385,37 @@
 		
 		ПоказатьСтраницуОтчетов();
 		
-	ИначеЕсли КомандаПриложения = "menu" Тогда
+	ИначеЕсли КомандаПриложения = "menu" Или КомандаПриложения = "catalogs" Тогда
 		
 		ПоказатьСтраницуМеню();
+		
+	ИначеЕсли КомандаПриложения = "operations" Тогда
+		
+		ПоказатьСтраницуОпераций();
+		
+	ИначеЕсли КомандаПриложения = "settings" Тогда
+		
+		ПоказатьСтраницуНастроек();
+		
+	ИначеЕсли КомандаПриложения = "fab" Тогда
+		
+		ПоказатьВыборОперации();
+		
+	ИначеЕсли КомандаПриложения = "rashod" Тогда
+		
+		ОткрытьФормуБыстрогоВвода("Расход");
+		
+	ИначеЕсли КомандаПриложения = "dohod" Тогда
+		
+		ОткрытьФормуБыстрогоВвода("Приход");
+		
+	ИначеЕсли КомандаПриложения = "perevod" Тогда
+		
+		ОткрытьФормуПеревода();
+		
+	ИначеЕсли КомандаПриложения = "dolgi" Тогда
+		
+		ОткрытьФормуДолга();
 		
 	ИначеЕсли СтрНачинаетсяС(КомандаПриложения, "report:") Тогда
 		
@@ -1026,7 +1433,8 @@
 			
 			ОбновитьРасшифровкуПослеСменыПериодаНаСервере();
 			
-		ИначеЕсли РежимАналитики <> "Счета" И РежимАналитики <> "Меню" И РежимАналитики <> "Отчеты" Тогда
+		ИначеЕсли РежимАналитики <> "Счета" И РежимАналитики <> "Меню" И РежимАналитики <> "Отчеты"
+			И РежимАналитики <> "Операции" И РежимАналитики <> "Настройки" И РежимАналитики <> "FAB" Тогда
 			
 			СформироватьСводныйОтчетНаСервере();
 			
@@ -1082,7 +1490,7 @@
 Процедура СформироватьСтраницуМенюНаСервере()
 	
 	РежимАналитики = "Меню";
-	ТекстHTMLАналитики = СобратьHTMLСтраницыМеню();
+	ТекстHTMLАналитики = СобратьHTMLСтраницыСправочников();
 	
 КонецПроцедуры
 
@@ -1099,6 +1507,54 @@
 	
 	РежимАналитики = "Отчеты";
 	ТекстHTMLАналитики = СобратьHTMLСтраницыОтчетов();
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ПоказатьСтраницуОпераций()
+	
+	СформироватьСтраницуОперацийНаСервере();
+	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.ГруппаСтраницаАналитика;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура СформироватьСтраницуОперацийНаСервере()
+	
+	РежимАналитики = "Операции";
+	ТекстHTMLАналитики = СобратьHTMLСтраницыОпераций();
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ПоказатьСтраницуНастроек()
+	
+	СформироватьСтраницуНастроекНаСервере();
+	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.ГруппаСтраницаАналитика;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура СформироватьСтраницуНастроекНаСервере()
+	
+	РежимАналитики = "Настройки";
+	ТекстHTMLАналитики = СобратьHTMLСтраницыНастроек();
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ПоказатьВыборОперации()
+	
+	СформироватьВыборОперацииНаСервере();
+	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.ГруппаСтраницаАналитика;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура СформироватьВыборОперацииНаСервере()
+	
+	РежимАналитики = "FAB";
+	ТекстHTMLАналитики = СобратьHTMLВыбораОперации();
 	
 КонецПроцедуры
 

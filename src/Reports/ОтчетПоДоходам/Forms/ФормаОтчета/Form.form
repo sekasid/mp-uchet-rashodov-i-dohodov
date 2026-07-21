@@ -296,6 +296,32 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>РежимРасшифровки</name>
+    <id>7</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>КатегорияРасшифровки</name>
+    <id>8</id>
+    <valueType>
+      <types>CatalogRef.КатегорииДоходов</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>
