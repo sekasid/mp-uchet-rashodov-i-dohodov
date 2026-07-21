@@ -112,6 +112,22 @@
   <checkUnique>true</checkUnique>
   <autonumbering>true</autonumbering>
   <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="1a8fe705-5e1b-4ecf-a705-1302e1bed8d5">
+      <name>Зарплата</name>
+      <description>Зарплата</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+    </items>
+    <items id="b75402d0-2d4d-4bb9-b9b3-095a9e7ba280">
+      <name>ПрочийДоход</name>
+      <description>Прочий доход</description>
+      <code xsi:type="core:StringValue">
+        <value>000000002</value>
+      </code>
+    </items>
+  </predefined>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
   <defaultObjectForm>Catalog.КатегорииДоходов.Form.ФормаЭлемента</defaultObjectForm>

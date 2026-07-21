@@ -9,4 +9,6 @@
   <includeInCommandInterface>false</includeInCommandInterface>
   <content>Document.Доходы</content>
   <content>Document.Расход</content>
+  <content>Document.Переводы</content>
+  <content>Document.ПередачаСредствВДолг</content>
 </mdclass:Subsystem>

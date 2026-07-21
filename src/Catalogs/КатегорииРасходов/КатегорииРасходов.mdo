@@ -112,6 +112,29 @@
   <checkUnique>true</checkUnique>
   <autonumbering>true</autonumbering>
   <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="c97ad846-9703-4ca1-8936-85e41021164d">
+      <name>Продукты</name>
+      <description>Продукты</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+    </items>
+    <items id="e7612716-08e0-42e8-a641-92dbc69a181d">
+      <name>Транспорт</name>
+      <description>Транспорт</description>
+      <code xsi:type="core:StringValue">
+        <value>000000002</value>
+      </code>
+    </items>
+    <items id="c8836ce9-a326-43fa-ae53-fe1b68b682fd">
+      <name>КоммунальныеУслуги</name>
+      <description>Коммунальные услуги</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+    </items>
+  </predefined>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
   <defaultObjectForm>Catalog.КатегорииРасходов.Form.ФормаЭлемента</defaultObjectForm>

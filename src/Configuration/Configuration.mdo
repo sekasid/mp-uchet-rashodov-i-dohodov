@@ -80,10 +80,14 @@
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>
   <catalogs>Catalog.Валюта</catalogs>
+  <catalogs>Catalog.Контакты</catalogs>
   <documents>Document.Доходы</documents>
   <documents>Document.Расход</documents>
+  <documents>Document.Переводы</documents>
+  <documents>Document.ПередачаСредствВДолг</documents>
   <enums>Enum.ВидСчета</enums>
   <enums>Enum.ВидОперацииДокумента</enums>
+  <enums>Enum.ВидОперацииДолга</enums>
   <reports>Report.ОтчетПоРасходам</reports>
   <reports>Report.ОтчетПоДоходам</reports>
   <reports>Report.ОтчетПоВзаиморасчетам</reports>
@@ -92,5 +96,6 @@
   <accumulationRegisters>AccumulationRegister.Доходы</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Расходы</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Баланс</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.Долги</accumulationRegisters>
   <informationRegisters>InformationRegister.КурсыВалют</informationRegisters>
 </mdclass:Configuration>

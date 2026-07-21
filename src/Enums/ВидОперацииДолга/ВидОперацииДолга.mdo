@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ff157284-c14b-4284-a6fe-740bf48a30a1">
+  <producedTypes>
+    <refType typeId="b44abd59-dba1-448c-acbf-cf38c01961f8" valueTypeId="e3a049b0-8e61-4d88-8033-d5567b816b0d"/>
+    <listType typeId="45ac4322-8f2d-498c-a967-2a7436f552c6" valueTypeId="b5c22bef-3255-4009-b48a-87d0e92bb1e6"/>
+    <managerType typeId="26c68589-ff0c-42d6-ba6c-589aa47d222a" valueTypeId="9fda5bad-c5b8-4bf7-bcec-ab0131ce9f45"/>
+  </producedTypes>
+  <name>ВидОперацииДолга</name>
+  <synonym>
+    <key>ru</key>
+    <value>Вид операции долга</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="2e4234c7-9384-4b98-8571-71e1045cef86">
+    <name>ДаюВДолг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Я даю в долг</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="fefbe18d-b19a-4b57-ab01-be827453a0c8">
+    <name>БеруВДолг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Я беру в долг</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

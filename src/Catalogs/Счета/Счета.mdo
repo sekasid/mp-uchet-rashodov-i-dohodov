@@ -31,21 +31,21 @@
   <predefined>
     <items id="63936956-23cd-4298-9bf7-e325f657f706">
       <name>БанковскийСчет</name>
-      <description>Банковский счет</description>
+      <description>Банковский счёт</description>
       <code xsi:type="core:StringValue">
         <value>000000003</value>
       </code>
     </items>
     <items id="a0e47697-22a5-47bd-bc95-2bb371d050b1">
       <name>Карта</name>
-      <description>Карта</description>
+      <description>Банковская карта</description>
       <code xsi:type="core:StringValue">
         <value>000000001</value>
       </code>
     </items>
     <items id="7437a7af-0f21-4526-a745-ed9e06ce70e3">
       <name>Кошелек</name>
-      <description>Кошелек</description>
+      <description>Наличные</description>
       <code xsi:type="core:StringValue">
         <value>000000002</value>
       </code>

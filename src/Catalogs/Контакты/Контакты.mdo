@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d40e2737-df45-465b-a2cf-cbb16fae5da5">
+  <producedTypes>
+    <objectType typeId="bdb61824-052a-42e3-805b-78e06e0b8a1a" valueTypeId="afa77a30-a098-428a-8cfc-98b6faf07892"/>
+    <refType typeId="17f467ed-53c6-4877-b13b-bcef5a0a3767" valueTypeId="b8e88fdb-4d0d-4157-b673-cbaaadecd1da"/>
+    <selectionType typeId="6f41da3a-ed6e-4512-9129-a5306791d183" valueTypeId="dce0401f-e891-4bcf-90f4-7b78efcf26ee"/>
+    <listType typeId="a1ff075e-04ec-40fc-9c58-a4cbcd296a30" valueTypeId="a07f7370-8684-422d-877f-59b894a6d95f"/>
+    <managerType typeId="b0d7c1b3-45a9-4b0a-92d6-411724bcd006" valueTypeId="f4c922a2-f50c-4101-beae-7d61a6af90a4"/>
+  </producedTypes>
+  <name>Контакты</name>
+  <synonym>
+    <key>ru</key>
+    <value>Контакты</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.Контакты.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.Контакты.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>100</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.Контакты.Form.ФормаЭлемента</defaultObjectForm>
+  <defaultListForm>Catalog.Контакты.Form.ФормаСписка</defaultListForm>
+  <defaultChoiceForm>Catalog.Контакты.Form.ФормаВыбора</defaultChoiceForm>
+  <attributes uuid="a46ec3fb-533f-4af9-89e2-083930c9ea3a">
+    <name>Телефон</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер телефона</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>30</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="cda3a112-8a3d-4f0e-bccb-b45931b343e8">
+    <name>Почта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Почта / e-mail</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="f43bc123-34ec-40aa-9b0a-55a7d7a54087">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>200</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="695e6e79-ed0a-4555-9aa7-27b1f7a1da35">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="e9b1f0da-7d02-4659-9ebb-b6f923750d41">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="0e3693b8-9fdb-44d1-accf-f953ce2c9536">
+    <name>ФормаВыбора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>
