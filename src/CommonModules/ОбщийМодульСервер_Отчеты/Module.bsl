@@ -280,6 +280,317 @@
 	
 КонецФункции
 
+// Формирует HTML отчёта по текущим долгам (остатки регистра Долги).
+// Фильтр: "all" | "owed" (мне должны) | "owe" (я должен).
+//
+Функция HTMLОтчетаПоДолгам(Фильтр = "all") Экспорт
+	
+	Если Не ЗначениеЗаполнено(Фильтр) Тогда
+		
+		Фильтр = "all";
+		
+	КонецЕсли;
+	
+	ТаблицаДолгов = ТаблицаОстатковДолгов();
+	СуммаМнеДолжны = 0;
+	СуммаЯДолжен = 0;
+	
+	Для Каждого СтрокаДолга Из ТаблицаДолгов Цикл
+		
+		Если СтрокаДолга.Остаток > 0 Тогда
+			
+			СуммаМнеДолжны = СуммаМнеДолжны + СтрокаДолга.Остаток;
+			
+		ИначеЕсли СтрокаДолга.Остаток < 0 Тогда
+			
+			СуммаЯДолжен = СуммаЯДолжен + (-СтрокаДолга.Остаток);
+			
+		КонецЕсли;
+		
+	КонецЦикла;
+	
+	Строки = Новый Массив;
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
+	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
+	Строки.Добавить("<style>" + СтилиОтчетаПоДолгам() + "</style></head><body>");
+	
+	Строки.Добавить("<div class=""top"">");
+	Строки.Добавить("<a class=""icon-btn"" href=""app:back"">" + SVGСтрелкаНазадОтчета() + "</a>");
+	Строки.Добавить("<div class=""title"">Отчет по долгам</div>");
+	Строки.Добавить("<span class=""icon-btn ghost"">" + SVGФильтрОтчета() + "</span></div>");
+	
+	Строки.Добавить("<div class=""chips"">");
+	Строки.Добавить(HTMLЧипФильтраДолгов("all", "Все", Фильтр));
+	Строки.Добавить(HTMLЧипФильтраДолгов("owed", "Мне должны", Фильтр));
+	Строки.Добавить(HTMLЧипФильтраДолгов("owe", "Я должен", Фильтр));
+	Строки.Добавить("</div>");
+	
+	Строки.Добавить("<div class=""summary"">");
+	Строки.Добавить("<div class=""sum-card""><div class=""sum-lbl"">Мне должны</div>"
+		+ "<div class=""sum-val green"">"
+		+ ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(СуммаМнеДолжны, Ложь)
+		+ "</div></div>");
+	Строки.Добавить("<div class=""sum-card""><div class=""sum-lbl"">Я должен</div>"
+		+ "<div class=""sum-val red"">"
+		+ ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(СуммаЯДолжен, Ложь)
+		+ "</div></div></div>");
+	
+	Строки.Добавить("<div class=""sec-title"">Контакты</div>");
+	Строки.Добавить("<div class=""list"">");
+	
+	ЕстьСтроки = Ложь;
+	
+	Для Каждого СтрокаДолга Из ТаблицаДолгов Цикл
+		
+		Если Фильтр = "owed" И СтрокаДолга.Остаток <= 0 Тогда
+			
+			Продолжить;
+			
+		КонецЕсли;
+		
+		Если Фильтр = "owe" И СтрокаДолга.Остаток >= 0 Тогда
+			
+			Продолжить;
+			
+		КонецЕсли;
+		
+		ЕстьСтроки = Истина;
+		МнеДолжны = СтрокаДолга.Остаток > 0;
+		СуммаАбс = ?(МнеДолжны, СтрокаДолга.Остаток, -СтрокаДолга.Остаток);
+		КлассСуммы = ?(МнеДолжны, "green", "red");
+		ТипДолга = ?(МнеДолжны, "Мне должны", "Я должен");
+		Имя = Строка(СтрокаДолга.Контакт);
+		Буква = ВРег(Лев(СокрЛП(Имя), 1));
+		ИдКонтакта = Строка(СтрокаДолга.Контакт.УникальныйИдентификатор());
+		СрокТекст = "";
+		
+		Если ЗначениеЗаполнено(СтрокаДолга.СрокВозврата) Тогда
+			
+			СрокТекст = "срок " + Формат(СтрокаДолга.СрокВозврата, "ДФ=dd.MM.yyyy");
+			
+		КонецЕсли;
+		
+		Строки.Добавить("<a class=""row"" href=""app:contact:" + ИдКонтакта + """>");
+		Строки.Добавить("<div class=""avatar"">" + ЭкранироватьHTML(Буква) + "</div>");
+		Строки.Добавить("<div class=""mid""><div class=""name"">" + ЭкранироватьHTML(Имя) + "</div>"
+			+ "<div class=""kind " + КлассСуммы + """>" + ТипДолга + "</div></div>");
+		Строки.Добавить("<div class=""right""><div class=""amt " + КлассСуммы + """>"
+			+ ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(СуммаАбс, Ложь)
+			+ "</div>");
+		
+		Если ЗначениеЗаполнено(СрокТекст) Тогда
+			
+			Строки.Добавить("<div class=""due"">" + ЭкранироватьHTML(СрокТекст) + "</div>");
+			
+		КонецЕсли;
+		
+		Строки.Добавить("</div></a>");
+		
+	КонецЦикла;
+	
+	Если Не ЕстьСтроки Тогда
+		
+		Строки.Добавить("<div class=""empty"">Нет активных долгов</div>");
+		
+	КонецЕсли;
+	
+	Строки.Добавить("</div>");
+	
+	Строки.Добавить(HTMLНижняяНавигацияОтчета("reports"));
+	Строки.Добавить("</body></html>");
+	
+	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+// HTML-расшифровка долга по контакту: операции выдачи и возврата.
+//
+Функция HTMLРасшифровкиДолгаПоКонтакту(Контакт) Экспорт
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	Долг.Дата КАК Дата,
+	|	Долг.Сумма КАК Сумма,
+	|	Долг.ТипОперации КАК ТипОперации,
+	|	Долг.ВидОперации КАК ВидОперации,
+	|	Долг.Комментарий КАК Комментарий,
+	|	Долг.СрокВозврата КАК СрокВозврата
+	|ИЗ
+	|	Документ.ПередачаСредствВДолг КАК Долг
+	|ГДЕ
+	|	Долг.Проведен
+	|	И Долг.Контакт = &Контакт
+	|
+	|УПОРЯДОЧИТЬ ПО
+	|	Дата УБЫВ";
+	Запрос.УстановитьПараметр("Контакт", Контакт);
+	
+	Выборка = Запрос.Выполнить().Выбрать();
+	ИмяКонтакта = ?(ЗначениеЗаполнено(Контакт), Строка(Контакт), "Контакт");
+	
+	Строки = Новый Массив;
+	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
+	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
+	Строки.Добавить("<style>" + СтилиОтчетаПоДолгам() + "</style></head><body>");
+	
+	Строки.Добавить("<div class=""top"">");
+	Строки.Добавить("<a class=""icon-btn"" href=""app:back"">" + SVGСтрелкаНазадОтчета() + "</a>");
+	Строки.Добавить("<div class=""title"">" + ЭкранироватьHTML(ИмяКонтакта) + "</div>");
+	Строки.Добавить("<span class=""icon-btn ghost""></span></div>");
+	
+	Строки.Добавить("<div class=""list"">");
+	ЕстьОперации = Ложь;
+	
+	Пока Выборка.Следующий() Цикл
+		
+		ЕстьОперации = Истина;
+		ВозвратДенег = (Выборка.ТипОперации = Перечисления.ТипОперацииДолга.ВозвратДенег)
+			Или (Не ЗначениеЗаполнено(Выборка.ТипОперации)
+				И Выборка.ВидОперации = Перечисления.ВидОперацииДолга.БеруВДолг);
+		КлассСуммы = ?(ВозвратДенег, "green", "red");
+		Знак = ?(ВозвратДенег, "+", "−");
+		Название = ?(ВозвратДенег, "Возврат денег", "Выдача денег");
+		
+		Если ЗначениеЗаполнено(Выборка.Комментарий) Тогда
+			
+			Название = Название + " · " + Выборка.Комментарий;
+			
+		КонецЕсли;
+		
+		Строки.Добавить("<div class=""row static"">");
+		Строки.Добавить("<div class=""mid""><div class=""name"">" + ЭкранироватьHTML(Название) + "</div>"
+			+ "<div class=""due"">" + Формат(Выборка.Дата, "ДФ='d MMM yyyy'") + "</div></div>");
+		Строки.Добавить("<div class=""right""><div class=""amt " + КлассСуммы + """>" + Знак
+			+ ОбщийМодульСервер_КурсыВалют.ПредставлениеСуммыВВалютеУчетаДляHTML(Выборка.Сумма, Ложь)
+			+ "</div></div></div>");
+		
+	КонецЦикла;
+	
+	Если Не ЕстьОперации Тогда
+		
+		Строки.Добавить("<div class=""empty"">Нет операций по контакту</div>");
+		
+	КонецЕсли;
+	
+	Строки.Добавить("</div>");
+	Строки.Добавить(HTMLНижняяНавигацияОтчета("reports"));
+	Строки.Добавить("</body></html>");
+	
+	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+Функция ТаблицаОстатковДолгов()
+	
+	Запрос = Новый Запрос;
+	Запрос.Текст =
+	"ВЫБРАТЬ
+	|	Остатки.Контакт КАК Контакт,
+	|	СУММА(Остатки.СуммаОстаток) КАК Остаток
+	|ПОМЕСТИТЬ ВТОстатки
+	|ИЗ
+	|	РегистрНакопления.Долги.Остатки КАК Остатки
+	|
+	|СГРУППИРОВАТЬ ПО
+	|	Остатки.Контакт
+	|;
+	|
+	|////////////////////////////////////////////////////////////////////////////////
+	|ВЫБРАТЬ
+	|	ВТОстатки.Контакт КАК Контакт,
+	|	ВТОстатки.Остаток КАК Остаток,
+	|	ЕСТЬNULL(Сроки.СрокВозврата, ДАТАВРЕМЯ(1, 1, 1)) КАК СрокВозврата
+	|ИЗ
+	|	ВТОстатки КАК ВТОстатки
+	|		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+	|			Долг.Контакт КАК Контакт,
+	|			МАКСИМУМ(Долг.СрокВозврата) КАК СрокВозврата
+	|		ИЗ
+	|			Документ.ПередачаСредствВДолг КАК Долг
+	|		ГДЕ
+	|			Долг.Проведен
+	|			И Долг.СрокВозврата <> ДАТАВРЕМЯ(1, 1, 1)
+	|		
+	|		СГРУППИРОВАТЬ ПО
+	|			Долг.Контакт) КАК Сроки
+	|		ПО ВТОстатки.Контакт = Сроки.Контакт
+	|ГДЕ
+	|	ВТОстатки.Остаток <> 0
+	|
+	|УПОРЯДОЧИТЬ ПО
+	|	Остаток УБЫВ,
+	|	ВТОстатки.Контакт.Наименование";
+	
+	Возврат Запрос.Выполнить().Выгрузить();
+	
+КонецФункции
+
+Функция HTMLЧипФильтраДолгов(КодФильтра, Заголовок, ТекущийФильтр)
+	
+	Класс = ?(КодФильтра = ТекущийФильтр, "chip active", "chip");
+	
+	Возврат "<a class=""" + Класс + """ href=""app:filter:" + КодФильтра + """>" + Заголовок + "</a>";
+	
+КонецФункции
+
+Функция СтилиОтчетаПоДолгам()
+	
+	Возврат "*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}"
+		+ "body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;"
+		+ "color:#111827;padding:12px 16px 88px;line-height:1.3}"
+		+ "a{text-decoration:none;color:inherit}"
+		+ ".top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}"
+		+ ".title{font-size:18px;font-weight:700}"
+		+ ".icon-btn{width:36px;height:36px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;"
+		+ "justify-content:center;color:#6B7280}"
+		+ ".icon-btn.ghost{background:transparent}"
+		+ ".chips{display:flex;margin-bottom:12px}"
+		+ ".chip{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:12px;"
+		+ "background:#fff;border:1px solid #E5E7EB;font-size:13px;font-weight:700;color:#6B7280;margin-right:8px}"
+		+ ".chip.active{background:#2563EB;border-color:#2563EB;color:#fff}"
+		+ ".summary{display:flex;margin-bottom:10px}"
+		+ ".sum-card{flex:1;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px 14px}"
+		+ ".sum-card:first-child{margin-right:8px}"
+		+ ".sum-lbl{font-size:12px;font-weight:600;color:#6B7280;margin-bottom:6px}"
+		+ ".sum-val{font-size:18px;font-weight:700}"
+		+ ".sum-val.green,.amt.green,.kind.green{color:#16A34A}"
+		+ ".sum-val.red,.amt.red,.kind.red{color:#DC2626}"
+		+ ".sec-title{font-size:14px;font-weight:700;color:#6B7280;margin:4px 0 8px 2px}"
+		+ ".list{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:4px 12px;margin-bottom:12px}"
+		+ ".row{display:flex;align-items:center;padding:12px 0;border-top:1px solid #E5E7EB}"
+		+ ".row:first-child{border-top:none}"
+		+ ".row.static{cursor:default}"
+		+ ".avatar{width:40px;height:40px;border-radius:50%;background:#EFF6FF;color:#2563EB;display:flex;"
+		+ "align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0;margin-right:12px}"
+		+ ".mid{flex:1;min-width:0}"
+		+ ".name{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"
+		+ ".kind{margin-top:2px;font-size:12px;font-weight:600}"
+		+ ".right{text-align:right;flex-shrink:0;margin-left:10px}"
+		+ ".amt{font-size:15px;font-weight:700;white-space:nowrap}"
+		+ ".due{margin-top:2px;font-size:12px;color:#6B7280}"
+		+ ".empty{padding:24px 0;text-align:center;font-size:14px;color:#6B7280}"
+		+ ".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;"
+		+ "padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}"
+		+ ".nav a{flex:1;text-align:center;padding:4px 1px;color:#6B7280;font-size:9px;font-weight:600;line-height:1.15}"
+		+ ".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}"
+		+ ".nav .ico svg{display:block;width:18px;height:18px}"
+		+ ".nav a.active{color:#2563EB}";
+	
+КонецФункции
+
+Функция SVGСтрелкаНазадОтчета()
+	
+	Возврат "<svg width=""18"" height=""18"" viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round""><path d=""M15 18l-6-6 6-6""/></svg>";
+	
+КонецФункции
+
+Функция SVGФильтрОтчета()
+	
+	Возврат "<svg width=""18"" height=""18"" viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round""><path d=""M4 6h16""/><path d=""M7 12h10""/><path d=""M10 18h4""/></svg>";
+	
+КонецФункции
+
 // Формирует HTML отчёта по взаиморасчётам (доходы / расходы / остаток).
 // Макет: период, карточка остатка со спарклайном, плитки, структура, сводка, нижняя навигация.
 //

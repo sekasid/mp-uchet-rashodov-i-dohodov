@@ -10,7 +10,7 @@
   <name>ПередачаСредствВДолг</name>
   <synonym>
     <key>ru</key>
-    <value>Передача средств в долг</value>
+    <value>Долги</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Document.ПередачаСредствВДолг.StandardAttribute.Number</inputByString>
@@ -139,6 +139,40 @@
     <fillValue xsi:type="core:StringValue">
       <value></value>
     </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="a4e44b31-5da2-4fa9-a8a7-0cd6f3aa9f63">
+    <name>ТипОперации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип операции</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипОперацииДолга</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="568b680a-d105-4f49-9cbc-515e560d0662">
+    <name>СрокВозврата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Срок возврата</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>

@@ -45,17 +45,17 @@
       <verticalStretch>true</verticalStretch>
     </extInfo>
   </items>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>LockWholeInterface</windowOpeningMode>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>false</autoFill>
   </autoCommandBar>
-  <handlers>
-    <event>OnCreateAtServer</event>
-    <name>ПриСозданииНаСервере</name>
-  </handlers>
-  <windowOpeningMode>LockWholeInterface</windowOpeningMode>
   <commandBarLocation>None</commandBarLocation>
   <autoTitle>false</autoTitle>
   <autoUrl>true</autoUrl>
@@ -66,10 +66,10 @@
   <showTitle>false</showTitle>
   <showCloseButton>true</showCloseButton>
   <attributes>
-    <name>Объект</name>
+    <name>Отчет</name>
     <id>1</id>
     <valueType>
-      <types>DocumentObject.Переводы</types>
+      <types>ReportObject.ОтчетПоДолгам</types>
     </valueType>
     <view>
       <common>true</common>
@@ -77,11 +77,7 @@
     <edit>
       <common>true</common>
     </edit>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Объект.RegisterRecords</segments>
-    </notDefaultUseAlwaysAttributes>
     <main>true</main>
-    <savedData>true</savedData>
   </attributes>
   <attributes>
     <name>ТекстHTML</name>
@@ -102,10 +98,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>РежимВыбораСчета</name>
+    <name>ФильтрДолгов</name>
     <title>
       <key>ru</key>
-      <value>Режим выбора счёта</value>
+      <value>Фильтр</value>
     </title>
     <id>3</id>
     <valueType>
@@ -121,11 +117,35 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>РежимРасшифровки</name>
+    <id>4</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>КонтактРасшифровки</name>
+    <id>5</id>
+    <valueType>
+      <types>CatalogRef.Контакты</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:DocumentFormExtInfo">
-    <repostOnWrite>true</repostOnWrite>
-  </extInfo>
+  <extInfo xsi:type="form:FormExtInfo"/>
 </form:Form>

@@ -76,6 +76,9 @@
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>
   <commonForms>CommonForm.ФормаРасшифровкиКатегорииПоДням</commonForms>
+  <commonForms>CommonForm.ФормаЦифровойКлавиатуры</commonForms>
+  <commonForms>CommonForm.ФормаВыбораСчета</commonForms>
+  <commonForms>CommonForm.ФормаТекстовойКлавиатуры</commonForms>
   <catalogs>Catalog.КатегорииДоходов</catalogs>
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>
@@ -88,9 +91,11 @@
   <enums>Enum.ВидСчета</enums>
   <enums>Enum.ВидОперацииДокумента</enums>
   <enums>Enum.ВидОперацииДолга</enums>
+  <enums>Enum.ТипОперацииДолга</enums>
   <reports>Report.ОтчетПоРасходам</reports>
   <reports>Report.ОтчетПоДоходам</reports>
   <reports>Report.ОтчетПоВзаиморасчетам</reports>
+  <reports>Report.ОтчетПоДолгам</reports>
   <dataProcessors>DataProcessor.ЗапаснойОбменДанными</dataProcessors>
   <dataProcessors>DataProcessor.НачальныйЭкран</dataProcessors>
   <accumulationRegisters>AccumulationRegister.Доходы</accumulationRegisters>

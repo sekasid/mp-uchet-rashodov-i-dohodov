@@ -10,4 +10,5 @@
   <content>Report.ОтчетПоДоходам</content>
   <content>Report.ОтчетПоРасходам</content>
   <content>Report.ОтчетПоВзаиморасчетам</content>
+  <content>Report.ОтчетПоДолгам</content>
 </mdclass:Subsystem>

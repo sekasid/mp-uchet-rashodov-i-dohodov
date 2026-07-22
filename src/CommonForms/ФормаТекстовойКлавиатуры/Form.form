@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Текст</value>
+  </title>
   <items xsi:type="form:FormField">
     <name>ПолеHTML</name>
     <id>1</id>
@@ -66,30 +70,12 @@
   <showTitle>false</showTitle>
   <showCloseButton>true</showCloseButton>
   <attributes>
-    <name>Объект</name>
-    <id>1</id>
-    <valueType>
-      <types>DocumentObject.Переводы</types>
-    </valueType>
-    <view>
-      <common>true</common>
-    </view>
-    <edit>
-      <common>true</common>
-    </edit>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Объект.RegisterRecords</segments>
-    </notDefaultUseAlwaysAttributes>
-    <main>true</main>
-    <savedData>true</savedData>
-  </attributes>
-  <attributes>
     <name>ТекстHTML</name>
     <title>
       <key>ru</key>
       <value>Текст HTML</value>
     </title>
-    <id>2</id>
+    <id>1</id>
     <valueType>
       <types>String</types>
       <stringQualifiers/>
@@ -102,17 +88,95 @@
     </edit>
   </attributes>
   <attributes>
-    <name>РежимВыбораСчета</name>
+    <name>ТекстВвода</name>
     <title>
       <key>ru</key>
-      <value>Режим выбора счёта</value>
+      <value>Текст ввода</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>500</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ЗаголовокКлавиатуры</name>
+    <title>
+      <key>ru</key>
+      <value>Заголовок</value>
     </title>
     <id>3</id>
     <valueType>
       <types>String</types>
       <stringQualifiers>
-        <length>20</length>
+        <length>100</length>
       </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>МаксДлина</name>
+    <title>
+      <key>ru</key>
+      <value>Макс. длина</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <scale>0</scale>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>Раскладка</name>
+    <title>
+      <key>ru</key>
+      <value>Раскладка</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>10</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>РегистрВерхний</name>
+    <title>
+      <key>ru</key>
+      <value>Верхний регистр</value>
+    </title>
+    <id>6</id>
+    <valueType>
+      <types>Boolean</types>
     </valueType>
     <view>
       <common>true</common>
@@ -125,7 +189,5 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:DocumentFormExtInfo">
-    <repostOnWrite>true</repostOnWrite>
-  </extInfo>
+  <extInfo xsi:type="form:FormExtInfo"/>
 </form:Form>

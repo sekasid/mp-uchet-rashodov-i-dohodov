@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d842aa2a-3f5d-4ebb-9ba2-6902998f8879">
+  <producedTypes>
+    <refType typeId="7891a4a0-2aab-4cac-8272-359349a3f958" valueTypeId="6bdc89c9-9a80-4cce-878c-40ec5582bd24"/>
+    <listType typeId="c4887457-72f9-4749-b9d5-83f33a5d7361" valueTypeId="c6de3df6-d020-42a5-ab98-26d131d650d4"/>
+    <managerType typeId="a4320329-ddac-492d-97d6-4a9a216d2988" valueTypeId="a7df1fa3-1be4-4f8b-aa4a-3bf53fb81b18"/>
+  </producedTypes>
+  <name>ТипОперацииДолга</name>
+  <synonym>
+    <key>ru</key>
+    <value>Тип операции долга</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="91f9a47b-d4fa-462c-9310-78368c8ee29c">
+    <name>ВыдачаДенег</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выдача денег</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="18a5b601-e234-45ea-8e02-fcf6892b02bf">
+    <name>ВозвратДенег</name>
+    <synonym>
+      <key>ru</key>
+      <value>Возврат денег</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

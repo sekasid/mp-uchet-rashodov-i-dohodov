@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonForm xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c2e6a4b3-5d9f-402c-b3e8-7f4b0d1c3965">
+  <name>ФормаТекстовойКлавиатуры</name>
+  <synonym>
+    <key>ru</key>
+    <value>Текстовая клавиатура</value>
+  </synonym>
+  <usePurposes>PersonalComputer</usePurposes>
+  <usePurposes>MobileDevice</usePurposes>
+</mdclass:CommonForm>

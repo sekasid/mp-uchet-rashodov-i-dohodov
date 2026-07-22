@@ -194,12 +194,17 @@
     <headerHorizontalAlign>Left</headerHorizontalAlign>
     <showInFooter>true</showInFooter>
     <extInfo xsi:type="form:InputFieldExtInfo">
+      <handlers>
+        <event>StartChoice</event>
+        <name>СуммаНачалоВыбора</name>
+      </handlers>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <wrap>true</wrap>
-      <chooseType>true</chooseType>
+      <choiceButton>true</choiceButton>
+      <chooseType>false</chooseType>
       <typeDomainEnabled>true</typeDomainEnabled>
-      <textEdit>true</textEdit>
+      <textEdit>false</textEdit>
     </extInfo>
   </items>
   <autoCommandBar>

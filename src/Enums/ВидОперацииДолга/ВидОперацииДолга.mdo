@@ -16,14 +16,14 @@
     <name>ДаюВДолг</name>
     <synonym>
       <key>ru</key>
-      <value>Я даю в долг</value>
+      <value>Мне должны</value>
     </synonym>
   </enumValues>
   <enumValues uuid="fefbe18d-b19a-4b57-ab01-be827453a0c8">
     <name>БеруВДолг</name>
     <synonym>
       <key>ru</key>
-      <value>Я беру в долг</value>
+      <value>Я должен</value>
     </synonym>
   </enumValues>
 </mdclass:Enum>
