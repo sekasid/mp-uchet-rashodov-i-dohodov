@@ -7,7 +7,7 @@
   </synonym>
   <methodName>CommonModule.ОбщийМодульСервер_КурсыВалют.ОбновитьКурсыВалютРегламентно</methodName>
   <description>Ежедневное обновление курсов RUB, USD, EUR относительно валюты учёта</description>
-  <use>false</use>
+  <use>true</use>
   <predefined>true</predefined>
   <restartCountOnFailure>2</restartCountOnFailure>
   <restartIntervalOnFailure>60</restartIntervalOnFailure>
