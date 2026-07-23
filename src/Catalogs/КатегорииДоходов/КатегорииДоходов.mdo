@@ -106,7 +106,7 @@
   <levelCount>2</levelCount>
   <foldersOnTop>true</foldersOnTop>
   <codeLength>9</codeLength>
-  <descriptionLength>25</descriptionLength>
+  <descriptionLength>30</descriptionLength>
   <codeType>String</codeType>
   <codeAllowedLength>Variable</codeAllowedLength>
   <checkUnique>true</checkUnique>
@@ -120,9 +120,30 @@
         <value>000000001</value>
       </code>
     </items>
+    <items id="6e0aacd0-b107-4aca-98ec-447202d59e86">
+      <name>Бонус</name>
+      <description>Бонус</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+    </items>
+    <items id="3528f454-c1f7-4e13-9302-d10777a5d9d1">
+      <name>ПроцентыКешбэк</name>
+      <description>Проценты / кешбэк</description>
+      <code xsi:type="core:StringValue">
+        <value>000000004</value>
+      </code>
+    </items>
+    <items id="514b494b-8a2f-4c7f-a80d-1aa594edabb7">
+      <name>ВозвратСредств</name>
+      <description>Возврат средств</description>
+      <code xsi:type="core:StringValue">
+        <value>000000005</value>
+      </code>
+    </items>
     <items id="b75402d0-2d4d-4bb9-b9b3-095a9e7ba280">
       <name>ПрочийДоход</name>
-      <description>Прочий доход</description>
+      <description>Прочие доходы</description>
       <code xsi:type="core:StringValue">
         <value>000000002</value>
       </code>
@@ -135,6 +156,63 @@
   <defaultListForm>Catalog.КатегорииДоходов.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.КатегорииДоходов.Form.ФормаВыбора</defaultChoiceForm>
   <defaultFolderChoiceForm>Catalog.КатегорииДоходов.Form.ФормаВыбораГруппы</defaultFolderChoiceForm>
+  <attributes uuid="3a5dc6f2-4c6e-42b9-8e7b-f6b5eb97e8f6">
+    <name>Описание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Описание</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="c972cda5-8819-42b0-a6a4-4a99aab193d4">
+    <name>КодИконки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Код иконки</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="fd863c77-d852-4dbd-8cbe-589b3c8590c2">
+    <name>ПоказыватьВВыборе</name>
+    <synonym>
+      <key>ru</key>
+      <value>Показывать в выборе</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue">
+      <value>true</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="1fc9aa6e-a6e6-4768-a619-a374e127f46c">
     <name>ФормаЭлемента</name>
     <synonym>

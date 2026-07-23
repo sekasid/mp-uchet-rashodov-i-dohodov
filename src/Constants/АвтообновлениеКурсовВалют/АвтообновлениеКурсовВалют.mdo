@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="54bf74af-6b93-47fb-a0e9-973fb45eaddc">
+  <producedTypes>
+    <managerType typeId="7b6f77af-2cb1-44af-8fc0-609f8e670813" valueTypeId="c13832fd-f70c-4bc0-bad4-e7b734f73843"/>
+    <valueManagerType typeId="a763e5a9-b112-4884-bfee-bd8c84cffdff" valueTypeId="d320d9b0-460b-4d07-b296-f132f74becdc"/>
+    <valueKeyType typeId="d4c3b2fe-d01e-46af-b6e8-e9bf3fd0f4ac" valueTypeId="d60afb6d-fdf3-45f5-889f-da1aa0f53221"/>
+  </producedTypes>
+  <name>АвтообновлениеКурсовВалют</name>
+  <synonym>
+    <key>ru</key>
+    <value>Автообновление курсов валют</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

@@ -152,7 +152,7 @@
 	Строки.Добавить("<div class=""top"">");
 	Строки.Добавить("<a class=""icon-btn"" href=""app:noop"" data-cmd=""back"">" + SVGСтрелкаНазад() + "</a>");
 	Строки.Добавить("<div class=""title"">" + ЭкранироватьHTML(ЗаголовокКлавиатуры) + "</div>");
-	Строки.Добавить("<span class=""icon-btn ghost""></span></div>");
+	Строки.Добавить("<a class=""done-top"" href=""app:noop"" data-cmd=""done"">Готово</a></div>");
 	
 	Строки.Добавить("<div class=""field"">");
 	Строки.Добавить("<div id=""preview"" class=""" + КлассТекста + """>" + ЭкранироватьHTML(ТекстЭкрана) + "</div>");
@@ -170,10 +170,6 @@
 	
 	Строки.Добавить("<div class=""pad"" id=""pad-num"" hidden>");
 	ДобавитьРядыЦифр(Строки);
-	Строки.Добавить("</div>");
-	
-	Строки.Добавить("<div class=""actions"">");
-	Строки.Добавить("<a class=""done"" href=""app:noop"" data-cmd=""done"">Готово</a>");
 	Строки.Добавить("</div></div>");
 	Строки.Добавить("<script>" + СкриптКлавиатуры() + "</script>");
 	Строки.Добавить("</body></html>");
@@ -392,11 +388,14 @@
 		+ "a{text-decoration:none;color:inherit;-webkit-user-select:none;user-select:none;outline:none}"
 		+ ".sheet{width:100%;background:#fff;border-radius:16px 16px 0 0;padding:12px 10px calc(12px + env(safe-area-inset-bottom,0px));"
 		+ "box-shadow:0 -4px 20px rgba(17,24,39,0.06)}"
-		+ ".top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding:0 4px}"
-		+ ".title{font-size:16px;font-weight:700}"
+		+ ".top{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:0 4px}"
+		+ ".title{flex:1;font-size:16px;font-weight:700;text-align:center;min-width:0}"
 		+ ".icon-btn{width:34px;height:34px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;"
-		+ "justify-content:center;color:#6B7280;touch-action:manipulation}"
-		+ ".icon-btn.ghost{visibility:hidden}"
+		+ "justify-content:center;color:#6B7280;touch-action:manipulation;flex:0 0 auto}"
+		+ ".done-top{flex:0 0 auto;min-width:34px;height:34px;padding:0 10px;border-radius:17px;background:#2563EB;"
+		+ "color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;"
+		+ "touch-action:manipulation}"
+		+ ".done-top:active{background:#1D4ED8}"
 		+ ".field{background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:12px;margin:0 4px 10px;min-height:72px}"
 		+ ".preview{font-size:16px;font-weight:600;color:#111827;line-height:1.35;min-height:44px;word-break:break-word;"
 		+ "white-space:pre-wrap;-webkit-user-select:none;user-select:none}"
@@ -413,10 +412,7 @@
 		+ ".key.mod{flex:1.2;font-size:12px;font-weight:700;color:#374151;background:#F3F4F6}"
 		+ ".key.mod.active,.key.shift-key.active{background:#DBEAFE;border-color:#2563EB;color:#2563EB}"
 		+ ".key.space{flex:3.2;font-size:14px;color:#6B7280}"
-		+ ".key:active{background:#EFF6FF;border-color:#3B82F6}"
-		+ ".actions{padding:0 4px}"
-		+ ".done{display:flex;align-items:center;justify-content:center;height:48px;border-radius:14px;background:#2563EB;"
-		+ "color:#fff;font-size:16px;font-weight:700;touch-action:manipulation}";
+		+ ".key:active{background:#EFF6FF;border-color:#3B82F6}";
 	
 КонецФункции
 

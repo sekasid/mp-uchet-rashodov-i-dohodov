@@ -10,5 +10,6 @@
   <content>Constant.ВалютаУчета</content>
   <content>Constant.ПервыйЗапуск</content>
   <content>Constant.ИспользоватьПоследнийИзвестныйКурс</content>
+  <content>Constant.АвтообновлениеКурсовВалют</content>
   <content>InformationRegister.КурсыВалют</content>
 </mdclass:Subsystem>

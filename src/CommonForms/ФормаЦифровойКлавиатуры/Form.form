@@ -167,6 +167,26 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>РежимВвода</name>
+    <title>
+      <key>ru</key>
+      <value>Режим ввода</value>
+    </title>
+    <id>6</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

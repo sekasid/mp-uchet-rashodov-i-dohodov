@@ -16,13 +16,17 @@
   <defaultRunMode>ManagedApplication</defaultRunMode>
   <usePurposes>MobileDevice</usePurposes>
   <scriptVariant>Russian</scriptVariant>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
     </functionality>
     <functionality>
       <functionality>OSBackup</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>LocalNetwork</functionality>
       <use>true</use>
     </functionality>
   </usedMobileApplicationFunctionalities>
@@ -68,10 +72,15 @@
   <commonModules>CommonModule.ОбщийМодульСервер_ОперацииУчета</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_КурсыВалют</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_Отчеты</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_Категории</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_СправочникиUI</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_ДокументыUI</commonModules>
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
   <constants>Constant.ИспользоватьПоследнийИзвестныйКурс</constants>
+  <constants>Constant.АвтообновлениеКурсовВалют</constants>
+  <scheduledJobs>ScheduledJob.ОбновлениеКурсовВалют</scheduledJobs>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>

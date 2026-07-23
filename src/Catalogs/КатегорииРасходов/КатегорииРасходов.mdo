@@ -106,19 +106,170 @@
   <levelCount>2</levelCount>
   <foldersOnTop>true</foldersOnTop>
   <codeLength>9</codeLength>
-  <descriptionLength>30</descriptionLength>
+  <descriptionLength>40</descriptionLength>
   <codeType>String</codeType>
   <codeAllowedLength>Variable</codeAllowedLength>
   <checkUnique>true</checkUnique>
   <autonumbering>true</autonumbering>
   <defaultPresentation>AsDescription</defaultPresentation>
   <predefined>
-    <items id="c97ad846-9703-4ca1-8936-85e41021164d">
-      <name>Продукты</name>
-      <description>Продукты</description>
+    <items id="535d11af-d93f-4670-a4e4-dea5c8a3c076">
+      <name>Еда</name>
+      <description>Еда</description>
       <code xsi:type="core:StringValue">
-        <value>000000001</value>
+        <value>000000010</value>
       </code>
+      <isFolder>true</isFolder>
+      <content id="c97ad846-9703-4ca1-8936-85e41021164d">
+        <name>Продукты</name>
+        <description>Продукты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000001</value>
+        </code>
+      </content>
+      <content id="9a855f54-0c7e-43d9-89e2-0da3575563d4">
+        <name>Обед</name>
+        <description>Обед</description>
+        <code xsi:type="core:StringValue">
+          <value>000000201</value>
+        </code>
+      </content>
+      <content id="eba2d9ca-9258-460c-80f7-e7f7c527f0cd">
+        <name>Кафе</name>
+        <description>Кафе</description>
+        <code xsi:type="core:StringValue">
+          <value>000000202</value>
+        </code>
+      </content>
+    </items>
+    <items id="28b840db-27e9-4b22-98db-21e3b2c6d89a">
+      <name>Дом</name>
+      <description>Дом</description>
+      <code xsi:type="core:StringValue">
+        <value>000000020</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="d52e70eb-5ccf-4a8c-a056-53627fabf8a0">
+        <name>Аренда</name>
+        <description>Аренда</description>
+        <code xsi:type="core:StringValue">
+          <value>000000203</value>
+        </code>
+      </content>
+      <content id="7b0571a1-49fd-476d-ba2b-6af2bf7b3e3b">
+        <name>БытоваяТехника</name>
+        <description>Бытовая техника</description>
+        <code xsi:type="core:StringValue">
+          <value>000000204</value>
+        </code>
+      </content>
+      <content id="3ddd4362-fb69-4a8d-8299-841bfe814f69">
+        <name>Инструмент</name>
+        <description>Инструмент</description>
+        <code xsi:type="core:StringValue">
+          <value>000000205</value>
+        </code>
+      </content>
+      <content id="1fd63453-4d62-4fad-8c6a-4d48b662d4e0">
+        <name>Мебель</name>
+        <description>Мебель</description>
+        <code xsi:type="core:StringValue">
+          <value>000000206</value>
+        </code>
+      </content>
+      <content id="71ab7f20-d2be-47aa-ade6-0801d53d1d1e">
+        <name>Посуда</name>
+        <description>Посуда</description>
+        <code xsi:type="core:StringValue">
+          <value>000000207</value>
+        </code>
+      </content>
+      <content id="83474ace-2e84-40f3-a93c-af1e413b0de0">
+        <name>Ремонт</name>
+        <description>Ремонт</description>
+        <code xsi:type="core:StringValue">
+          <value>000000208</value>
+        </code>
+      </content>
+      <content id="10bdb2e5-8abd-42ee-a564-fd70ed4a26ed">
+        <name>Электроприборы</name>
+        <description>Электроприборы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000209</value>
+        </code>
+      </content>
+    </items>
+    <items id="c8836ce9-a326-43fa-ae53-fe1b68b682fd">
+      <name>КоммунальныеУслуги</name>
+      <description>Коммунальные услуги</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="e683b792-c9e5-456c-a698-4c9b7b4d22fa">
+        <name>ОСИКСК</name>
+        <description>ОСИ/КСК</description>
+        <code xsi:type="core:StringValue">
+          <value>000000210</value>
+        </code>
+      </content>
+      <content id="3f6f69cc-341c-4182-839a-3bf5a76e917a">
+        <name>ЭлектроэнергияВодаГаз</name>
+        <description>Электр./вода/газ</description>
+        <code xsi:type="core:StringValue">
+          <value>000000211</value>
+        </code>
+      </content>
+    </items>
+    <items id="ed60f567-6a1d-4788-b108-7290bc4d2d43">
+      <name>Авто</name>
+      <description>Авто</description>
+      <code xsi:type="core:StringValue">
+        <value>000000030</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="5b1c8ddc-0746-48f8-a269-d14e261f3c64">
+        <name>АвтоаксессуарыИнструмент</name>
+        <description>Автоаксессуары/инструмент</description>
+        <code xsi:type="core:StringValue">
+          <value>000000212</value>
+        </code>
+      </content>
+      <content id="4a9d7c36-d1cc-416a-924e-b311703e60be">
+        <name>НалогиПошлиныАвто</name>
+        <description>Налоги/пошлины</description>
+        <code xsi:type="core:StringValue">
+          <value>000000213</value>
+        </code>
+      </content>
+      <content id="2d8c3248-b57c-43a6-b5f2-24290e5cdbcf">
+        <name>Обслуживание</name>
+        <description>Обслуживание</description>
+        <code xsi:type="core:StringValue">
+          <value>000000214</value>
+        </code>
+      </content>
+      <content id="cfa8db74-2dbc-4cb3-8e04-1e1c601ff728">
+        <name>ПокупкаАвто</name>
+        <description>Покупка авто</description>
+        <code xsi:type="core:StringValue">
+          <value>000000215</value>
+        </code>
+      </content>
+      <content id="bbde235a-7783-471e-b451-1c96a2fd0495">
+        <name>РемонтЗапчасти</name>
+        <description>Ремонт/запчасти</description>
+        <code xsi:type="core:StringValue">
+          <value>000000216</value>
+        </code>
+      </content>
+      <content id="45724218-582b-4cb2-bcc8-1c0e903cc5f5">
+        <name>Топливо</name>
+        <description>Топливо</description>
+        <code xsi:type="core:StringValue">
+          <value>000000217</value>
+        </code>
+      </content>
     </items>
     <items id="e7612716-08e0-42e8-a641-92dbc69a181d">
       <name>Транспорт</name>
@@ -126,12 +277,358 @@
       <code xsi:type="core:StringValue">
         <value>000000002</value>
       </code>
+      <isFolder>true</isFolder>
+      <content id="f241ab5b-e39e-4057-830d-35aed384bfb7">
+        <name>АрендаТранспорта</name>
+        <description>Аренда транспорта</description>
+        <code xsi:type="core:StringValue">
+          <value>000000218</value>
+        </code>
+      </content>
+      <content id="e446950a-4a37-430a-a4cc-a807264de23d">
+        <name>ОбщественныйТранспорт</name>
+        <description>Общественный транспорт</description>
+        <code xsi:type="core:StringValue">
+          <value>000000219</value>
+        </code>
+      </content>
+      <content id="1c39e921-c069-485d-aa51-d14671bcc62f">
+        <name>Поезд</name>
+        <description>Поезд</description>
+        <code xsi:type="core:StringValue">
+          <value>000000220</value>
+        </code>
+      </content>
+      <content id="8526b09d-689a-4b7d-a23e-14a74d7e8b61">
+        <name>Самолет</name>
+        <description>Самолет</description>
+        <code xsi:type="core:StringValue">
+          <value>000000221</value>
+        </code>
+      </content>
+      <content id="2ab717a8-6260-4435-afaf-771924761d52">
+        <name>Такси</name>
+        <description>Такси</description>
+        <code xsi:type="core:StringValue">
+          <value>000000222</value>
+        </code>
+      </content>
     </items>
-    <items id="c8836ce9-a326-43fa-ae53-fe1b68b682fd">
-      <name>КоммунальныеУслуги</name>
-      <description>Коммунальные услуги</description>
+    <items id="b241e712-84d2-4385-b2e6-212fc3259db9">
+      <name>Банк</name>
+      <description>Банк</description>
       <code xsi:type="core:StringValue">
-        <value>000000003</value>
+        <value>000000040</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="3ead6c78-bb6a-4cee-a01e-bf6aff2084d5">
+        <name>Комиссия</name>
+        <description>Комиссия</description>
+        <code xsi:type="core:StringValue">
+          <value>000000223</value>
+        </code>
+      </content>
+      <content id="f2cf7df2-81df-4dc8-b79a-ba9484235100">
+        <name>ОплатаУслугБанка</name>
+        <description>Оплата услуг банка</description>
+        <code xsi:type="core:StringValue">
+          <value>000000224</value>
+        </code>
+      </content>
+      <content id="74c10dad-7f21-4f17-b2a1-8649a0b33879">
+        <name>ПроцентыБанк</name>
+        <description>Проценты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000225</value>
+        </code>
+      </content>
+    </items>
+    <items id="8744b3c6-10ec-4d9b-96bb-8d7e624622cf">
+      <name>ГаджетыКомпьютеры</name>
+      <description>Гаджеты/компьютеры</description>
+      <code xsi:type="core:StringValue">
+        <value>000000226</value>
+      </code>
+    </items>
+    <items id="404d81e6-432b-4c22-b777-882f49c20418">
+      <name>Развлечения</name>
+      <description>Развлечения</description>
+      <code xsi:type="core:StringValue">
+        <value>000000050</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="9f3a6e56-0575-4303-b72e-422dfb977605">
+        <name>Игрушки</name>
+        <description>Игрушки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000227</value>
+        </code>
+      </content>
+      <content id="ccb8e0e8-4532-4379-814c-c4f6b0e39914">
+        <name>Кино</name>
+        <description>Кино</description>
+        <code xsi:type="core:StringValue">
+          <value>000000228</value>
+        </code>
+      </content>
+      <content id="12452a37-a7a9-4188-907f-edb50692fc8f">
+        <name>Книги</name>
+        <description>Книги</description>
+        <code xsi:type="core:StringValue">
+          <value>000000229</value>
+        </code>
+      </content>
+      <content id="5ab32454-3f1f-401f-b324-e6de72d209e5">
+        <name>Концерт</name>
+        <description>Концерт</description>
+        <code xsi:type="core:StringValue">
+          <value>000000230</value>
+        </code>
+      </content>
+    </items>
+    <items id="ee92db3a-04bd-4e56-8a32-43e8d8dc4e06">
+      <name>Одежда</name>
+      <description>Одежда</description>
+      <code xsi:type="core:StringValue">
+        <value>000000060</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="7c63da4d-bd5f-4830-a299-6d6ec8705d91">
+        <name>Обувь</name>
+        <description>Обувь</description>
+        <code xsi:type="core:StringValue">
+          <value>000000231</value>
+        </code>
+      </content>
+      <content id="ca46f9ac-96cd-4648-9794-30069f570631">
+        <name>ОдеждаВерхняя</name>
+        <description>Одежда верхняя</description>
+        <code xsi:type="core:StringValue">
+          <value>000000232</value>
+        </code>
+      </content>
+    </items>
+    <items id="98e23ad8-936a-44de-8798-77256ad14c30">
+      <name>Здоровье</name>
+      <description>Здоровье</description>
+      <code xsi:type="core:StringValue">
+        <value>000000233</value>
+      </code>
+    </items>
+    <items id="083c22dd-1614-4c50-9815-df71f8e00d4c">
+      <name>КрасотаИЗдоровье</name>
+      <description>Красота и здоровье</description>
+      <code xsi:type="core:StringValue">
+        <value>000000070</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="69a3576a-1bf2-4154-ab34-23f5b203d093">
+        <name>Гигиена</name>
+        <description>Гигиена</description>
+        <code xsi:type="core:StringValue">
+          <value>000000234</value>
+        </code>
+      </content>
+      <content id="8c8df20b-0987-4daa-9352-2a8e495bb3ba">
+        <name>Зубы</name>
+        <description>Зубы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000235</value>
+        </code>
+      </content>
+      <content id="8f7db699-db78-41a9-9866-516f877f10b0">
+        <name>Лекарства</name>
+        <description>Лекарства</description>
+        <code xsi:type="core:StringValue">
+          <value>000000236</value>
+        </code>
+      </content>
+      <content id="b9cd4d87-c2ed-449d-84be-e5d20384f270">
+        <name>Лечение</name>
+        <description>Лечение</description>
+        <code xsi:type="core:StringValue">
+          <value>000000237</value>
+        </code>
+      </content>
+      <content id="dfc637cb-1e67-416f-8d8d-3a72b02edc1c">
+        <name>Массаж</name>
+        <description>Массаж</description>
+        <code xsi:type="core:StringValue">
+          <value>000000238</value>
+        </code>
+      </content>
+      <content id="a711db07-a719-466d-8e9d-81144843fba2">
+        <name>Стрижка</name>
+        <description>Стрижка</description>
+        <code xsi:type="core:StringValue">
+          <value>000000239</value>
+        </code>
+      </content>
+    </items>
+    <items id="6ca53049-8747-42b2-9173-d9c866c79ecd">
+      <name>Личное</name>
+      <description>Личное</description>
+      <code xsi:type="core:StringValue">
+        <value>000000080</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="b99983d8-a4c9-4f53-b93f-8e37af7f24e1">
+        <name>Благотворительность</name>
+        <description>Благотворительность</description>
+        <code xsi:type="core:StringValue">
+          <value>000000240</value>
+        </code>
+      </content>
+      <content id="2ec7c9f1-9fcb-4bcd-83a7-af18505c13e4">
+        <name>НакопленияКопилка</name>
+        <description>Накопления/копилка</description>
+        <code xsi:type="core:StringValue">
+          <value>000000241</value>
+        </code>
+      </content>
+      <content id="3772aa55-61f3-495b-977e-d047332c0254">
+        <name>Подарки</name>
+        <description>Подарки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000242</value>
+        </code>
+      </content>
+      <content id="8c03fe73-eeed-432c-9c42-fa981afffd13">
+        <name>Подписки</name>
+        <description>Подписки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000243</value>
+        </code>
+      </content>
+    </items>
+    <items id="6f2756ed-86e2-496e-b303-da5ebad9cd42">
+      <name>Отдых</name>
+      <description>Отдых</description>
+      <code xsi:type="core:StringValue">
+        <value>000000090</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="92c0989d-9e61-4ace-aff4-db9c5c1eac0b">
+        <name>ВыездНаПрироду</name>
+        <description>Выезд на природу</description>
+        <code xsi:type="core:StringValue">
+          <value>000000244</value>
+        </code>
+      </content>
+      <content id="39c6a700-8df7-45d9-89c6-d6d7da5b28db">
+        <name>Отель</name>
+        <description>Отель</description>
+        <code xsi:type="core:StringValue">
+          <value>000000245</value>
+        </code>
+      </content>
+      <content id="a596e3fc-fa7f-4924-9b46-520cff0dc0d6">
+        <name>Рыбалка</name>
+        <description>Рыбалка</description>
+        <code xsi:type="core:StringValue">
+          <value>000000246</value>
+        </code>
+      </content>
+      <content id="684a5434-22ae-47c1-a31b-2ce2052fac39">
+        <name>Тур</name>
+        <description>Тур</description>
+        <code xsi:type="core:StringValue">
+          <value>000000247</value>
+        </code>
+      </content>
+    </items>
+    <items id="fb966e85-bd64-410d-8252-4c8c7b760a02">
+      <name>Семья</name>
+      <description>Семья</description>
+      <code xsi:type="core:StringValue">
+        <value>000000248</value>
+      </code>
+    </items>
+    <items id="f5f731a4-6fef-46d7-8c34-f8fab8d4b7eb">
+      <name>Спорт</name>
+      <description>Спорт</description>
+      <code xsi:type="core:StringValue">
+        <value>000000100</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="0c6e04a2-86f4-4055-b1c0-63c2d21ba532">
+        <name>Бассейн</name>
+        <description>Бассейн</description>
+        <code xsi:type="core:StringValue">
+          <value>000000249</value>
+        </code>
+      </content>
+      <content id="451e1695-e724-42af-af97-779defb5ad2e">
+        <name>ПокупкаТренажера</name>
+        <description>Покупка тренажера</description>
+        <code xsi:type="core:StringValue">
+          <value>000000250</value>
+        </code>
+      </content>
+      <content id="42817d6a-180c-427b-8a71-7e49663b9a74">
+        <name>ТренажерныйЗал</name>
+        <description>Тренажерный зал</description>
+        <code xsi:type="core:StringValue">
+          <value>000000251</value>
+        </code>
+      </content>
+    </items>
+    <items id="9809bc8f-c895-485f-b687-d2e45ef67c4d">
+      <name>Услуги</name>
+      <description>Услуги</description>
+      <code xsi:type="core:StringValue">
+        <value>000000110</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="2793e756-c27e-400f-86ef-82e2b510fb44">
+        <name>ИнтернетДомМоб</name>
+        <description>Интернет дом./моб.</description>
+        <code xsi:type="core:StringValue">
+          <value>000000252</value>
+        </code>
+      </content>
+      <content id="949547fe-df35-4aa8-ad49-482efb6a7493">
+        <name>МобильнаяСвязь</name>
+        <description>Мобильная связь</description>
+        <code xsi:type="core:StringValue">
+          <value>000000253</value>
+        </code>
+      </content>
+    </items>
+    <items id="3a9faf04-c5bc-481b-9640-72d528796e91">
+      <name>НалогиПошлины</name>
+      <description>Налоги/пошлины</description>
+      <code xsi:type="core:StringValue">
+        <value>000000254</value>
+      </code>
+    </items>
+    <items id="db34db43-960d-4c51-b1e2-65a37dace3dc">
+      <name>СистемныеКатегории</name>
+      <description>Системные категории</description>
+      <code xsi:type="core:StringValue">
+        <value>000000120</value>
+      </code>
+      <isFolder>true</isFolder>
+      <content id="127f22c2-0e6f-46cb-b550-893cfa281ed2">
+        <name>Переводы</name>
+        <description>Переводы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000255</value>
+        </code>
+      </content>
+      <content id="e1cc1ad7-66cd-413e-a29d-0cace333e9db">
+        <name>Долги</name>
+        <description>Долги</description>
+        <code xsi:type="core:StringValue">
+          <value>000000256</value>
+        </code>
+      </content>
+    </items>
+    <items id="e30d7bb3-487a-4565-a683-3aac48fc0d9c">
+      <name>ПрочиеРасходы</name>
+      <description>Прочие расходы</description>
+      <code xsi:type="core:StringValue">
+        <value>000000257</value>
       </code>
     </items>
   </predefined>
@@ -142,6 +639,63 @@
   <defaultListForm>Catalog.КатегорииРасходов.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.КатегорииРасходов.Form.ФормаВыбора</defaultChoiceForm>
   <defaultFolderChoiceForm>Catalog.КатегорииРасходов.Form.ФормаВыбораГруппы</defaultFolderChoiceForm>
+  <attributes uuid="9476a010-47cb-4503-90fc-39ae8f1c8faa">
+    <name>Описание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Описание</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="0da19f45-1b92-41c9-8056-b476eba10dd0">
+    <name>КодИконки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Код иконки</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="86b06e8c-cd4c-4764-9075-eb47f7373e6c">
+    <name>ПоказыватьВВыборе</name>
+    <synonym>
+      <key>ru</key>
+      <value>Показывать в выборе</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue">
+      <value>true</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="eea61173-1e7b-447a-9d6e-0006d3791b03">
     <name>ФормаЭлемента</name>
     <synonym>
