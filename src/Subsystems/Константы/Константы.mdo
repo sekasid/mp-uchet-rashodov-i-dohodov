@@ -9,7 +9,6 @@
   <includeInCommandInterface>false</includeInCommandInterface>
   <content>Constant.ВалютаУчета</content>
   <content>Constant.ПервыйЗапуск</content>
-  <content>Constant.ИспользоватьПоследнийИзвестныйКурс</content>
   <content>Constant.АвтообновлениеКурсовВалют</content>
   <content>Constant.GoogleАккаунтEmail</content>
   <content>Constant.GoogleAccessToken</content>

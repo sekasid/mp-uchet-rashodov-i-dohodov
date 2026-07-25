@@ -90,7 +90,6 @@
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
-  <constants>Constant.ИспользоватьПоследнийИзвестныйКурс</constants>
   <constants>Constant.АвтообновлениеКурсовВалют</constants>
   <constants>Constant.GoogleАккаунтEmail</constants>
   <constants>Constant.GoogleAccessToken</constants>
@@ -104,7 +103,6 @@
   <constants>Constant.ХешПИН</constants>
   <constants>Constant.ИспользоватьБиометрию</constants>
   <constants>Constant.СкрыватьСуммы</constants>
-  <scheduledJobs>ScheduledJob.ОбновлениеКурсовВалют</scheduledJobs>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>
