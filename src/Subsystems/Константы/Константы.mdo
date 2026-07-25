@@ -18,5 +18,6 @@
   <content>Constant.ДатаПоследнейЛокальнойКопии</content>
   <content>Constant.ДатаПоследнейОблачнойКопии</content>
   <content>Constant.GoogleOAuthClientId</content>
+  <content>Constant.ТемаПриложения</content>
   <content>InformationRegister.КурсыВалют</content>
 </mdclass:Subsystem>

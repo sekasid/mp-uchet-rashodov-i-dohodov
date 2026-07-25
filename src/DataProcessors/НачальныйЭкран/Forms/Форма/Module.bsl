@@ -370,14 +370,41 @@
 &НаСервере
 Функция СтилиWalletБазовые()
 	
-	Возврат "*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}"
-		+ "body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:14px 16px 88px;line-height:1.3}"
+	База = "*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}"
 		+ "a{text-decoration:none;color:inherit;display:block}"
+		+ ".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}"
+		+ ".nav .ico svg{display:block;width:18px;height:18px}";
+	
+	Если ОбщийМодульСервер_СистемныеНастройки.ИспользоватьТемнуюТему() Тогда
+		
+		Возврат База
+			+ "body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#0F172A;color:#F8FAFC;padding:14px 16px 88px;line-height:1.3}"
+			+ ".nav{position:fixed;left:0;right:0;bottom:0;background:#1E293B;border-top:1px solid #334155;display:flex;padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}"
+			+ ".nav a{flex:1;text-align:center;padding:4px 1px;color:#94A3B8;font-size:9px;font-weight:600;line-height:1.15}"
+			+ ".nav a.active{color:#60A5FA}"
+			+ СтилиПереопределенияТемнойТемы();
+		
+	КонецЕсли;
+	
+	Возврат База
+		+ "body{font-family:-apple-system,BlinkMacSystemFont,""Segoe UI"",Roboto,Arial,sans-serif;background:#FAFAFA;color:#111827;padding:14px 16px 88px;line-height:1.3}"
 		+ ".nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}"
 		+ ".nav a{flex:1;text-align:center;padding:4px 1px;color:#6B7280;font-size:9px;font-weight:600;line-height:1.15}"
-		+ ".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}"
-		+ ".nav .ico svg{display:block;width:18px;height:18px}"
 		+ ".nav a.active{color:#2563EB}";
+	
+КонецФункции
+
+// Перекрывает светлые карточки на страницах, где фон карточек захардкожен как #fff.
+//
+Функция СтилиПереопределенияТемнойТемы()
+	
+	Возврат ".item,.card,.balance,.stat,.ops,.cal,.period,.field{background:#1E293B!important;border-color:#334155!important;color:#F8FAFC!important}"
+		+ ".item .name,.card .name,.row .name,.top h1,h1,.balance .lbl,.stat .lbl,.ops .name{color:#F8FAFC!important}"
+		+ ".item .chev,.row .chev,.row .meta,.ver,.period,.lead{color:#94A3B8!important}"
+		+ ".plus{background:#334155!important;color:#E2E8F0!important}"
+		+ ".item .ico{background:#334155!important}"
+		+ ".row{border-color:#334155!important}"
+		+ ".sec-head h2,.sub,.ops .meta{color:#94A3B8!important}";
 	
 КонецФункции
 
@@ -505,6 +532,25 @@
 	Строки.Добавить(".nav .ico{height:18px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}");
 	Строки.Добавить(".nav .ico svg{display:block;width:18px;height:18px}");
 	Строки.Добавить(".nav a.active{color:#2563EB}");
+	
+	Если ОбщийМодульСервер_СистемныеНастройки.ИспользоватьТемнуюТему() Тогда
+		
+		Строки.Добавить("body,.page-top{background:#0F172A!important;color:#F8FAFC!important}");
+		Строки.Добавить(".page-top{border-color:#334155!important}");
+		Строки.Добавить(".page-top .period{background:#1E293B!important;color:#94A3B8!important}");
+		Строки.Добавить(".ops{background:#1E293B!important;border-color:#334155!important}");
+		Строки.Добавить(".op{border-color:#334155!important}");
+		Строки.Добавить(".op .title,.op .sum{color:#F8FAFC!important}");
+		Строки.Добавить(".op .sum.income{color:#4ADE80!important}");
+		Строки.Добавить(".op .sum.expense{color:#F87171!important}");
+		Строки.Добавить(".op .sum.transfer{color:#60A5FA!important}");
+		Строки.Добавить(".op .date,.empty{color:#94A3B8!important}");
+		Строки.Добавить(".nav{background:#1E293B!important;border-color:#334155!important}");
+		Строки.Добавить(".nav a{color:#94A3B8!important}");
+		Строки.Добавить(".nav a.active{color:#60A5FA!important}");
+		
+	КонецЕсли;
+	
 	Строки.Добавить("</style></head><body>");
 	Строки.Добавить("<div class=""page-top""><h1>Операции</h1><div class=""period"">"
 		+ ЭкранироватьHTML(ПредставлениеПериодаМесяцаHTML()) + "</div></div>");
@@ -522,31 +568,53 @@
 &НаСервере
 Функция СобратьHTMLСтраницыНастроек()
 	
+	Сведения = ОбщийМодульСервер_СистемныеНастройки.СведенияДляЭкранаНастроек();
+	Темная = ОбщийМодульСервер_СистемныеНастройки.ИспользоватьТемнуюТему();
+	ЦветКарточки = ?(Темная, "#1E293B", "#fff");
+	ЦветРамки = ?(Темная, "#334155", "#E5E7EB");
+	ЦветПодписи = ?(Темная, "#94A3B8", "#6B7280");
+	
 	Строки = Новый Массив;
 	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
 	Строки.Добавить("<meta name=""viewport"" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">");
 	Строки.Добавить("<style>");
 	Строки.Добавить(СтилиWalletБазовые());
 	Строки.Добавить("h1{font-size:24px;font-weight:700;margin-bottom:14px}");
-	Строки.Добавить(".card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:4px 12px}");
-	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #E5E7EB}");
+	Строки.Добавить(".card{background:" + ЦветКарточки + ";border:1px solid " + ЦветРамки + ";border-radius:16px;padding:4px 12px;margin-bottom:12px}");
+	Строки.Добавить(".row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid " + ЦветРамки + "}");
 	Строки.Добавить(".row:first-child{border-top:none}");
 	Строки.Добавить(".row .name{font-size:15px;font-weight:600}");
+	Строки.Добавить(".row .meta{font-size:13px;color:" + ЦветПодписи + ";font-weight:600}");
 	Строки.Добавить(".row .chev{color:#C0C7D1;font-size:18px}");
+	Строки.Добавить(".ver{text-align:center;color:" + ЦветПодписи + ";font-size:12px;margin:8px 0 16px}");
 	Строки.Добавить("</style></head><body>");
 	Строки.Добавить("<h1>Настройки</h1>");
 	Строки.Добавить("<div class=""card"">");
-	Строки.Добавить(HTMLСтрокаМеню("Константы", "open:constants"));
+	Строки.Добавить(HTMLСтрокаМенюСоЗначением("Валюта учёта", Сведения.ВалютаПредставление, "open:constants"));
+	Строки.Добавить(HTMLСтрокаМенюСоЗначением("Тема", Сведения.ТемаПредставление, "open:theme"));
 	Строки.Добавить(HTMLСтрокаМеню("Резервное копирование", "open:backup"));
+	Строки.Добавить(HTMLСтрокаМеню("Дополнительно…", "open:constants"));
+	Строки.Добавить("</div>");
+	Строки.Добавить("<div class=""card"">");
 	Строки.Добавить(HTMLСтрокаМеню("Документы доходов", "open:doc-income"));
 	Строки.Добавить(HTMLСтрокаМеню("Документы расходов", "open:doc-expense"));
 	Строки.Добавить(HTMLСтрокаМеню("Документы переводов", "open:doc-transfer"));
 	Строки.Добавить(HTMLСтрокаМеню("Документы долгов", "open:doc-debt"));
 	Строки.Добавить("</div>");
+	Строки.Добавить("<div class=""ver"">Wallet v" + ЭкранироватьHTML(Сведения.Версия) + "</div>");
 	Строки.Добавить(HTMLНижняяНавигация("settings"));
 	Строки.Добавить("</body></html>");
 	
 	Возврат СтрСоединить(Строки, Символы.ПС);
+	
+КонецФункции
+
+&НаСервере
+Функция HTMLСтрокаМенюСоЗначением(Заголовок, Значение, КомандаПриложения)
+	
+	Возврат "<a class=""row"" href=""app:" + КомандаПриложения + """>"
+		+ "<span class=""name"">" + ЭкранироватьHTML(Заголовок) + "</span>"
+		+ "<span class=""meta"">" + ЭкранироватьHTML(Значение) + " ›</span></a>";
 	
 КонецФункции
 
@@ -1713,7 +1781,19 @@
 		ОткрытьФорму("ОбщаяФорма.ФормаРезервногоКопирования", , ЭтотОбъект, , , , ,
 			РежимОткрытияОкнаФормы.БлокироватьВесьИнтерфейс);
 		
+	ИначеЕсли КодПункта = "theme" Тогда
+		
+		ПереключитьТемуНаСервере();
+		ПоказатьСтраницуНастроек();
+		
 	КонецЕсли;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура ПереключитьТемуНаСервере()
+	
+	ОбщийМодульСервер_СистемныеНастройки.ПереключитьТемуПриложения();
 	
 КонецПроцедуры
 
