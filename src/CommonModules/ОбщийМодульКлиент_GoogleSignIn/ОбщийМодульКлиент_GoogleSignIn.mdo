@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="53c05858-4c94-489e-9891-e173e4665a66">
+  <name>ОбщийМодульКлиент_GoogleSignIn</name>
+  <synonym>
+    <key>ru</key>
+    <value>Общий модуль клиент Google Sign-In</value>
+  </synonym>
+  <clientManagedApplication>true</clientManagedApplication>
+</mdclass:CommonModule>

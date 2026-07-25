@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="5d5e8157-db09-40d5-9db1-153bffee66ff">
+  <producedTypes>
+    <managerType typeId="56fa4007-ed6e-4249-8577-04a8518ceef9" valueTypeId="8d3765ba-648f-4b17-8c63-b3acd49341bb"/>
+    <valueManagerType typeId="e16e9347-d58a-4849-a705-c0a5684592dd" valueTypeId="0ef73a53-9ac5-484d-8c8a-c32014f96195"/>
+    <valueKeyType typeId="e181af0e-eb94-4470-81b7-42f05202802a" valueTypeId="20423ab2-3149-4093-983b-34c812b414ca"/>
+  </producedTypes>
+  <name>GoogleRefreshToken</name>
+  <synonym>
+    <key>ru</key>
+    <value>Google refresh token</value>
+  </synonym>
+  <type>
+    <types>String</types>
+    <stringQualifiers>
+      <length>0</length>
+    </stringQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

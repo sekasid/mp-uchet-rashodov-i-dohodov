@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0e6fe1d7-b98b-4a26-ac52-6e8bd98736ee">
+  <producedTypes>
+    <managerType typeId="7ce435bd-f5af-4d03-8500-f7d95b366429" valueTypeId="15beb33a-5653-4f84-b1c1-b3ca2c48e518"/>
+    <valueManagerType typeId="c42d9673-ed4b-47c1-bde2-9b89347dd063" valueTypeId="eca2dcba-7592-49f2-a477-5aeb471bb512"/>
+    <valueKeyType typeId="9bbcf2ec-5332-44e9-9b9a-a408d7e614dd" valueTypeId="32b8f312-989e-447d-9170-08b2e09cbca5"/>
+  </producedTypes>
+  <name>GoogleТокенИстекает</name>
+  <synonym>
+    <key>ru</key>
+    <value>Срок действия Google access token</value>
+  </synonym>
+  <type>
+    <types>Date</types>
+    <dateQualifiers>
+      <dateFractions>DateTime</dateFractions>
+    </dateQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

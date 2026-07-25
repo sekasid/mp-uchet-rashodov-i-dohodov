@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3d8a196b-c9e1-4e0e-b9e5-3670f6d19e05">
+  <producedTypes>
+    <managerType typeId="5149d21a-5b27-47a3-b789-8096bc3b2c5c" valueTypeId="7182c831-c3b2-488d-8f20-486b472eb1cf"/>
+    <valueManagerType typeId="709f6e28-7b65-45c2-8ee9-88ab1324a9a2" valueTypeId="05bea692-638f-4cf8-af5b-97de96864c20"/>
+    <valueKeyType typeId="8e7a84cf-717a-4ec6-9be3-6a37789deb97" valueTypeId="ccf0d203-8709-4cad-b35b-5e96c199fdce"/>
+  </producedTypes>
+  <name>GoogleAccessToken</name>
+  <synonym>
+    <key>ru</key>
+    <value>Google access token</value>
+  </synonym>
+  <type>
+    <types>String</types>
+    <stringQualifiers>
+      <length>0</length>
+    </stringQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

@@ -16,7 +16,7 @@
   <defaultRunMode>ManagedApplication</defaultRunMode>
   <usePurposes>MobileDevice</usePurposes>
   <scriptVariant>Russian</scriptVariant>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -27,6 +27,14 @@
     </functionality>
     <functionality>
       <functionality>LocalNetwork</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>PersonalComputerFileExchange</functionality>
+      <use>true</use>
+    </functionality>
+    <functionality>
+      <functionality>AllFilesAccess</functionality>
       <use>true</use>
     </functionality>
   </usedMobileApplicationFunctionalities>
@@ -75,11 +83,20 @@
   <commonModules>CommonModule.ОбщийМодульСервер_Категории</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_СправочникиUI</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_ДокументыUI</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_РезервноеКопирование</commonModules>
+  <commonModules>CommonModule.ОбщийМодульКлиент_GoogleSignIn</commonModules>
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
   <constants>Constant.ИспользоватьПоследнийИзвестныйКурс</constants>
   <constants>Constant.АвтообновлениеКурсовВалют</constants>
+  <constants>Constant.GoogleАккаунтEmail</constants>
+  <constants>Constant.GoogleAccessToken</constants>
+  <constants>Constant.GoogleRefreshToken</constants>
+  <constants>Constant.GoogleТокенИстекает</constants>
+  <constants>Constant.ДатаПоследнейЛокальнойКопии</constants>
+  <constants>Constant.ДатаПоследнейОблачнойКопии</constants>
+  <constants>Constant.GoogleOAuthClientId</constants>
   <scheduledJobs>ScheduledJob.ОбновлениеКурсовВалют</scheduledJobs>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
@@ -88,6 +105,7 @@
   <commonForms>CommonForm.ФормаЦифровойКлавиатуры</commonForms>
   <commonForms>CommonForm.ФормаВыбораСчета</commonForms>
   <commonForms>CommonForm.ФормаТекстовойКлавиатуры</commonForms>
+  <commonForms>CommonForm.ФормаРезервногоКопирования</commonForms>
   <catalogs>Catalog.КатегорииДоходов</catalogs>
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>

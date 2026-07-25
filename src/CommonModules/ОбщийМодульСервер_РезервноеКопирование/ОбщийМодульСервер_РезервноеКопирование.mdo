@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3328a83f-83de-4e2f-8258-17bbce3290e5">
+  <name>ОбщийМодульСервер_РезервноеКопирование</name>
+  <synonym>
+    <key>ru</key>
+    <value>Общий модуль сервер резервное копирование</value>
+  </synonym>
+  <server>true</server>
+  <serverCall>true</serverCall>
+</mdclass:CommonModule>

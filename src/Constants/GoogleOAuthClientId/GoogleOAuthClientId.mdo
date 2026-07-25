@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6e4fbac2-2688-43a5-a3ed-75e8f670d8a1">
+  <producedTypes>
+    <managerType typeId="bfa040e0-a8c9-4caf-8945-17034108e8ce" valueTypeId="75291cd0-71dd-48e2-b61f-ccd23b9c10dd"/>
+    <valueManagerType typeId="d74b4503-4784-4466-bc1a-d4b4c7db4a95" valueTypeId="8b38d356-799a-4675-bb38-0f556aec23b2"/>
+    <valueKeyType typeId="a1fe890e-e2aa-4408-a215-82c32e6c9515" valueTypeId="e135e940-a12a-4974-97cd-5595e8c6a8b1"/>
+  </producedTypes>
+  <name>GoogleOAuthClientId</name>
+  <synonym>
+    <key>ru</key>
+    <value>Google OAuth Client ID</value>
+  </synonym>
+  <type>
+    <types>String</types>
+    <stringQualifiers>
+      <length>200</length>
+    </stringQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonForm xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="906de2ee-6347-49be-9450-076acca9251f">
+  <name>ФормаРезервногоКопирования</name>
+  <synonym>
+    <key>ru</key>
+    <value>Резервное копирование</value>
+  </synonym>
+  <usePurposes>PersonalComputer</usePurposes>
+  <usePurposes>MobileDevice</usePurposes>
+</mdclass:CommonForm>

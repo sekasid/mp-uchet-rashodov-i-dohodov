@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d26bb50f-fbc0-4587-94b0-85e2e5029030">
+  <producedTypes>
+    <managerType typeId="429621da-da4e-4d1c-8b95-8facccfa3a7b" valueTypeId="546e23a8-dd95-4683-aa9d-0977570e60d4"/>
+    <valueManagerType typeId="cdc01ac6-74cc-4ec5-97fc-229a6e5d673c" valueTypeId="d30d3384-6db2-4689-8934-61dd37800318"/>
+    <valueKeyType typeId="1969d67f-4491-4551-a566-b403d03e4192" valueTypeId="a554a0ca-c00e-442d-b461-478a9673f06f"/>
+  </producedTypes>
+  <name>GoogleАккаунтEmail</name>
+  <synonym>
+    <key>ru</key>
+    <value>Google-аккаунт (email)</value>
+  </synonym>
+  <type>
+    <types>String</types>
+    <stringQualifiers>
+      <length>150</length>
+    </stringQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>
