@@ -18,5 +18,8 @@
   <content>Constant.ДатаПоследнейЛокальнойКопии</content>
   <content>Constant.ДатаПоследнейОблачнойКопии</content>
   <content>Constant.GoogleOAuthClientId</content>
+  <content>Constant.ИспользоватьПИН</content>
+  <content>Constant.ИспользоватьБиометрию</content>
+  <content>Constant.СкрыватьСуммы</content>
   <content>InformationRegister.КурсыВалют</content>
 </mdclass:Subsystem>

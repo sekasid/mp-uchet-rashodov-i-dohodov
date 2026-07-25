@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="042b5d5e-adbd-4699-928c-5330970de5bb">
+  <producedTypes>
+    <managerType typeId="fe722771-ba88-413f-845e-32ddb1e45a6a" valueTypeId="e2cec1b9-d464-4a9f-8987-90a46bff787d"/>
+    <valueManagerType typeId="75989d20-ba44-47e7-98b0-b1bd5f204357" valueTypeId="07026d5e-3d7b-4bbc-8b50-310de3b29868"/>
+    <valueKeyType typeId="8c1391fb-80d8-42eb-bd33-531021a544aa" valueTypeId="785397b7-2bbf-4a6c-8f01-15ea2a32f015"/>
+  </producedTypes>
+  <name>ИспользоватьБиометрию</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использовать биометрию</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

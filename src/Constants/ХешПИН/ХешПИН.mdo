@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="dbb689af-e2bc-4d48-809f-e6a2a536ad47">
+  <producedTypes>
+    <managerType typeId="e25aff09-bf68-4fae-80e2-17b5f22c6632" valueTypeId="a076e92c-5965-45c7-927c-473798f0d448"/>
+    <valueManagerType typeId="1ba488b6-f675-4a52-82fe-5391ac9ab668" valueTypeId="38ba1f30-b4e6-41c6-9867-4f8664ba2439"/>
+    <valueKeyType typeId="ca9ffcbb-e679-44d7-8a4c-a646367041d7" valueTypeId="621e38bf-015b-46eb-878a-6fbb4501054e"/>
+  </producedTypes>
+  <name>ХешПИН</name>
+  <synonym>
+    <key>ru</key>
+    <value>Хеш PIN-кода</value>
+  </synonym>
+  <type>
+    <types>String</types>
+    <stringQualifiers>
+      <length>128</length>
+    </stringQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

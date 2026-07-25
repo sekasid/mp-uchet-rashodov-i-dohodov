@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="44174aaf-91f5-4a73-8520-9755706ab51c">
+  <producedTypes>
+    <managerType typeId="9a36ebdb-fda7-409e-a824-d1ab63a595d4" valueTypeId="279f0e67-7898-4cee-b3b6-835f0a0e4843"/>
+    <valueManagerType typeId="b57116ba-ca37-46fd-866e-379b7af3650e" valueTypeId="4410d823-a108-4f21-92b6-208003c92498"/>
+    <valueKeyType typeId="bfc30be8-5bd7-4e75-aeca-0d92e65c891d" valueTypeId="7cdf564d-5412-4e5e-bf9a-ccf92de3eb66"/>
+  </producedTypes>
+  <name>СкрыватьСуммы</name>
+  <synonym>
+    <key>ru</key>
+    <value>Скрывать суммы</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

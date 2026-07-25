@@ -18,10 +18,24 @@
 	
 	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.ГруппаСтраницаОсновная;
 	
+	Если ОбщийМодульКлиент_Безопасность.ОбеспечитьРазблокировкуЕслиНужно() Тогда
+		
+		Возврат;
+		
+	КонецЕсли;
+	
 КонецПроцедуры
 
 &НаКлиенте
 Процедура ПриПробужденииКлиентскогоПриложения()
+	
+	ОбщийМодульКлиент_Безопасность.ЗаблокироватьПриложение();
+	
+	Если ОбщийМодульКлиент_Безопасность.ОбеспечитьРазблокировкуЕслиНужно() Тогда
+		
+		Возврат;
+		
+	КонецЕсли;
 	
 	ПодготовитьФормуНаСервере();
 	
@@ -29,6 +43,13 @@
 
 &НаКлиенте
 Процедура ОбработкаОповещения(ИмяСобытия, Параметр, Источник)
+	
+	Если ИмяСобытия = "WalletРазблокирован" Тогда
+		
+		ПодготовитьФормуНаСервере();
+		Возврат;
+		
+	КонецЕсли;
 	
 	Если ИмяСобытия <> "МобильнаяНавигация" Тогда
 		
@@ -276,10 +297,11 @@
 	Строки.Добавить(".top h1{font-size:24px;font-weight:700;letter-spacing:-0.03em}");
 	Строки.Добавить(".cal{width:36px;height:36px;border-radius:12px;background:#fff;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;color:#6B7280}");
 	Строки.Добавить(".period{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;padding:8px 12px;border-radius:999px;background:#F3F4F6;font-size:13px;font-weight:600;color:#6B7280}");
-	Строки.Добавить(".balance{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:16px;margin-bottom:10px}");
+	Строки.Добавить(".balance{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:16px;margin-bottom:10px;position:relative}");
 	Строки.Добавить(".balance .lbl{font-size:13px;font-weight:600;color:#6B7280}");
 	Строки.Добавить(".balance .val{margin-top:4px;font-size:36px;font-weight:700;letter-spacing:-0.03em;line-height:1.1}");
 	Строки.Добавить(".balance .hint{margin-top:6px;font-size:12px;color:#6B7280}");
+	Строки.Добавить(".balance .eye{position:absolute;top:14px;right:14px;padding:8px 10px;border-radius:12px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:11px;font-weight:700}");
 	Строки.Добавить(".stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}");
 	Строки.Добавить(".stat{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px}");
 	Строки.Добавить(".stat .ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px}");
@@ -316,7 +338,9 @@
 	Строки.Добавить("<body>");
 	Строки.Добавить("<div class=""top""><h1>Главная</h1><a class=""cal"" href=""app:period:Месяц"">" + SVGИконкаКалендарь("#6B7280", 18) + "</a></div>");
 	Строки.Добавить("<a class=""period"" href=""app:period:Месяц"">#Период# ▾</a>");
-	Строки.Добавить("<div class=""balance""><div class=""lbl"">Общий остаток</div><div class=""val"">#ОбщийОстаток#</div><div class=""hint"">на всех счетах</div></div>");
+	Строки.Добавить("<div class=""balance""><a class=""eye"" href=""app:toggle-amounts"" title=""Скрыть суммы"">"
+		+ ?(ОбщийМодульСервер_Безопасность.СкрыватьСуммы(), "Show", "Hide") + "</a>"
+		+ "<div class=""lbl"">Общий остаток</div><div class=""val"">#ОбщийОстаток#</div><div class=""hint"">на всех счетах</div></div>");
 	Строки.Добавить("<div class=""stats"">");
 	Строки.Добавить("<a class=""stat"" href=""app:report:dohod""><div class=""ico income"">" + SVGИконкаСтрелкаВниз("#16A34A", 16) + "</div><div class=""lbl"">Доходы</div><div class=""val income"">#СуммаДоходов#</div><div class=""sub"">#ПодписьДоходов#</div></a>");
 	Строки.Добавить("<a class=""stat"" href=""app:report:rashod""><div class=""ico expense"">" + SVGИконкаКошелекДенег("#DC2626", 16) + "</div><div class=""lbl"">Расходы</div><div class=""val expense"">#СуммаРасходов#</div><div class=""sub"">#ПодписьРасходов#</div></a>");
@@ -520,7 +544,7 @@
 // HTML-страница настроек.
 //
 &НаСервере
-Функция СобратьHTMLСтраницыНастроек()
+Функция СобратьHTMLСтраницыНастроек(ПоказыватьБезопасность = Ложь)
 	
 	Строки = Новый Массив;
 	Строки.Добавить("<!DOCTYPE html><html lang=""ru""><head><meta charset=""utf-8"">");
@@ -537,6 +561,13 @@
 	Строки.Добавить("<h1>Настройки</h1>");
 	Строки.Добавить("<div class=""card"">");
 	Строки.Добавить(HTMLСтрокаМеню("Константы", "open:constants"));
+	
+	Если ПоказыватьБезопасность Тогда
+		
+		Строки.Добавить(HTMLСтрокаМеню("Безопасность", "open:security"));
+		
+	КонецЕсли;
+	
 	Строки.Добавить(HTMLСтрокаМеню("Резервное копирование", "open:backup"));
 	Строки.Добавить(HTMLСтрокаМеню("Документы доходов", "open:doc-income"));
 	Строки.Добавить(HTMLСтрокаМеню("Документы расходов", "open:doc-expense"));
@@ -1334,6 +1365,11 @@
 		
 		ОткрытьФормуБыстрогоВвода("Расход");
 		
+	ИначеЕсли КомандаПриложения = "toggle-amounts" Тогда
+		
+		ОбщийМодульСервер_Безопасность.ПереключитьСкрытиеСумм();
+		ПоказатьГлавнуюСтраницу();
+		
 	ИначеЕсли КомандаПриложения = "dohod" Тогда
 		
 		ОткрытьФормуБыстрогоВвода("Приход");
@@ -1559,16 +1595,16 @@
 &НаКлиенте
 Процедура ПоказатьСтраницуНастроек()
 	
-	СформироватьСтраницуНастроекНаСервере();
+	СформироватьСтраницуНастроекНаСервере(ОбщийМодульКлиент_Безопасность.ЭтоМобильноеПриложение());
 	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.ГруппаСтраницаАналитика;
 	
 КонецПроцедуры
 
 &НаСервере
-Процедура СформироватьСтраницуНастроекНаСервере()
+Процедура СформироватьСтраницуНастроекНаСервере(ПоказыватьБезопасность = Ложь)
 	
 	РежимАналитики = "Настройки";
-	ТекстHTMLАналитики = СобратьHTMLСтраницыНастроек();
+	ТекстHTMLАналитики = СобратьHTMLСтраницыНастроек(ПоказыватьБезопасность);
 	
 КонецПроцедуры
 
@@ -1712,6 +1748,10 @@
 		
 		ОткрытьФорму("ОбщаяФорма.ФормаРезервногоКопирования", , ЭтотОбъект, , , , ,
 			РежимОткрытияОкнаФормы.БлокироватьВесьИнтерфейс);
+		
+	ИначеЕсли КодПункта = "security" Тогда
+		
+		ОбщийМодульКлиент_Безопасность.ОткрытьФормуБезопасности(ЭтотОбъект);
 		
 	КонецЕсли;
 	

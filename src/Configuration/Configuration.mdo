@@ -16,7 +16,7 @@
   <defaultRunMode>ManagedApplication</defaultRunMode>
   <usePurposes>MobileDevice</usePurposes>
   <scriptVariant>Russian</scriptVariant>
-  <version>1.0.7</version>
+  <version>1.0.8</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -85,6 +85,8 @@
   <commonModules>CommonModule.ОбщийМодульСервер_ДокументыUI</commonModules>
   <commonModules>CommonModule.ОбщийМодульСервер_РезервноеКопирование</commonModules>
   <commonModules>CommonModule.ОбщийМодульКлиент_GoogleSignIn</commonModules>
+  <commonModules>CommonModule.ОбщийМодульСервер_Безопасность</commonModules>
+  <commonModules>CommonModule.ОбщийМодульКлиент_Безопасность</commonModules>
   <exchangePlans>ExchangePlan.Мобильные</exchangePlans>
   <constants>Constant.ВалютаУчета</constants>
   <constants>Constant.ПервыйЗапуск</constants>
@@ -97,6 +99,11 @@
   <constants>Constant.ДатаПоследнейЛокальнойКопии</constants>
   <constants>Constant.ДатаПоследнейОблачнойКопии</constants>
   <constants>Constant.GoogleOAuthClientId</constants>
+  <constants>Constant.GoogleТокеныХранилище</constants>
+  <constants>Constant.ИспользоватьПИН</constants>
+  <constants>Constant.ХешПИН</constants>
+  <constants>Constant.ИспользоватьБиометрию</constants>
+  <constants>Constant.СкрыватьСуммы</constants>
   <scheduledJobs>ScheduledJob.ОбновлениеКурсовВалют</scheduledJobs>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
@@ -106,6 +113,8 @@
   <commonForms>CommonForm.ФормаВыбораСчета</commonForms>
   <commonForms>CommonForm.ФормаТекстовойКлавиатуры</commonForms>
   <commonForms>CommonForm.ФормаРезервногоКопирования</commonForms>
+  <commonForms>CommonForm.ФормаРазблокировки</commonForms>
+  <commonForms>CommonForm.ФормаБезопасности</commonForms>
   <catalogs>Catalog.КатегорииДоходов</catalogs>
   <catalogs>Catalog.КатегорииРасходов</catalogs>
   <catalogs>Catalog.Счета</catalogs>

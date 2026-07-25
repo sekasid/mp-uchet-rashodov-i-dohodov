@@ -247,6 +247,10 @@
       <id>4</id>
       <autoFill>true</autoFill>
     </contextMenu>
+    <handlers>
+      <event>BeforeDeleteRow</event>
+      <name>СписокПередУдалением</name>
+    </handlers>
     <changeRowSet>true</changeRowSet>
     <changeRowOrder>true</changeRowOrder>
     <autoMaxWidth>true</autoMaxWidth>
