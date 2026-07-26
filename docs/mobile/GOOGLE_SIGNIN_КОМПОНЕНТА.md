@@ -10,8 +10,12 @@
 |----------|----------|
 | Package name | `com.gmail.sekasid.mapp_wallet` |
 | SHA-1 подписи APK | `54:42:70:63:49:7F:D7:53:BB:F8:74:F9:BD:7D:48:38:A0:92:B2:47` |
+| OAuth Client ID (Device / TV) | хранится в константе `GoogleOAuthClientId` (вводится в приложении) |
+| OAuth Client Secret | хранится в константе `GoogleOAuthClientSecret` (вводится в приложении) |
 | APK (пример) | `E:\Базы 1С\МП Кошелек (Backup)\com.gmail.sekasid.mapp_wallet-arm64.apk` |
 
+Client ID / Secret **не** коммитятся в репозиторий — только в константы ИБ.  
+Для **Device Code** (браузерный вход без компоненты) нужен отдельный клиент типа **«ТВ и устройства с ограниченным вводом»** — Android-клиент для этого потока часто не подходит.  
 В Google Cloud Console создать OAuth client типа **Android** с этим package + SHA-1.  
 Приватный ключ `.pfx` в репозиторий и в чат **не класть**.
 

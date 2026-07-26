@@ -96,8 +96,10 @@
   <constants>Constant.GoogleRefreshToken</constants>
   <constants>Constant.GoogleТокенИстекает</constants>
   <constants>Constant.ДатаПоследнейЛокальнойКопии</constants>
+  <constants>Constant.КаталогЛокальныхРезервныхКопий</constants>
   <constants>Constant.ДатаПоследнейОблачнойКопии</constants>
   <constants>Constant.GoogleOAuthClientId</constants>
+  <constants>Constant.GoogleOAuthClientSecret</constants>
   <constants>Constant.GoogleТокеныХранилище</constants>
   <constants>Constant.ИспользоватьПИН</constants>
   <constants>Constant.ХешПИН</constants>

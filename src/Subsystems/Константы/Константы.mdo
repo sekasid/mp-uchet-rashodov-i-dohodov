@@ -15,8 +15,10 @@
   <content>Constant.GoogleRefreshToken</content>
   <content>Constant.GoogleТокенИстекает</content>
   <content>Constant.ДатаПоследнейЛокальнойКопии</content>
+  <content>Constant.КаталогЛокальныхРезервныхКопий</content>
   <content>Constant.ДатаПоследнейОблачнойКопии</content>
   <content>Constant.GoogleOAuthClientId</content>
+  <content>Constant.GoogleOAuthClientSecret</content>
   <content>Constant.ИспользоватьПИН</content>
   <content>Constant.ИспользоватьБиометрию</content>
   <content>Constant.СкрыватьСуммы</content>
