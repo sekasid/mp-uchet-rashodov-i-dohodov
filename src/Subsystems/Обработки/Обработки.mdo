@@ -8,5 +8,6 @@
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>false</includeInCommandInterface>
   <content>DataProcessor.ЗапаснойОбменДанными</content>
+  <content>DataProcessor.ИмпортРасходовИзФайла</content>
   <content>DataProcessor.НачальныйЭкран</content>
 </mdclass:Subsystem>

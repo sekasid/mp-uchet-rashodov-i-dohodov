@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c8e4a1f2-6b3d-4e9a-9c2f-1d5a7b8e0f34">
   <producedTypes>
-    <managerType typeId="a11b22c3-d44e-4f55-8667-78899aabb001" valueTypeId="b22c33d4-e55f-4666-9778-899aabbcc002"/>
-    <valueManagerType typeId="c33d44e5-f66a-4777-a889-9aabbccd003" valueTypeId="d44e55f6-a77b-4888-b99a-abbccdde004"/>
-    <valueKeyType typeId="e55f66a7-b88c-4999-c0ab-bccddeef005" valueTypeId="f66a77b8-c99d-4aaa-d1bc-cddeeff0006"/>
+    <managerType typeId="8f3c1a2b-4d5e-46a7-9b0c-1d2e3f4a5b6c" valueTypeId="9a4d2b3c-5e6f-47b8-a0c1-2e3f4a5b6c7d"/>
+    <valueManagerType typeId="ab5e3c4d-6f70-48c9-b1d2-3f4a5b6c7d8e" valueTypeId="bc6f4d5e-7081-49da-c2e3-4a5b6c7d8e9f"/>
+    <valueKeyType typeId="cd705e6f-8192-4aeb-d3f4-5b6c7d8e9f0a" valueTypeId="de816f70-92a3-4bfc-e405-6c7d8e9f0a1b"/>
   </producedTypes>
   <name>КаталогЛокальныхРезервныхКопий</name>
   <synonym>

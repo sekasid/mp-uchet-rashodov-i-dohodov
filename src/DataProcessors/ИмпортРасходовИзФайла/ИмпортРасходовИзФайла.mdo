@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="efa2aedf-e994-4d23-ae2a-bd6fff8c93a2">
+  <producedTypes>
+    <objectType typeId="7a51f185-7777-4dc9-a6d4-afa96696be35" valueTypeId="ab80f276-2de7-4977-8cf5-c852f732cbf2"/>
+    <managerType typeId="d6a0f723-c07f-482c-9e51-c0644195e414" valueTypeId="3a262b63-4347-438d-854f-bf4fa6ec955d"/>
+  </producedTypes>
+  <name>ИмпортРасходовИзФайла</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен расходами (Excel)</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ИмпортРасходовИзФайла.Form.Форма</defaultForm>
+  <attributes uuid="78f857ec-f375-4db8-aaff-3645cc55be7b">
+    <name>Счет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Счета</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="dca126c1-e6c2-4de1-83a2-57afd5d4d5f7">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюта</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <forms uuid="38e5154c-aaea-46ff-bdd5-00122d4eebee">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

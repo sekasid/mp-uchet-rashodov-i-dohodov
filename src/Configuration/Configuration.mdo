@@ -133,6 +133,7 @@
   <reports>Report.ОтчетПоВзаиморасчетам</reports>
   <reports>Report.ОтчетПоДолгам</reports>
   <dataProcessors>DataProcessor.ЗапаснойОбменДанными</dataProcessors>
+  <dataProcessors>DataProcessor.ИмпортРасходовИзФайла</dataProcessors>
   <dataProcessors>DataProcessor.НачальныйЭкран</dataProcessors>
   <accumulationRegisters>AccumulationRegister.Доходы</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Расходы</accumulationRegisters>

@@ -631,6 +631,14 @@
         <value>000000257</value>
       </code>
     </items>
+    <items id="0b0e19c8-6cf1-401e-8fa4-3b20b82db9fb">
+      <name>Прочее</name>
+      <description>Прочее</description>
+      <code xsi:type="core:StringValue">
+        <value>000000258</value>
+      </code>
+      <isFolder>true</isFolder>
+    </items>
   </predefined>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>

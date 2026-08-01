@@ -847,6 +847,7 @@
 		+ ".title{font-size:18px;font-weight:700}"
 		+ ".icon-btn{width:40px;height:40px;border-radius:12px;background:#FFFFFF;border:1px solid #E5E7EB;"
 		+ "display:flex;align-items:center;justify-content:center}"
+		+ ".icon-btn svg{width:20px;height:20px;display:block}"
 		+ ".icon-btn.ghost{visibility:hidden}"
 		+ ".search{display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #E5E7EB;"
 		+ "border-radius:14px;padding:12px 14px;margin-bottom:10px}"
@@ -887,6 +888,7 @@
 		+ ".title{font-size:18px;font-weight:700}"
 		+ ".icon-btn{width:40px;height:40px;border-radius:12px;background:#FFFFFF;border:1px solid #E5E7EB;"
 		+ "display:flex;align-items:center;justify-content:center}"
+		+ ".icon-btn svg{width:20px;height:20px;display:block}"
 		+ ".icon-btn.ghost{visibility:hidden}"
 		+ ".hero,.card{display:flex;align-items:center;gap:12px;background:#FFFFFF;border:1px solid #E5E7EB;"
 		+ "border-radius:16px;padding:14px;margin-bottom:10px}"
@@ -938,14 +940,14 @@
 
 Функция SVGСтрелкаНазад()
 	
-	Возврат "<svg viewBox=""0 0 24 24"" fill=""none"" stroke=""#111827"" stroke-width=""2"">"
+	Возврат "<svg viewBox=""0 0 24 24"" width=""20"" height=""20"" fill=""none"" stroke=""#111827"" stroke-width=""2"">"
 		+ "<path d=""M15 18l-6-6 6-6""/></svg>";
 	
 КонецФункции
 
 Функция SVGПлюс(Акцент)
 	
-	Возврат "<svg viewBox=""0 0 24 24"" fill=""none"" stroke=""" + Акцент.Цвет + """ stroke-width=""2"">"
+	Возврат "<svg viewBox=""0 0 24 24"" width=""20"" height=""20"" fill=""none"" stroke=""" + Акцент.Цвет + """ stroke-width=""2"">"
 		+ "<path d=""M12 5v14M5 12h14""/></svg>";
 	
 КонецФункции
@@ -959,14 +961,14 @@
 
 Функция SVGПапка()
 	
-	Возврат "<svg viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2"">"
+	Возврат "<svg viewBox=""0 0 24 24"" width=""22"" height=""22"" fill=""none"" stroke=""currentColor"" stroke-width=""2"">"
 		+ "<path d=""M3 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z""/></svg>";
 	
 КонецФункции
 
 Функция SVGКорзина()
 	
-	Возврат "<svg viewBox=""0 0 24 24"" fill=""none"" stroke=""#9CA3AF"" stroke-width=""2"">"
+	Возврат "<svg viewBox=""0 0 24 24"" width=""20"" height=""20"" fill=""none"" stroke=""#9CA3AF"" stroke-width=""2"">"
 		+ "<path d=""M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14""/></svg>";
 	
 КонецФункции
