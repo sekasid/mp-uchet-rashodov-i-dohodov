@@ -16,7 +16,7 @@
   <defaultRunMode>ManagedApplication</defaultRunMode>
   <usePurposes>MobileDevice</usePurposes>
   <scriptVariant>Russian</scriptVariant>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -105,6 +105,7 @@
   <constants>Constant.ХешПИН</constants>
   <constants>Constant.ИспользоватьБиометрию</constants>
   <constants>Constant.СкрыватьСуммы</constants>
+  <constants>Constant.ИспользоватьСистемнуюКлавиатуру</constants>
   <commonForms>CommonForm.ФормаКонстант</commonForms>
   <commonForms>CommonForm.ФормаКалендаря</commonForms>
   <commonForms>CommonForm.ОбщаяФормаДокумента</commonForms>

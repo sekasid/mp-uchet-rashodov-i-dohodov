@@ -35,14 +35,18 @@
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <wrap>true</wrap>
+      <autoMarkIncomplete>true</autoMarkIncomplete>
       <chooseType>true</chooseType>
       <typeDomainEnabled>true</typeDomainEnabled>
-      <autoMarkIncomplete>true</autoMarkIncomplete>
     </extInfo>
   </items>
   <items xsi:type="form:FormField">
     <name>АвтообновлениеКурсовВалют</name>
     <id>7</id>
+    <title>
+      <key>ru</key>
+      <value>Автообновление курсов при старте приложения</value>
+    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -51,10 +55,6 @@
     <dataPath xsi:type="form:DataPath">
       <segments>НаборКонстант.АвтообновлениеКурсовВалют</segments>
     </dataPath>
-    <title>
-      <key>ru</key>
-      <value>Автообновление курсов при старте приложения</value>
-    </title>
     <toolTip>
       <key>ru</key>
       <value>Включено: при старте загружаются курсы на сегодня, в документах используется курс на дату операции. Выключено: используется последний известный курс валюты.</value>
@@ -72,6 +72,47 @@
     <contextMenu>
       <name>АвтообновлениеКурсовВалютКонтекстноеМеню</name>
       <id>8</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>CheckBoxField</type>
+    <editMode>EnterOnInput</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>ИспользоватьСистемнуюКлавиатуру</name>
+    <id>10</id>
+    <title>
+      <key>ru</key>
+      <value>Использовать системную клавиатуру устройства</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>НаборКонстант.ИспользоватьСистемнуюКлавиатуру</segments>
+    </dataPath>
+    <toolTip>
+      <key>ru</key>
+      <value>Выключено: клавиатуры Wallet (цифровая и текстовая). Включено: системная клавиатура телефона для сумм, текста и телефона.</value>
+    </toolTip>
+    <extendedTooltip>
+      <name>ИспользоватьСистемнуюКлавиатуруРасширеннаяПодсказка</name>
+      <id>12</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ИспользоватьСистемнуюКлавиатуруКонтекстноеМеню</name>
+      <id>11</id>
       <autoFill>true</autoFill>
     </contextMenu>
     <type>CheckBoxField</type>
@@ -124,31 +165,14 @@
     <main>true</main>
     <savedData>true</savedData>
   </attributes>
-  <commands>
-    <name>ОбновитьКурсыСейчас</name>
-    <title>
-      <key>ru</key>
-      <value>Обновить курсы сейчас</value>
-    </title>
-    <toolTip>
-      <key>ru</key>
-      <value>Загрузить курсы RUB, USD, EUR на сегодня</value>
-    </toolTip>
-    <action>ОбновитьКурсыСейчас</action>
-    <currentRowUse>DontUse</currentRowUse>
-  </commands>
   <commandInterface>
     <navigationPanel/>
-    <commandBar>
-      <item>
-        <command>Form.Command.ОбновитьКурсыСейчас</command>
-        <type>Added</type>
-        <index>1</index>
-        <visible>
-          <common>true</common>
-        </visible>
-      </item>
-    </commandBar>
+    <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ConstantsFormExtInfo"/>
+  <extInfo xsi:type="form:ConstantsFormExtInfo">
+    <handlers>
+      <event>AfterWriteAtServer</event>
+      <name>ПослеЗаписиНаСервере</name>
+    </handlers>
+  </extInfo>
 </form:Form>

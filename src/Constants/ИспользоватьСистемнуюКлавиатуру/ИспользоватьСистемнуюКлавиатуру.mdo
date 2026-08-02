@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="5003715d-4135-4955-b74d-67044089c661">
+  <producedTypes>
+    <managerType typeId="26b0dbe2-1aa5-4b0c-a9b9-99ff155d9f5e" valueTypeId="a1aa74b6-7189-4362-a243-bdc943a78b71"/>
+    <valueManagerType typeId="521a3f61-a980-4351-97ba-00cd6a240c49" valueTypeId="d83a6665-cb8c-4a00-a63e-9649f6264fc2"/>
+    <valueKeyType typeId="64eb17a1-15bb-4ea7-a736-f1726fb67c9d" valueTypeId="f52cc652-9ee3-49f7-8e1f-ffcfe9d250d0"/>
+  </producedTypes>
+  <name>ИспользоватьСистемнуюКлавиатуру</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использовать системную клавиатуру</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

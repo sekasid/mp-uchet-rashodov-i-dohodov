@@ -22,5 +22,6 @@
   <content>Constant.ИспользоватьПИН</content>
   <content>Constant.ИспользоватьБиометрию</content>
   <content>Constant.СкрыватьСуммы</content>
+  <content>Constant.ИспользоватьСистемнуюКлавиатуру</content>
   <content>InformationRegister.КурсыВалют</content>
 </mdclass:Subsystem>
