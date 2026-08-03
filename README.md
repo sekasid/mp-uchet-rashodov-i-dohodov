@@ -1,6 +1,6 @@
 [![Infostart](https://infostart.ru/bitrix/templates/sandbox_empty/assets/tpl/abo/img/logo.svg)](https://infostart.ru/1c/tools/2741448/)
 
-##**Публикация на Infostart:** https://infostart.ru/1c/articles/2754171/
+**Публикация на Infostart:** https://infostart.ru/1c/articles/2754171/
 
 # Учет расходов и доходов
 
